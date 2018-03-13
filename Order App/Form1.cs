@@ -35,9 +35,7 @@ namespace Order_App
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
-            this.Hide();
+            MessageBox.Show("Feature Unavailable Until Further Notice", "Error: Feature Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
