@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Order_App
 {
     public partial class MainMenu : Form
     {
+        
         public MainMenu()
         {
             InitializeComponent();
@@ -35,7 +37,12 @@ namespace Order_App
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature Unavailable Until Further Notice", "Error: Feature Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Form3 form3 = new Form3();
+            form3.Show();
+            this.Hide();
+            
+            
+
         }
     }
 }

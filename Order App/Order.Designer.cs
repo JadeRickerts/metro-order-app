@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockListDataSet = new Order_App.StockListDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -54,6 +50,7 @@
             this.descriptionToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchByDescriptionToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.stockTableAdapter = new Order_App.StockListDataSetTableAdapters.StockTableAdapter();
+            this.btnLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockListDataSet)).BeginInit();
@@ -65,51 +62,13 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.stockCodeDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.packSizeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.stockBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 385);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 355);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // stockCodeDataGridViewTextBoxColumn
-            // 
-            this.stockCodeDataGridViewTextBoxColumn.DataPropertyName = "StockCode";
-            this.stockCodeDataGridViewTextBoxColumn.HeaderText = "StockCode";
-            this.stockCodeDataGridViewTextBoxColumn.Name = "stockCodeDataGridViewTextBoxColumn";
-            this.stockCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 500;
-            // 
-            // packSizeDataGridViewTextBoxColumn
-            // 
-            this.packSizeDataGridViewTextBoxColumn.DataPropertyName = "PackSize";
-            this.packSizeDataGridViewTextBoxColumn.HeaderText = "PackSize";
-            this.packSizeDataGridViewTextBoxColumn.Name = "packSizeDataGridViewTextBoxColumn";
-            this.packSizeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.packSizeDataGridViewTextBoxColumn.Width = 120;
             // 
             // stockBindingSource
             // 
@@ -142,7 +101,6 @@
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Finish Ordering";
             this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
             this.btnNext.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnNext_MouseClick);
             // 
             // btnCancel
@@ -289,6 +247,18 @@
             // 
             this.stockTableAdapter.ClearBeforeFill = true;
             // 
+            // btnLoad
+            // 
+            this.btnLoad.BackColor = System.Drawing.Color.Orange;
+            this.btnLoad.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnLoad.Location = new System.Drawing.Point(519, 428);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(353, 65);
+            this.btnLoad.TabIndex = 2;
+            this.btnLoad.Text = "Load Stock File";
+            this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +267,7 @@
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.searchByDescriptionToolStrip);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dataGridView1);
@@ -323,10 +294,6 @@
         private StockListDataSet stockListDataSet;
         private System.Windows.Forms.BindingSource stockBindingSource;
         private StockListDataSetTableAdapters.StockTableAdapter stockTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn packSizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnCancel;
@@ -343,5 +310,6 @@
         private System.Windows.Forms.ToolStripLabel descriptionToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox descriptionToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchByDescriptionToolStripButton;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
