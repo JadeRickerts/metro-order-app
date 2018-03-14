@@ -34,15 +34,9 @@ namespace Order_App
         //LOAD FORM WITH DEFAULT VALUES
         private void Order_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'stockListDataSet.Stock' table. You can move, or remove it, as needed.
-            // this.stockTableAdapter.Fill(this.stockListDataSet.Stock);
             lblDescription02.Text = "Description";
             lblPackSize02.Text = "PackSize";
             lblStockCode02.Text = "StockCode";
-            //the path in which XML file is saved
-
-
-
         }
 
         //SELECTING STOCK ITEM LOGIC
@@ -98,14 +92,14 @@ namespace Order_App
         //SEARCH BY DESCRIPTION LOGIC
         private void searchByDescriptionToolStripButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.stockTableAdapter.SearchByDescription(this.stockListDataSet.Stock, descriptionToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    this.stockTableAdapter.SearchByDescription(this.stockListDataSet.Stock, descriptionToolStripTextBox.Text);
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    System.Windows.Forms.MessageBox.Show(ex.Message);
+            //}
 
         }
 
@@ -121,43 +115,15 @@ namespace Order_App
             }
         }
 
+        //LOAD STOCK FILE LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            //using (OpenFileDialog ofd = new OpenFileDialog()
-            //{
-            //    Filter = "Excel Workbook|*.xls",
-            //    ValidateNames = true
-            //})
-            //{
-            //    if (ofd.ShowDialog() == DialogResult.OK)
-            //    {
-
-            //string filePath = Path.Combine(Directory.GetCurrentDirectory(), "stock.xlsx");
-            //FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
-            //IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-            //var result = reader.AsDataSet(new ExcelDataSetConfiguration()
-            //{
-            //    ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-            //    {
-            //        UseHeaderRow = true
-            //    }
-            //});
-            //dataGridView1.DataSource = result.Tables[0];
-            //reader.Close();
-            //    }
-            //}
             string path = "C:\\metro-order-app\\stock.xml";
-
             DataSet ds = new DataSet();
-
             //Reading XML file and copying to dataset
-
             ds.ReadXml(path);
-
             dataGridView1.DataSource = ds;
-
             dataGridView1.DataMember = "StockTable";
-
         }
 
         //=======================================================================================================================//

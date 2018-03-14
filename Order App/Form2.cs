@@ -13,8 +13,6 @@ namespace Order_App
 {
     public partial class Form2 : Form
     {
-        
-
         public Form2(Order.OrderClass orderClass)
         {
             InitializeComponent();

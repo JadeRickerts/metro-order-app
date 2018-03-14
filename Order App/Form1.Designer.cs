@@ -34,6 +34,9 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbxClientName = new System.Windows.Forms.TextBox();
+            this.tbxEmailAddress = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +95,38 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
+            // tbxClientName
+            // 
+            this.tbxClientName.Location = new System.Drawing.Point(21, 218);
+            this.tbxClientName.Name = "tbxClientName";
+            this.tbxClientName.Size = new System.Drawing.Size(300, 20);
+            this.tbxClientName.TabIndex = 3;
+            this.tbxClientName.Text = "Enter Business Name";
+            this.tbxClientName.Visible = false;
+            // 
+            // tbxEmailAddress
+            // 
+            this.tbxEmailAddress.Location = new System.Drawing.Point(21, 244);
+            this.tbxEmailAddress.Name = "tbxEmailAddress";
+            this.tbxEmailAddress.Size = new System.Drawing.Size(300, 20);
+            this.tbxEmailAddress.TabIndex = 3;
+            this.tbxEmailAddress.Text = "Enter Email Address";
+            this.tbxEmailAddress.Visible = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(21, 270);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(300, 34);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save Details";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MainMenu
             // 
@@ -99,9 +134,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(344, 541);
+            this.Controls.Add(this.tbxEmailAddress);
+            this.Controls.Add(this.tbxClientName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnOrder);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -123,6 +161,9 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbxClientName;
+        private System.Windows.Forms.TextBox tbxEmailAddress;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
