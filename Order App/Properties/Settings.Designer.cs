@@ -130,5 +130,65 @@ namespace Order_App.Properties {
                 this["PreferredStore"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SMTPServerName {
+            get {
+                return ((string)(this["SMTPServerName"]));
+            }
+            set {
+                this["SMTPServerName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SMTPUsername {
+            get {
+                return ((string)(this["SMTPUsername"]));
+            }
+            set {
+                this["SMTPUsername"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SMTPPassword {
+            get {
+                return ((string)(this["SMTPPassword"]));
+            }
+            set {
+                this["SMTPPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SMTPPort {
+            get {
+                return ((int)(this["SMTPPort"]));
+            }
+            set {
+                this["SMTPPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SMTPSSL {
+            get {
+                return ((bool)(this["SMTPSSL"]));
+            }
+            set {
+                this["SMTPSSL"] = value;
+            }
+        }
     }
 }

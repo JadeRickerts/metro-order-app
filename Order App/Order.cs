@@ -15,7 +15,7 @@ namespace Order_App
     public partial class Order : Form
     {
         List<OrderItem> list = new List<OrderItem>();
-        
+        BindingSource bindingSource = new BindingSource();
         //=======================================================================================================================//
 
         public class OrderClass
@@ -45,9 +45,9 @@ namespace Order_App
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                lblDescription02.Text = row.Cells[1].Value.ToString();
-                lblPackSize02.Text = row.Cells[2].Value.ToString();
-                lblStockCode02.Text = row.Cells[0].Value.ToString();
+                lblDescription02.Text = row.Cells[2].Value.ToString();
+                lblPackSize02.Text = row.Cells[3].Value.ToString();
+                lblStockCode02.Text = row.Cells[1].Value.ToString();
             }
         }
 
@@ -92,14 +92,15 @@ namespace Order_App
         //SEARCH BY DESCRIPTION LOGIC
         private void searchByDescriptionToolStripButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    this.stockTableAdapter.SearchByDescription(this.stockListDataSet.Stock, descriptionToolStripTextBox.Text);
-            //}
-            //catch (System.Exception ex)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                bindingSource.Filter = string.Format("Description like '%{0}%'", descriptionToolStripTextBox.Text);
+
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -119,11 +120,17 @@ namespace Order_App
         private void btnLoad_Click(object sender, EventArgs e)
         {
             string path = "C:\\metro-order-app\\stock.xml";
-            DataSet ds = new DataSet();
+            DataSet dataSet = new DataSet();
             //Reading XML file and copying to dataset
-            ds.ReadXml(path);
-            dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "StockTable";
+            dataSet.ReadXml(path);
+            //dataGridView1.DataSource = dataSet;
+            //dataGridView1.DataMember = "StockTable";
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+            
+            bindingSource.DataSource = dataTable;
+            dataGridView1.DataSource = bindingSource;
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         //=======================================================================================================================//
