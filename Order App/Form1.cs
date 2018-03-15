@@ -49,23 +49,23 @@ namespace Order_App
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Properties.Settings.Default["EmailAddress"] = tbxEmailAddress.Text;
-                Properties.Settings.Default["CustomerName"] = tbxClientName.Text;
-                Properties.Settings.Default.Save();
-                result = MessageBox.Show("User Settings Saved", "Save User Preferences", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if(result == DialogResult.OK)
-                {
-                    btnOrder.Visible = true;
-                    tbxClientName.Visible = false;
-                    tbxEmailAddress.Visible = false;
-                    btnSave.Visible = false;
-                }
-            } catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Save User Preferences", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    Properties.Settings.Default["EmailAddress"] = tbxEmailAddress.Text;
+            //    Properties.Settings.Default["CustomerName"] = tbxClientName.Text;
+            //    Properties.Settings.Default.Save();
+            //    result = MessageBox.Show("User Settings Saved", "Save User Preferences", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    if(result == DialogResult.OK)
+            //    {
+            //        btnOrder.Visible = true;
+            //        tbxClientName.Visible = false;
+            //        tbxEmailAddress.Visible = false;
+            //        btnSave.Visible = false;
+            //    }
+            //} catch (System.Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Save User Preferences", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             
         }
 
@@ -78,6 +78,13 @@ namespace Order_App
         {
             Form5 form5 = new Form5();
             form5.Show();
+            this.Hide();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Form6 form6 = new Form6();
+            form6.Show();
             this.Hide();
         }
     }

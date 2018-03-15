@@ -19,9 +19,6 @@ namespace Order_App
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            tbxBusinessName.Text = Properties.Settings.Default["CustomerName"].ToString();
-            tbxEmailAddress.Text = Properties.Settings.Default["EmailAddress"].ToString();
-            tbxPreferredStore.Text = Properties.Settings.Default["PreferredStore"].ToString();
             tbxStockFile.Text = Properties.Settings.Default["XMLStockFile"].ToString();
             tbxStoreFile.Text = Properties.Settings.Default["XMLStoreFile"].ToString();
             tbxServerName.Text = Properties.Settings.Default["ServerName"].ToString();
@@ -32,9 +29,6 @@ namespace Order_App
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["CustomerName"] = tbxBusinessName.Text;
-            Properties.Settings.Default["EmailAddress"] = tbxEmailAddress.Text;
-            Properties.Settings.Default["PreferredStore"] = tbxPreferredStore.Text;
             Properties.Settings.Default["XMLStockFile"] = tbxStockFile.Text;
             Properties.Settings.Default["XMLStoreFile"] = tbxStoreFile.Text;
             Properties.Settings.Default["ServerName"] = tbxServerName.Text;
