@@ -20,11 +20,7 @@ namespace Order_App
             InitializeComponent();
             if(Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "")
             {
-                btnOrder.Visible = false;
-                btnUpdate.Visible = false;
-                tbxClientName.Visible = true;
-                tbxEmailAddress.Visible = true;
-                btnSave.Visible = true;
+                MessageBox.Show("Please Click On User Settings to Setup App Before Ordering", "Metro Order App", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
