@@ -14,7 +14,6 @@ namespace Order_App
     public partial class Form6 : Form
     {
         bool openSystemSettings;
-        bool formStartup;
         MySqlConnection connection;
         string connectionString;
         DialogResult result;
@@ -28,7 +27,6 @@ namespace Order_App
         {
             InitializeComponent();
             openSystemSettings = false;
-            formStartup = true;
         }
 
         private void Form6_Load(object sender, EventArgs e)

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -13,36 +6,47 @@ namespace Order_App
 {
     public partial class MainMenu : Form
     {
+        //FORM VARIABLES
         MySqlConnection connection;
+        DateTime modifiedDate;
         string connectionString;
+        bool startup;
+        //DATABASE SERVER VARIABLES FROM APP SETTINGS
         string server = Properties.Settings.Default["ServerName"].ToString();
         string database = Properties.Settings.Default["DatabaseName"].ToString();
         string uid = Properties.Settings.Default["UserID"].ToString();
         string pwd = Properties.Settings.Default["Password"].ToString();
-        DateTime modifiedDate;
-        bool startup;
 
+        //FORM START WITH NO VARIABLES
         public MainMenu()
         {
             InitializeComponent();
             startup = true;           
         }
 
+        //FORM START WITH START BOOL
         public MainMenu(bool start)
         {
             InitializeComponent();
             startup = start;
-
         }
 
+        //OPEN ORDER FORM
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-            order.Show();
-            startup = false;
-            this.Hide();
+            try
+            {
+                Order order = new Order();
+                order.Show();
+                startup = false;
+                this.Hide();
+            } catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        //EXIT APPLICATION
         private void btnExit_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you really want to exit?", "Close Application", MessageBoxButtons.YesNo);
@@ -52,6 +56,7 @@ namespace Order_App
             }
         }
 
+        //OPEN UPDATE STOCK FILE FORM
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
@@ -60,24 +65,7 @@ namespace Order_App
             this.Hide();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void MainMenu_DoubleClick(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
-        {
-            Form5 form5 = new Form5();
-            form5.Show();
-            startup = false;
-            this.Hide();
-        }
-
+        //OPEN USER SETTINGS FORM
         private void btnSettings_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
@@ -86,6 +74,7 @@ namespace Order_App
             this.Hide();
         }
 
+        //CHECK FOR STOCK FILE UPDATE METHOD
         private void checkUpdate()
         {
             connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, uid, pwd);
@@ -127,6 +116,7 @@ namespace Order_App
             }
         }
 
+        //MAIN MENU FORM STARTUP CONFIG
         private void MainMenu_Load(object sender, EventArgs e)
         {
             if(startup == true && Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
