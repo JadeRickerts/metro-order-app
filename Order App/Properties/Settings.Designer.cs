@@ -190,5 +190,16 @@ namespace Order_App.Properties {
                 this["SMTPSSL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastStockUpdate {
+            get {
+                return ((global::System.DateTime)(this["LastStockUpdate"]));
+            }
+            set {
+                this["LastStockUpdate"] = value;
+            }
+        }
     }
 }

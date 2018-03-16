@@ -166,7 +166,10 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form2";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order Completion";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -40,7 +40,7 @@
             // 
             // btnOrder
             // 
-            this.btnOrder.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnOrder.BackColor = System.Drawing.Color.Green;
             this.btnOrder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.Location = new System.Drawing.Point(21, 191);
             this.btnOrder.Name = "btnOrder";
@@ -52,7 +52,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdate.BackColor = System.Drawing.Color.SteelBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(21, 297);
             this.btnUpdate.Name = "btnUpdate";

@@ -29,6 +29,7 @@ namespace Order_App
                 MessageBox.Show("You Can Set Your Preferred Store At Settings", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBox1.CheckState = CheckState.Checked;
             }
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
