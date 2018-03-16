@@ -136,6 +136,10 @@ namespace Order_App
             if (Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "")
             {
                 MessageBox.Show("Please Click On User Settings to Setup App Before Ordering", "Metro Order App", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnOrder.Enabled = false;
+            } else
+            {
+                btnOrder.Enabled = true;
             }
         }
     }

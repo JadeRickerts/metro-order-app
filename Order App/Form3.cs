@@ -53,6 +53,7 @@ namespace Order_App
             System.Threading.Thread thread =
               new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
             thread.Start();
+            btnUpdate.Text = "Update Stock File";
         }
 
         private void loadTable()
@@ -72,7 +73,7 @@ namespace Order_App
                 
                 result = MessageBox.Show("Successfully Established Connection", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadStockFile = true;
-                btnUpdate.Text = "Update Stock File";
+                
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
