@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.stockListDataSet = new Order_App.StockListDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -49,11 +48,9 @@
             this.descriptionToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.descriptionToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchByDescriptionToolStripButton = new System.Windows.Forms.ToolStripButton();
-            //this.stockTableAdapter = new Order_App.StockListDataSetTableAdapters.StockTableAdapter();
             this.btnLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.stockListDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.searchByDescriptionToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -66,19 +63,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 355);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 385);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // stockBindingSource
             // 
             this.stockBindingSource.DataMember = "Stock";
-            //this.stockBindingSource.DataSource = this.stockListDataSet;
-            // 
-            // stockListDataSet
-            // 
-            //this.stockListDataSet.DataSetName = "StockListDataSet";
-            //this.stockListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnAdd
             // 
@@ -101,6 +92,7 @@
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Finish Ordering";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Visible = false;
             this.btnNext.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnNext_MouseClick);
             // 
             // btnCancel
@@ -243,10 +235,6 @@
             this.searchByDescriptionToolStripButton.Text = "Search";
             this.searchByDescriptionToolStripButton.Click += new System.EventHandler(this.searchByDescriptionToolStripButton_Click);
             // 
-            // stockTableAdapter
-            // 
-            //this.stockTableAdapter.ClearBeforeFill = true;
-            // 
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.Orange;
@@ -278,7 +266,6 @@
             this.Load += new System.EventHandler(this.Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.stockListDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.searchByDescriptionToolStrip.ResumeLayout(false);

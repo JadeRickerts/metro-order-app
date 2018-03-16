@@ -84,7 +84,8 @@ namespace Order_App
 
         private void Form4_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
+            bool startup = false;
+            MainMenu mainMenu = new MainMenu(startup);
             mainMenu.Show();
         }
     }

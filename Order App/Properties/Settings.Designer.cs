@@ -201,5 +201,17 @@ namespace Order_App.Properties {
                 this["LastStockUpdate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CheckForUpdates {
+            get {
+                return ((bool)(this["CheckForUpdates"]));
+            }
+            set {
+                this["CheckForUpdates"] = value;
+            }
+        }
     }
 }

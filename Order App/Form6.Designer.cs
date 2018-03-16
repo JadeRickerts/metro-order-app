@@ -39,6 +39,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.cbxAutoUpdateCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,9 +113,9 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 120);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 146);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 289);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -122,7 +123,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnSave.Location = new System.Drawing.Point(397, 399);
+            this.btnSave.Location = new System.Drawing.Point(397, 441);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
             this.btnSave.TabIndex = 11;
@@ -134,7 +135,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnCancel.Location = new System.Drawing.Point(206, 399);
+            this.btnCancel.Location = new System.Drawing.Point(206, 441);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 12;
@@ -146,7 +147,7 @@
             // 
             this.btnLoad.BackColor = System.Drawing.Color.DarkOrange;
             this.btnLoad.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnLoad.Location = new System.Drawing.Point(16, 399);
+            this.btnLoad.Location = new System.Drawing.Point(16, 441);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(175, 50);
             this.btnLoad.TabIndex = 12;
@@ -154,12 +155,25 @@
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // cbxAutoUpdateCheck
+            // 
+            this.cbxAutoUpdateCheck.AutoSize = true;
+            this.cbxAutoUpdateCheck.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(142, 120);
+            this.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck";
+            this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(238, 20);
+            this.cbxAutoUpdateCheck.TabIndex = 13;
+            this.cbxAutoUpdateCheck.Text = "Auto Check For Updates At Start Up";
+            this.cbxAutoUpdateCheck.UseVisualStyleBackColor = true;
+            this.cbxAutoUpdateCheck.CheckStateChanged += new System.EventHandler(this.cbxAutoUpdateCheck_CheckStateChanged);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.ClientSize = new System.Drawing.Size(584, 503);
+            this.Controls.Add(this.cbxAutoUpdateCheck);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCancel);
@@ -175,6 +189,7 @@
             this.MinimizeBox = false;
             this.Name = "Form6";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form6_FormClosing);
             this.Load += new System.EventHandler(this.Form6_Load);
@@ -197,5 +212,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.CheckBox cbxAutoUpdateCheck;
     }
 }

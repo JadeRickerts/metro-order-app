@@ -30,11 +30,23 @@ namespace Order_App
         {
             InitializeComponent();
             progressBar.Visible = false;
-            lblLastUpdate.Visible = true;
-            lblUpdateDateTime.Visible = true;
+            lblLastUpdate.Visible = false;
+            lblUpdateDateTime.Visible = false;
+        }
+
+        public Form3(bool update)
+        {
+            InitializeComponent();
+            startUpdate();
+            
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
+        {
+            startUpdate();
+        }
+
+        private void startUpdate()
         {
             progressBar.Visible = true;
             progressBar.Style = ProgressBarStyle.Marquee;
@@ -117,7 +129,8 @@ namespace Order_App
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
+            bool startup = false;
+            MainMenu mainMenu = new MainMenu(startup);
             mainMenu.Show();
         }
 

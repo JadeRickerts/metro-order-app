@@ -14,8 +14,10 @@ namespace Order_App
 {
     public partial class Order : Form
     {
-        List<OrderItem> list = new List<OrderItem>();
+        //List<OrderItem> list = new List<OrderItem>();
         BindingSource bindingSource = new BindingSource();
+        OrderClass orderClass = new OrderClass();
+        
         //=======================================================================================================================//
 
         public class OrderClass
@@ -29,6 +31,12 @@ namespace Order_App
         public Order()
         {
             InitializeComponent();
+        }
+
+        public Order(OrderClass order)
+        {
+            InitializeComponent();
+            orderClass = order;
         }
 
         //LOAD FORM WITH DEFAULT VALUES
@@ -69,8 +77,9 @@ namespace Order_App
                     quantity = Int32.Parse(tbxQuantity.Text),
                     stockCode = lblStockCode02.Text
                 };
-
-                list.Add(orderItem);
+                orderClass.List.Add(orderItem);
+                //list.Add(orderItem);
+                btnNext.Visible = true;
                 tbxQuantity.Text = "";
                 lblDescription02.Text = "Description";
                 lblPackSize02.Text = "PackSize";
@@ -82,8 +91,8 @@ namespace Order_App
         //COMPLETE ORDERING PROCESS
         private void btnNext_MouseClick(object sender, MouseEventArgs e)
         {
-            OrderClass orderClass = new OrderClass();
-            orderClass.List = list;
+            
+            //orderClass.List = list;
             Form2 form2 = new Form2(orderClass);
             form2.Show();
             this.Close();
@@ -110,8 +119,9 @@ namespace Order_App
             DialogResult result = MessageBox.Show("Do you really want to cancel order?", "Cancel Order", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                bool startup = false;
                 this.Close();
-                MainMenu mainMenu = new MainMenu();
+                MainMenu mainMenu = new MainMenu(startup);
                 mainMenu.Show();
             }
         }
@@ -131,6 +141,7 @@ namespace Order_App
             bindingSource.DataSource = dataTable;
             dataGridView1.DataSource = bindingSource;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            btnLoad.Visible = false;
         }
 
         //=======================================================================================================================//

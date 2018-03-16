@@ -17,9 +17,11 @@ namespace Order_App
 {
     public partial class Form2 : Form
     {
+        Order.OrderClass oc = new Order.OrderClass();
         public Form2(Order.OrderClass orderClass)
         {
             InitializeComponent();
+            oc = orderClass;
             dataGridView1.DataSource = orderClass.List;
             tbxTo.Enabled = false;
             tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
@@ -29,7 +31,7 @@ namespace Order_App
                 MessageBox.Show("You Can Set Your Preferred Store At Settings", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBox1.CheckState = CheckState.Checked;
             }
-            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            btnCancel.Text = "Go Back";
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -49,9 +51,20 @@ namespace Order_App
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
+            if(btnCancel.Text == "Go Back")
+            {
+                Order order = new Order(oc);
+                order.Show();
+                this.Close();
+
+            } else if (btnCancel.Text == "Close")
+            {
+                bool startup = false;
+                this.Close();
+                MainMenu mainMenu = new MainMenu(startup);
+                mainMenu.Show();
+            }
+            
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -92,6 +105,7 @@ namespace Order_App
                 }
                 smtpClient.Send(mail);
                 tbxComment.Text = "Add Comment To Order";
+                btnCancel.Text = "Close";
                 MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             } catch (System.Exception ex)

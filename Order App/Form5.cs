@@ -42,7 +42,8 @@ namespace Order_App
         {
             if(OpenNewForm == false)
             {
-                MainMenu form = new MainMenu();
+                bool startup = false;
+                MainMenu form = new MainMenu(startup);
                 form.Show();
             }
             

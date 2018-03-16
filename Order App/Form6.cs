@@ -14,6 +14,7 @@ namespace Order_App
     public partial class Form6 : Form
     {
         bool openSystemSettings;
+        bool formStartup;
         MySqlConnection connection;
         string connectionString;
         DialogResult result;
@@ -27,6 +28,7 @@ namespace Order_App
         {
             InitializeComponent();
             openSystemSettings = false;
+            formStartup = true;
         }
 
         private void Form6_Load(object sender, EventArgs e)
@@ -34,6 +36,14 @@ namespace Order_App
             tbxBusinessName.Text = Properties.Settings.Default["CustomerName"].ToString();
             tbxEmailAddress.Text = Properties.Settings.Default["EmailAddress"].ToString();
             tbxPreferredStore.Text = Properties.Settings.Default["PreferredStore"].ToString();
+            if(Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
+            {
+                cbxAutoUpdateCheck.CheckState = CheckState.Checked;
+            } else if(Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == false)
+            {
+                cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
+            }
+            
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -70,9 +80,24 @@ namespace Order_App
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (cbxAutoUpdateCheck.CheckState == CheckState.Checked)
+            {
+                DialogResult autoUpdateCheckResult = MessageBox.Show("Auto Check For Updates At Start Up might slow down the app's start up depending on Internet connection speed.\nAre You Sure?", "User Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (autoUpdateCheckResult == DialogResult.No)
+                {
+                    cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
+                }
+            }
             Properties.Settings.Default["CustomerName"] = tbxBusinessName.Text;
             Properties.Settings.Default["EmailAddress"] = tbxEmailAddress.Text;
             Properties.Settings.Default["PreferredStore"] = tbxPreferredStore.Text;
+            if(cbxAutoUpdateCheck.CheckState == CheckState.Checked)
+            {
+                Properties.Settings.Default["CheckForUpdates"] = true;
+            } else if (cbxAutoUpdateCheck.CheckState == CheckState.Unchecked)
+            {
+                Properties.Settings.Default["CheckForUpdates"] = false;
+            }
             Properties.Settings.Default.Save();
             DialogResult result = MessageBox.Show("Settings Updated", "System Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (result == DialogResult.OK)
@@ -95,7 +120,8 @@ namespace Order_App
         {
             if(openSystemSettings == false)
             {
-                MainMenu mainMenu = new MainMenu();
+                bool startup = false;
+                MainMenu mainMenu = new MainMenu(startup);
                 mainMenu.Show();
             }
         }
@@ -106,6 +132,11 @@ namespace Order_App
             Form5 form5 = new Form5();
             form5.Show();
             this.Close();
+        }
+
+        private void cbxAutoUpdateCheck_CheckStateChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -121,9 +121,12 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form3";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form3";
+            this.Text = "Update Stock File";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -66,7 +66,7 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(21, 508);
+            this.btnExit.Location = new System.Drawing.Point(21, 509);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(300, 100);
             this.btnExit.TabIndex = 0;
@@ -112,7 +112,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(344, 621);
+            this.ClientSize = new System.Drawing.Size(344, 618);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnSettings);
@@ -126,6 +126,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Metro Order Application";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
