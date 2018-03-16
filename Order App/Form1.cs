@@ -17,14 +17,14 @@ namespace Order_App
         string uid = Properties.Settings.Default["UserID"].ToString();
         string pwd = Properties.Settings.Default["Password"].ToString();
 
-        //FORM START WITH NO VARIABLES
+        //FORM INITIALIZATION WITH NO VARIABLES
         public MainMenu()
         {
             InitializeComponent();
             startup = true;           
         }
 
-        //FORM START WITH START BOOL
+        //FORM INITIALIZATION WITH START BOOL
         public MainMenu(bool start)
         {
             InitializeComponent();

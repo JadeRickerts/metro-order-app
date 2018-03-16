@@ -1,13 +1,5 @@
-﻿using ExcelDataReader;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -15,17 +7,20 @@ namespace Order_App
 {
     public partial class Form3 : Form
     {
+        //FORM VARIABLES
         MySqlConnection connection;
         string connectionString;
         DialogResult result;
         DateTime modifiedDate;
         DataTable table = new DataTable();
         bool loadStockFile = false;
+        //DATABASE SERVER CONFIG
         string server = Properties.Settings.Default["ServerName"].ToString();
         string database = Properties.Settings.Default["DatabaseName"].ToString();
         string uid = Properties.Settings.Default["UserID"].ToString();
         string pwd = Properties.Settings.Default["Password"].ToString();
         
+        //FORM INITIALIZATION WITH NO VARIABLES
         public Form3()
         {
             InitializeComponent();
@@ -34,28 +29,38 @@ namespace Order_App
             lblUpdateDateTime.Visible = false;
         }
 
+        //FORM INITIALIZATION WITH BOOLEAN VARIABLES
         public Form3(bool update)
         {
             InitializeComponent();
             startUpdate();
-            
         }
 
+        //LOAD LATEST STOCK FILE FROM ONLINE DATABASE SERVER
         private void btnOpen_Click(object sender, EventArgs e)
         {
             startUpdate();
         }
 
+        //START STOCK FILE LOAD THREAD LOGIC
         private void startUpdate()
         {
-            progressBar.Visible = true;
-            progressBar.Style = ProgressBarStyle.Marquee;
-            System.Threading.Thread thread =
-              new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
-            thread.Start();
-            btnUpdate.Text = "Update Stock File";
+            try
+            {
+                progressBar.Visible = true;
+                progressBar.Style = ProgressBarStyle.Marquee;
+                System.Threading.Thread thread =
+                  new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
+                thread.Start();
+                btnUpdate.Text = "Update Stock File";
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        //LOAD LATEST STOCK FILE TABLE
         private void loadTable()
         {
             connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, uid, pwd);
@@ -68,12 +73,9 @@ namespace Order_App
                 string sqlSelectAll = "SELECT * FROM codebeta_orderapp.Stock";
                 mySqlDataAdapter.SelectCommand = new MySqlCommand(sqlSelectAll, connection);
                 mySqlDataAdapter.Fill(table);
-                //dataGridView1.DataSource = table;
                 setDataSource(table);
-                
                 result = MessageBox.Show("Successfully Established Connection", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadStockFile = true;
-                
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -81,53 +83,70 @@ namespace Order_App
             }
         }
 
+        //SET DATATABLE SOURCE
         internal delegate void SetDataSourceDelegate(DataTable table);
         private void setDataSource(DataTable table)
         {
-            // Invoke method if required:
-            if (this.InvokeRequired)
+            try
             {
-                this.Invoke(new SetDataSourceDelegate(setDataSource), table);
-            }
-            else
-            {
-                dataGridView1.DataSource = table;
-                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                progressBar.Visible = false;
-            }
-        } 
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if(loadStockFile == true)
-            {
-                if (result == DialogResult.OK)
+                // Invoke method if required:
+                if (this.InvokeRequired)
                 {
-                    table = (DataTable)dataGridView1.DataSource;
-                    table.TableName = "StockTable";
-                    table.WriteXml(@"C:\\metro-order-app\\stock.xml", XmlWriteMode.WriteSchema, true);
-                    MessageBox.Show("Stock File Successfully Updated", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Properties.Settings.Default["LastStockUpdate"] = Convert.ToDateTime(lblUpdateDateTime.Text);
-                    Properties.Settings.Default.Save();
-                    loadStockFile = false;
+                    this.Invoke(new SetDataSourceDelegate(setDataSource), table);
                 }
                 else
                 {
-                    MessageBox.Show("Please Load Latest Stock File First", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dataGridView1.DataSource = table;
+                    dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    progressBar.Visible = false;
                 }
-            } else if (loadStockFile == false)
-            {
-                checkUpdate();
             }
-            
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        } 
 
+        //WRITE DATAGRIDVIEW TO XML DOCUMENT
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (loadStockFile == true)
+                {
+                    if (result == DialogResult.OK)
+                    {
+                        table = (DataTable)dataGridView1.DataSource;
+                        table.TableName = "StockTable";
+                        table.WriteXml(@"C:\\metro-order-app\\stock.xml", XmlWriteMode.WriteSchema, true);
+                        MessageBox.Show("Stock File Successfully Updated", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Properties.Settings.Default["LastStockUpdate"] = Convert.ToDateTime(lblUpdateDateTime.Text);
+                        Properties.Settings.Default.Save();
+                        loadStockFile = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Load Latest Stock File First", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (loadStockFile == false)
+                {
+                    checkUpdate();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        //CLOSE FORM LOGIC
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //CLOSING FORM LOGIC
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
             bool startup = false;
@@ -135,6 +154,7 @@ namespace Order_App
             mainMenu.Show();
         }
 
+        //CHECK UPDATE METHOD
         private void checkUpdate()
         {
             connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, uid, pwd);

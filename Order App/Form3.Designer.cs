@@ -53,7 +53,7 @@
             this.btnOpen.Location = new System.Drawing.Point(697, 499);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(175, 50);
-            this.btnOpen.TabIndex = 1;
+            this.btnOpen.TabIndex = 3;
             this.btnOpen.Text = "Load Latest Stock File";
             this.btnOpen.UseVisualStyleBackColor = false;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
@@ -65,7 +65,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(516, 499);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(175, 50);
-            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Check For Updates";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);

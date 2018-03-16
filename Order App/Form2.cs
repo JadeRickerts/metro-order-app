@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Net.Mail;
-using System.Net;
 
 namespace Order_App
 {
     public partial class Form2 : Form
     {
+        //FORM VARIABLES
         Order.OrderClass oc = new Order.OrderClass();
+
+        //FORM INITIALIZATION
         public Form2(Order.OrderClass orderClass)
         {
             InitializeComponent();
@@ -34,39 +29,55 @@ namespace Order_App
             btnCancel.Text = "Go Back";
         }
 
+        //PRINT PDF LOGIC
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Save Order As PDF";
-            saveFileDialog.DefaultExt = "pdf";
-            saveFileDialog.Filter = "PDF Documents |*.pdf";
-            saveFileDialog.FilterIndex = 2;
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                PrintPDF(saveFileDialog.FileName);
-                MessageBox.Show("Order Saved As PDF", "Save Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnCancel.Text = "Close";
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Save Order As PDF";
+                saveFileDialog.DefaultExt = "pdf";
+                saveFileDialog.Filter = "PDF Documents |*.pdf";
+                saveFileDialog.FilterIndex = 2;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    PrintPDF(saveFileDialog.FileName);
+                    MessageBox.Show("Order Saved As PDF", "Save Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnCancel.Text = "Close";
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //CLOSE FORM OR GO BACK TO ORDER LOGIC
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if(btnCancel.Text == "Go Back")
+            try
             {
-                Order order = new Order(oc);
-                order.Show();
-                this.Close();
-
-            } else if (btnCancel.Text == "Close")
-            {
-                bool startup = false;
-                this.Close();
-                MainMenu mainMenu = new MainMenu(startup);
-                mainMenu.Show();
+                if (btnCancel.Text == "Go Back")
+                {
+                    Order order = new Order(oc);
+                    order.Show();
+                    this.Close();
+                }
+                else if (btnCancel.Text == "Close")
+                {
+                    bool startup = false;
+                    this.Close();
+                    MainMenu mainMenu = new MainMenu(startup);
+                    mainMenu.Show();
+                }
             }
-            
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
+        
+        //SEND EMAIL LOGIC
         private void btnSend_Click(object sender, EventArgs e)
         {
             if(tbxComment.Text == "Add Comment To Order")
@@ -75,12 +86,14 @@ namespace Order_App
             }
             try
             {
+                //SMTP MAIL SERVER SETTINGS
                 string file = Directory.GetCurrentDirectory().ToString() + @"\Order.pdf";
                 PrintPDF(file);
                 string username = Properties.Settings.Default["SMTPUsername"].ToString();
                 string password = Properties.Settings.Default["SMTPPassword"].ToString();
                 string smtp = Properties.Settings.Default["SMTPServerName"].ToString();
 
+                //MAIL MESSAGE CONFIG
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(username);
                 mail.To.Add(new MailAddress(tbxTo.Text));
@@ -91,15 +104,13 @@ namespace Order_App
                 mail.Subject = "Metro Order App";
                 mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), tbxComment.Text);
                 mail.Attachments.Add(new Attachment(file));
-
                 SmtpClient smtpClient = new SmtpClient(smtp);
                 smtpClient.Port = Int32.Parse(Properties.Settings.Default["SMTPPort"].ToString());
                 smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
                 if (Properties.Settings.Default["SMTPSSL"].Equals(true))
                 {
                     smtpClient.EnableSsl = true;
-                }
-                else
+                } else
                 {
                     smtpClient.EnableSsl = false;
                 }
@@ -107,13 +118,13 @@ namespace Order_App
                 tbxComment.Text = "Add Comment To Order";
                 btnCancel.Text = "Close";
                 MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             } catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //PRINT PDF SETUP LOGIC METHOD
         private void PrintPDF(string file)
         {
             try
@@ -152,7 +163,6 @@ namespace Order_App
                 document.Add(line);
 
                 PdfPTable pdfPTable = new PdfPTable(dataGridView1.Columns.Count);
-
                 for (int i = 0; i < dataGridView1.Columns.Count; i++)
                 {
                     pdfPTable.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText));
@@ -178,25 +188,29 @@ namespace Order_App
             }            
         }
 
+        //EMAIL TO SELECTION LOGIC
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox1.CheckState == CheckState.Checked)
+            try
             {
-                tbxTo.Enabled = true;
-                tbxTo.Text = "";
-            } else if (checkBox1.CheckState == CheckState.Unchecked)
-            {
-                tbxTo.Enabled = false;
-                if (Properties.Settings.Default["PreferredStore"].ToString() != "")
+                if (checkBox1.CheckState == CheckState.Checked)
                 {
-                    tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
+                    tbxTo.Enabled = true;
+                    tbxTo.Text = "";
+                }
+                else if (checkBox1.CheckState == CheckState.Unchecked)
+                {
+                    tbxTo.Enabled = false;
+                    if (Properties.Settings.Default["PreferredStore"].ToString() != "")
+                    {
+                        tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
+                    }
                 }
             }
-        }
-
-        private void tbxComment_TextChanged(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

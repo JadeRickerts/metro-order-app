@@ -50,6 +50,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(498, 407);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             // 
             // btnPrint
             // 
@@ -58,7 +59,7 @@
             this.btnPrint.Location = new System.Drawing.Point(697, 369);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(175, 50);
-            this.btnPrint.TabIndex = 1;
+            this.btnPrint.TabIndex = 7;
             this.btnPrint.Text = "Save Order As PDF";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -70,7 +71,7 @@
             this.btnCancel.Location = new System.Drawing.Point(516, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Close";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -82,7 +83,7 @@
             this.btnSend.Location = new System.Drawing.Point(15, 295);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(325, 50);
-            this.btnSend.TabIndex = 1;
+            this.btnSend.TabIndex = 5;
             this.btnSend.Text = "Send Order";
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -95,7 +96,7 @@
             this.tbxComment.Multiline = true;
             this.tbxComment.Name = "tbxComment";
             this.tbxComment.Size = new System.Drawing.Size(325, 216);
-            this.tbxComment.TabIndex = 2;
+            this.tbxComment.TabIndex = 4;
             this.tbxComment.Text = "Add Comment To Order";
             // 
             // tbxTo
@@ -104,7 +105,7 @@
             this.tbxTo.Location = new System.Drawing.Point(106, 19);
             this.tbxTo.Name = "tbxTo";
             this.tbxTo.Size = new System.Drawing.Size(234, 22);
-            this.tbxTo.TabIndex = 10;
+            this.tbxTo.TabIndex = 1;
             // 
             // lblTo
             // 
@@ -123,7 +124,7 @@
             this.cbxSendCopy.Location = new System.Drawing.Point(180, 47);
             this.cbxSendCopy.Name = "cbxSendCopy";
             this.cbxSendCopy.Size = new System.Drawing.Size(160, 20);
-            this.cbxSendCopy.TabIndex = 11;
+            this.cbxSendCopy.TabIndex = 3;
             this.cbxSendCopy.Text = "Send Order To Yourself";
             this.cbxSendCopy.UseVisualStyleBackColor = true;
             // 
@@ -134,7 +135,7 @@
             this.checkBox1.Location = new System.Drawing.Point(15, 47);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(162, 20);
-            this.checkBox1.TabIndex = 11;
+            this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Send To Different Email";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
