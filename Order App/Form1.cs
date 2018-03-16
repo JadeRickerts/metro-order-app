@@ -31,49 +31,6 @@ namespace Order_App
             startup = start;
         }
 
-        //OPEN ORDER FORM
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Order order = new Order();
-                order.Show();
-                startup = false;
-                this.Hide();
-            } catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        //EXIT APPLICATION
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you really want to exit?", "Close Application", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        //OPEN UPDATE STOCK FILE FORM
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            Form3 form3 = new Form3();
-            form3.Show();
-            startup = false;
-            this.Hide();
-        }
-
-        //OPEN USER SETTINGS FORM
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            Form6 form6 = new Form6();
-            form6.Show();
-            startup = false;
-            this.Hide();
-        }
-
         //CHECK FOR STOCK FILE UPDATE METHOD
         private void checkUpdate()
         {
@@ -101,7 +58,7 @@ namespace Order_App
                 else
                 {
                     DialogResult result = MessageBox.Show("New Stock File Available For Update.\nWould You Like To Update Now?", "Stock File Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if(result == DialogResult.Yes)
+                    if (result == DialogResult.Yes)
                     {
                         bool update = true;
                         Form3 form3 = new Form3(update);
@@ -119,7 +76,7 @@ namespace Order_App
         //MAIN MENU FORM STARTUP CONFIG
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            if(startup == true && Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
+            if (startup == true && Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
             {
                 checkUpdate();
             }
@@ -127,9 +84,53 @@ namespace Order_App
             {
                 MessageBox.Show("Please Click On User Settings to Setup App Before Ordering", "Metro Order App", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnOrder.Enabled = false;
-            } else
+            }
+            else
             {
                 btnOrder.Enabled = true;
+            }
+        }
+
+        //OPEN ORDER FORM
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Order order = new Order();
+                order.Show();
+                startup = false;
+                this.Hide();
+            } catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //OPEN UPDATE STOCK FILE FORM
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
+            startup = false;
+            this.Hide();
+        }
+
+        //OPEN USER SETTINGS FORM
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Form6 form6 = new Form6();
+            form6.Show();
+            startup = false;
+            this.Hide();
+        }
+
+        //EXIT APPLICATION
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you really want to exit?", "Main Menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
             }
         }
     }

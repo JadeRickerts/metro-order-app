@@ -45,7 +45,7 @@
             this.btnOrder.Location = new System.Drawing.Point(21, 191);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(300, 100);
-            this.btnOrder.TabIndex = 0;
+            this.btnOrder.TabIndex = 1;
             this.btnOrder.Text = "Place Order";
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -57,7 +57,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(21, 297);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(300, 100);
-            this.btnUpdate.TabIndex = 0;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update Stock File";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -69,7 +69,7 @@
             this.btnExit.Location = new System.Drawing.Point(21, 509);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(300, 100);
-            this.btnExit.TabIndex = 0;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -102,7 +102,7 @@
             this.btnSettings.Location = new System.Drawing.Point(21, 403);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(300, 100);
-            this.btnSettings.TabIndex = 0;
+            this.btnSettings.TabIndex = 3;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);

@@ -76,9 +76,6 @@ namespace Order_App
             if (result == DialogResult.Yes)
             {
                 this.Close();
-            } else if(result == DialogResult.No)
-            {
-                
             }
         }
 
