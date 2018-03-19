@@ -70,7 +70,7 @@ namespace Order_App
                 connection.ConnectionString = connectionString;
                 connection.Open();
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
-                string sqlSelectAll = "SELECT * FROM codebeta_orderapp.Stock";
+                string sqlSelectAll = "SELECT * FROM codebeta_orderapp.stock";
                 mySqlDataAdapter.SelectCommand = new MySqlCommand(sqlSelectAll, connection);
                 mySqlDataAdapter.Fill(table);
                 setDataSource(table);
@@ -165,7 +165,7 @@ namespace Order_App
                 connection.Open();
                 MySqlCommand mySqlCommand;
                 MySqlDataReader mySqlDataReader;
-                string mySqlCommandString = "SELECT * FROM codebeta_orderapp.StockUpdated WHERE codebeta_orderapp.StockUpdated.id = 1";
+                string mySqlCommandString = "SELECT * FROM codebeta_orderapp.stockupdated WHERE codebeta_orderapp.stockupdated.id = 1";
                 mySqlCommand = new MySqlCommand(mySqlCommandString, connection);
                 mySqlDataReader = mySqlCommand.ExecuteReader();
                 if (mySqlDataReader.Read())

@@ -103,7 +103,7 @@
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(300, 100);
             this.btnSettings.TabIndex = 3;
-            this.btnSettings.Text = "Settings";
+            this.btnSettings.Text = "User Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 

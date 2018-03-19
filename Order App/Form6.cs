@@ -54,7 +54,7 @@ namespace Order_App
                 connection.ConnectionString = connectionString;
                 connection.Open();
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
-                string sqlSelectAll = "SELECT * FROM codebeta_orderapp.Store";
+                string sqlSelectAll = "SELECT * FROM codebeta_orderapp.store";
                 mySqlDataAdapter.SelectCommand = new MySqlCommand(sqlSelectAll, connection);
                 mySqlDataAdapter.Fill(table);
                 dataGridView1.DataSource = table;
