@@ -13,6 +13,7 @@ namespace Order_App
 {
     public partial class Form6 : Form
     {
+        //FORM VARIABLES
         bool openSystemSettings;
         MySqlConnection connection;
         string connectionString;
@@ -23,12 +24,14 @@ namespace Order_App
         string userID = Properties.Settings.Default["UserID"].ToString();
         string password = Properties.Settings.Default["Password"].ToString();
 
+        //FORM INITIALIZATION WITH NO VARIABLES
         public Form6()
         {
             InitializeComponent();
             openSystemSettings = false;
         }
 
+        //LOAD USER SETTINGS SAVED VALUES
         private void Form6_Load(object sender, EventArgs e)
         {
             tbxBusinessName.Text = Properties.Settings.Default["CustomerName"].ToString();
@@ -44,9 +47,9 @@ namespace Order_App
             
         }
 
+        //LOAD STORE CONTACT LIST DATA GRID VIEW LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
             connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, userID, password);
             try
             {
@@ -66,6 +69,7 @@ namespace Order_App
             }
         }
 
+        //SELECTING CONTACT FROM DATA GRID VIEW LOGIC
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -76,6 +80,7 @@ namespace Order_App
             }
         }
 
+        //SAVE USER SETTINGS LOGIC
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (cbxAutoUpdateCheck.CheckState == CheckState.Checked)
@@ -104,16 +109,13 @@ namespace Order_App
             }
         }
 
+        //CLOSE FORM
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
+        //FORM CLOSING LOGIC
         private void Form6_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(openSystemSettings == false)
@@ -124,17 +126,13 @@ namespace Order_App
             }
         }
 
+        //OPEN APPLICATION SETTINGS LOGIN FORM LOGIC
         private void lblHeading_DoubleClick(object sender, EventArgs e)
         {
             openSystemSettings = true;
             Form5 form5 = new Form5();
             form5.Show();
             this.Close();
-        }
-
-        private void cbxAutoUpdateCheck_CheckStateChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

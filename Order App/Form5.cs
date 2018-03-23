@@ -12,13 +12,17 @@ namespace Order_App
 {
     public partial class Form5 : Form
     {
+        //FORM VARIABLES
         bool OpenNewForm;
+
+        //FORM INITIALIZATION WITH NO VARIABLES
         public Form5()
         {
             InitializeComponent();
             OpenNewForm = false;
         }
 
+        //SYSTEM SETTINGS LOGIN LOGIC
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(tbxLogin.Text == "sefalana216009")
@@ -33,11 +37,13 @@ namespace Order_App
             }
         }
 
+        //CLOSE FORM 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //CLOSE FORM LOGIC
         private void Form5_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(OpenNewForm == false)

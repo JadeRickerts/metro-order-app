@@ -12,11 +12,13 @@ namespace Order_App
 {
     public partial class Form4 : Form
     {
+        //INITIAL FORM WITH NO VARIABLES
         public Form4()
         {
             InitializeComponent();
         }
 
+        //LOAD SAVED APPLICATION SETTINGS
         private void Form4_Load(object sender, EventArgs e)
         {
             tbxStockFile.Text = Properties.Settings.Default["XMLStockFile"].ToString();
@@ -36,9 +38,9 @@ namespace Order_App
             {
                 cbxSSL.CheckState = CheckState.Unchecked;
             }
-            
         }
 
+        //SAVE APPLICATION SETTINGS
         private void btnSave_Click(object sender, EventArgs e)
         {
             //XML FILE INFO
@@ -70,6 +72,7 @@ namespace Order_App
             }
         }
 
+        //EXIT APPLICATION SETTINGS
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are You Sure You Want To Close System Settings?", "System Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -79,6 +82,7 @@ namespace Order_App
             }
         }
 
+        //CLOSING FORM LOGIC
         private void Form4_FormClosing(object sender, FormClosingEventArgs e)
         {
             bool startup = false;

@@ -14,12 +14,11 @@ namespace Order_App
 {
     public partial class Order : Form
     {
-        //List<OrderItem> list = new List<OrderItem>();
+        //FORM VARIABLES
         BindingSource bindingSource = new BindingSource();
         OrderClass orderClass = new OrderClass();
-        
-        //=======================================================================================================================//
 
+        //ORDER CLASS DEFINITION
         public class OrderClass
         {
 
@@ -28,11 +27,13 @@ namespace Order_App
             internal List<OrderItem> List { get => list; set => list = value; }
         }
 
+        //FORM INITIALIZATION WITH NO PARAMETERS
         public Order()
         {
             InitializeComponent();
         }
 
+        //FORM INITIALIZATION WITH PARAMETERS
         public Order(OrderClass order)
         {
             InitializeComponent();
@@ -131,10 +132,7 @@ namespace Order_App
         {
             string path = "C:\\metro-order-app\\stock.xml";
             DataSet dataSet = new DataSet();
-            //Reading XML file and copying to dataset
             dataSet.ReadXml(path);
-            //dataGridView1.DataSource = dataSet;
-            //dataGridView1.DataMember = "StockTable";
             DataTable dataTable = new DataTable();
             dataTable = dataSet.Tables[0];
             
@@ -143,59 +141,5 @@ namespace Order_App
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             btnLoad.Visible = false;
         }
-
-        //=======================================================================================================================//
-        //UNUSED CODE THAT I CAN'T DELETE OR COMMENT OUT
-        private void btnUpdate_Click_1(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void BtnNext_Click(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void tbxSearch_TextChanged(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void tbxSearch_Leave(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            //CODE GOES HERE
-        }
-        //=======================================================================================================================//
-
     }
 }

@@ -165,7 +165,6 @@
             this.cbxAutoUpdateCheck.TabIndex = 13;
             this.cbxAutoUpdateCheck.Text = "Auto Check For Updates At Start Up";
             this.cbxAutoUpdateCheck.UseVisualStyleBackColor = true;
-            this.cbxAutoUpdateCheck.CheckStateChanged += new System.EventHandler(this.cbxAutoUpdateCheck_CheckStateChanged);
             // 
             // Form6
             // 
