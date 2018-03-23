@@ -8,40 +8,40 @@
     <Setting Name="CustomerName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="XMLStockFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="XMLStockFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">@"C:\metro-order-app\stock.xml"</Value>
     </Setting>
-    <Setting Name="SystemSettingPwd" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SystemSettingPwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sefalana216009</Value>
     </Setting>
-    <Setting Name="ServerName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">code-beta.com</Value>
     </Setting>
-    <Setting Name="DatabaseName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="DatabaseName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">codebeta_orderapp</Value>
     </Setting>
-    <Setting Name="UserID" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="UserID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">codebeta_admin</Value>
     </Setting>
-    <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">root123</Value>
     </Setting>
     <Setting Name="PreferredStore" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="SMTPServerName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SMTPServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mail.code-beta.com</Value>
     </Setting>
-    <Setting Name="SMTPUsername" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SMTPUsername" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">metro-order-app@code-beta.com</Value>
     </Setting>
-    <Setting Name="SMTPPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SMTPPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sefalana216009</Value>
     </Setting>
-    <Setting Name="SMTPPort" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="SMTPPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
     </Setting>
-    <Setting Name="SMTPSSL" Type="System.Boolean" Scope="User">
+    <Setting Name="SMTPSSL" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LastStockUpdate" Type="System.DateTime" Scope="User">
