@@ -38,7 +38,7 @@
             this.tbxLogin.Location = new System.Drawing.Point(12, 12);
             this.tbxLogin.Name = "tbxLogin";
             this.tbxLogin.PasswordChar = '*';
-            this.tbxLogin.Size = new System.Drawing.Size(110, 20);
+            this.tbxLogin.Size = new System.Drawing.Size(140, 20);
             this.tbxLogin.TabIndex = 0;
             // 
             // btnLogin
@@ -46,7 +46,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.Green;
             this.btnLogin.Location = new System.Drawing.Point(12, 38);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(110, 23);
+            this.btnLogin.Size = new System.Drawing.Size(140, 23);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -57,7 +57,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Location = new System.Drawing.Point(12, 67);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 23);
+            this.btnCancel.Size = new System.Drawing.Size(140, 23);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -65,17 +65,19 @@
             // 
             // Form5
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(134, 111);
+            this.ClientSize = new System.Drawing.Size(164, 111);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbxLogin);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form5";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings";
+            this.Text = "Application Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form5_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

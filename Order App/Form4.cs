@@ -22,7 +22,7 @@ namespace Order_App
         private void Form4_Load(object sender, EventArgs e)
         {
             tbxStockFile.Text = Properties.Settings.Default["XMLStockFile"].ToString();
-            tbxStoreFile.Text = Properties.Settings.Default["XMLStoreFile"].ToString();
+            tbxAppSettingsPwd.Text = Properties.Settings.Default["SystemSettingPwd"].ToString();
             tbxServerName.Text = Properties.Settings.Default["ServerName"].ToString();
             tbxDatabase.Text = Properties.Settings.Default["DatabaseName"].ToString();
             tbxUserID.Text = Properties.Settings.Default["UserID"].ToString();
@@ -45,7 +45,7 @@ namespace Order_App
         {
             //XML FILE INFO
             Properties.Settings.Default["XMLStockFile"] = tbxStockFile.Text;
-            Properties.Settings.Default["XMLStoreFile"] = tbxStoreFile.Text;
+            Properties.Settings.Default["SystemSettingPwd"] = tbxAppSettingsPwd.Text;
             //DATABASE FILE INFO
             Properties.Settings.Default["ServerName"] = tbxServerName.Text;
             Properties.Settings.Default["DatabaseName"] = tbxDatabase.Text;

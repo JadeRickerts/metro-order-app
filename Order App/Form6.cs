@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Order_App
 {
+    //USER SETTINGS FORM
     public partial class Form6 : Form
     {
         //FORM VARIABLES

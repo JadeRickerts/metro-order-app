@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Order_App
 {
+    //APPLICATION SETTINGS LOGIN FORM
     public partial class Form5 : Form
     {
         //FORM VARIABLES
@@ -22,10 +23,10 @@ namespace Order_App
             OpenNewForm = false;
         }
 
-        //SYSTEM SETTINGS LOGIN LOGIC
+        //APPLICATION SETTINGS LOGIN LOGIC
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(tbxLogin.Text == "sefalana216009")
+            if(tbxLogin.Text == Properties.Settings.Default["SystemSettingPwd"].ToString())
             {
                 Form4 form4 = new Form4();
                 form4.Show();

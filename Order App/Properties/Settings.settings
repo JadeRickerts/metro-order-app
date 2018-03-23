@@ -11,7 +11,7 @@
     <Setting Name="XMLStockFile" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="XMLStoreFile" Type="System.String" Scope="User">
+    <Setting Name="SystemSettingPwd" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ServerName" Type="System.String" Scope="User">

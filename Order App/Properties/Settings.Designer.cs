@@ -62,12 +62,12 @@ namespace Order_App.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string XMLStoreFile {
+        public string SystemSettingPwd {
             get {
-                return ((string)(this["XMLStoreFile"]));
+                return ((string)(this["SystemSettingPwd"]));
             }
             set {
-                this["XMLStoreFile"] = value;
+                this["SystemSettingPwd"] = value;
             }
         }
         

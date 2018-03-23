@@ -42,20 +42,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbxStoreFile = new System.Windows.Forms.TextBox();
+            this.tbxAppSettingsPwd = new System.Windows.Forms.TextBox();
             this.tbxStockFile = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxSSL = new System.Windows.Forms.CheckBox();
             this.tbxSMTPPassword = new System.Windows.Forms.TextBox();
             this.tbxSMTPUsername = new System.Windows.Forms.TextBox();
             this.tbxSMTPPort = new System.Windows.Forms.TextBox();
+            this.lblSSL = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxSMTPServer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lblSSL = new System.Windows.Forms.Label();
-            this.cbxSSL = new System.Windows.Forms.CheckBox();
             this.gbxDatabaseInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,9 +67,9 @@
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 24);
+            this.label1.Size = new System.Drawing.Size(212, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "System Settings";
+            this.label1.Text = "Application Settings";
             // 
             // btnCancel
             // 
@@ -188,16 +188,16 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.tbxStoreFile);
+            this.groupBox1.Controls.Add(this.tbxAppSettingsPwd);
             this.groupBox1.Controls.Add(this.tbxStockFile);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 184);
+            this.groupBox1.Location = new System.Drawing.Point(16, 359);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(556, 87);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "XML File Information";
+            this.groupBox1.Text = "Other Information";
             // 
             // label9
             // 
@@ -205,17 +205,17 @@
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 56);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 16);
+            this.label9.Size = new System.Drawing.Size(177, 16);
             this.label9.TabIndex = 3;
-            this.label9.Text = "XML Store File Source:";
+            this.label9.Text = "Application Settings Password: ";
             // 
-            // tbxStoreFile
+            // tbxAppSettingsPwd
             // 
-            this.tbxStoreFile.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxStoreFile.Location = new System.Drawing.Point(200, 53);
-            this.tbxStoreFile.Name = "tbxStoreFile";
-            this.tbxStoreFile.Size = new System.Drawing.Size(350, 22);
-            this.tbxStoreFile.TabIndex = 5;
+            this.tbxAppSettingsPwd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAppSettingsPwd.Location = new System.Drawing.Point(200, 53);
+            this.tbxAppSettingsPwd.Name = "tbxAppSettingsPwd";
+            this.tbxAppSettingsPwd.Size = new System.Drawing.Size(350, 22);
+            this.tbxAppSettingsPwd.TabIndex = 5;
             // 
             // tbxStockFile
             // 
@@ -248,12 +248,22 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 277);
+            this.groupBox2.Location = new System.Drawing.Point(16, 184);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(556, 169);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Database Information";
+            // 
+            // cbxSSL
+            // 
+            this.cbxSSL.AutoSize = true;
+            this.cbxSSL.Location = new System.Drawing.Point(202, 141);
+            this.cbxSSL.Name = "cbxSSL";
+            this.cbxSSL.Size = new System.Drawing.Size(58, 22);
+            this.cbxSSL.TabIndex = 11;
+            this.cbxSSL.Text = "SSL";
+            this.cbxSSL.UseVisualStyleBackColor = true;
             // 
             // tbxSMTPPassword
             // 
@@ -278,6 +288,16 @@
             this.tbxSMTPPort.Name = "tbxSMTPPort";
             this.tbxSMTPPort.Size = new System.Drawing.Size(348, 22);
             this.tbxSMTPPort.TabIndex = 9;
+            // 
+            // lblSSL
+            // 
+            this.lblSSL.AutoSize = true;
+            this.lblSSL.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSSL.Location = new System.Drawing.Point(7, 140);
+            this.lblSSL.Name = "lblSSL";
+            this.lblSSL.Size = new System.Drawing.Size(74, 16);
+            this.lblSSL.TabIndex = 3;
+            this.lblSSL.Text = "SSL Enable:";
             // 
             // label2
             // 
@@ -327,26 +347,6 @@
             this.label11.TabIndex = 6;
             this.label11.Text = "SMTP Server Name: ";
             // 
-            // lblSSL
-            // 
-            this.lblSSL.AutoSize = true;
-            this.lblSSL.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSSL.Location = new System.Drawing.Point(7, 140);
-            this.lblSSL.Name = "lblSSL";
-            this.lblSSL.Size = new System.Drawing.Size(74, 16);
-            this.lblSSL.TabIndex = 3;
-            this.lblSSL.Text = "SSL Enable:";
-            // 
-            // cbxSSL
-            // 
-            this.cbxSSL.AutoSize = true;
-            this.cbxSSL.Location = new System.Drawing.Point(202, 141);
-            this.cbxSSL.Name = "cbxSSL";
-            this.cbxSSL.Size = new System.Drawing.Size(58, 22);
-            this.cbxSSL.TabIndex = 11;
-            this.cbxSSL.Text = "SSL";
-            this.cbxSSL.UseVisualStyleBackColor = true;
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,7 +364,7 @@
             this.Name = "Form4";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "System Settings";
+            this.Text = "Application Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form4_FormClosing);
             this.Load += new System.EventHandler(this.Form4_Load);
             this.gbxDatabaseInfo.ResumeLayout(false);
@@ -394,7 +394,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbxStoreFile;
+        private System.Windows.Forms.TextBox tbxAppSettingsPwd;
         private System.Windows.Forms.TextBox tbxStockFile;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
