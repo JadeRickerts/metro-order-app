@@ -74,11 +74,12 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Location = new System.Drawing.Point(216, 452);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -86,11 +87,12 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Green;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.Location = new System.Drawing.Point(397, 452);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -119,7 +121,7 @@
             this.tbxPassword.Location = new System.Drawing.Point(202, 112);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(348, 22);
-            this.tbxPassword.TabIndex = 7;
+            this.tbxPassword.TabIndex = 4;
             // 
             // tbxUserID
             // 
@@ -127,7 +129,7 @@
             this.tbxUserID.Location = new System.Drawing.Point(202, 84);
             this.tbxUserID.Name = "tbxUserID";
             this.tbxUserID.Size = new System.Drawing.Size(348, 22);
-            this.tbxUserID.TabIndex = 8;
+            this.tbxUserID.TabIndex = 3;
             // 
             // tbxDatabase
             // 
@@ -135,7 +137,7 @@
             this.tbxDatabase.Location = new System.Drawing.Point(202, 56);
             this.tbxDatabase.Name = "tbxDatabase";
             this.tbxDatabase.Size = new System.Drawing.Size(348, 22);
-            this.tbxDatabase.TabIndex = 9;
+            this.tbxDatabase.TabIndex = 2;
             // 
             // label8
             // 
@@ -153,7 +155,7 @@
             this.tbxServerName.Location = new System.Drawing.Point(202, 28);
             this.tbxServerName.Name = "tbxServerName";
             this.tbxServerName.Size = new System.Drawing.Size(348, 22);
-            this.tbxServerName.TabIndex = 10;
+            this.tbxServerName.TabIndex = 1;
             // 
             // label7
             // 
@@ -215,7 +217,7 @@
             this.tbxAppSettingsPwd.Location = new System.Drawing.Point(200, 53);
             this.tbxAppSettingsPwd.Name = "tbxAppSettingsPwd";
             this.tbxAppSettingsPwd.Size = new System.Drawing.Size(350, 22);
-            this.tbxAppSettingsPwd.TabIndex = 5;
+            this.tbxAppSettingsPwd.TabIndex = 11;
             // 
             // tbxStockFile
             // 
@@ -223,7 +225,7 @@
             this.tbxStockFile.Location = new System.Drawing.Point(200, 25);
             this.tbxStockFile.Name = "tbxStockFile";
             this.tbxStockFile.Size = new System.Drawing.Size(350, 22);
-            this.tbxStockFile.TabIndex = 6;
+            this.tbxStockFile.TabIndex = 10;
             // 
             // label4
             // 
@@ -261,7 +263,7 @@
             this.cbxSSL.Location = new System.Drawing.Point(202, 141);
             this.cbxSSL.Name = "cbxSSL";
             this.cbxSSL.Size = new System.Drawing.Size(58, 22);
-            this.cbxSSL.TabIndex = 11;
+            this.cbxSSL.TabIndex = 9;
             this.cbxSSL.Text = "SSL";
             this.cbxSSL.UseVisualStyleBackColor = true;
             // 
@@ -271,7 +273,7 @@
             this.tbxSMTPPassword.Location = new System.Drawing.Point(202, 112);
             this.tbxSMTPPassword.Name = "tbxSMTPPassword";
             this.tbxSMTPPassword.Size = new System.Drawing.Size(348, 22);
-            this.tbxSMTPPassword.TabIndex = 7;
+            this.tbxSMTPPassword.TabIndex = 8;
             // 
             // tbxSMTPUsername
             // 
@@ -279,7 +281,7 @@
             this.tbxSMTPUsername.Location = new System.Drawing.Point(202, 84);
             this.tbxSMTPUsername.Name = "tbxSMTPUsername";
             this.tbxSMTPUsername.Size = new System.Drawing.Size(348, 22);
-            this.tbxSMTPUsername.TabIndex = 8;
+            this.tbxSMTPUsername.TabIndex = 7;
             // 
             // tbxSMTPPort
             // 
@@ -287,7 +289,7 @@
             this.tbxSMTPPort.Location = new System.Drawing.Point(202, 56);
             this.tbxSMTPPort.Name = "tbxSMTPPort";
             this.tbxSMTPPort.Size = new System.Drawing.Size(348, 22);
-            this.tbxSMTPPort.TabIndex = 9;
+            this.tbxSMTPPort.TabIndex = 6;
             // 
             // lblSSL
             // 
@@ -315,7 +317,7 @@
             this.tbxSMTPServer.Location = new System.Drawing.Point(202, 28);
             this.tbxSMTPServer.Name = "tbxSMTPServer";
             this.tbxSMTPServer.Size = new System.Drawing.Size(348, 22);
-            this.tbxSMTPServer.TabIndex = 10;
+            this.tbxSMTPServer.TabIndex = 5;
             // 
             // label3
             // 
