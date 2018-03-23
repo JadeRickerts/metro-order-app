@@ -39,7 +39,7 @@
             this.tbxLogin.Name = "tbxLogin";
             this.tbxLogin.PasswordChar = '*';
             this.tbxLogin.Size = new System.Drawing.Size(140, 20);
-            this.tbxLogin.TabIndex = 0;
+            this.tbxLogin.TabIndex = 1;
             // 
             // btnLogin
             // 
@@ -47,7 +47,7 @@
             this.btnLogin.Location = new System.Drawing.Point(12, 38);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(140, 23);
-            this.btnLogin.TabIndex = 1;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -58,7 +58,7 @@
             this.btnCancel.Location = new System.Drawing.Point(12, 67);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

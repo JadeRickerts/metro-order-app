@@ -19,41 +19,69 @@ namespace Order_App
         //FORM INITIALIZATION WITH NO VARIABLES
         public Form5()
         {
-            InitializeComponent();
-            OpenNewForm = false;
+            try
+            {
+                InitializeComponent();
+                OpenNewForm = false;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Settings Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //APPLICATION SETTINGS LOGIN LOGIC
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(tbxLogin.Text == Properties.Settings.Default["SystemSettingPwd"].ToString())
+            try
             {
-                Form4 form4 = new Form4();
-                form4.Show();
-                OpenNewForm = true;
-                this.Close();
-            } else
+                if (tbxLogin.Text == Properties.Settings.Default["SystemSettingPwd"].ToString())
+                {
+                    Form4 form4 = new Form4();
+                    form4.Show();
+                    OpenNewForm = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Login Password", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (System.Exception ex)
             {
-                MessageBox.Show("Incorrect Login Password", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Settings Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //CLOSE FORM 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Settings Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //CLOSE FORM LOGIC
         private void Form5_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(OpenNewForm == false)
+            try
             {
-                bool startup = false;
-                MainMenu form = new MainMenu(startup);
-                form.Show();
+                if (OpenNewForm == false)
+                {
+                    bool startup = false;
+                    MainMenu form = new MainMenu(startup);
+                    form.Show();
+                }
             }
-            
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Settings Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
