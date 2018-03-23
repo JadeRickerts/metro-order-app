@@ -15,18 +15,25 @@ namespace Order_App
         //FORM INITIALIZATION
         public Form2(Order.OrderClass orderClass)
         {
-            InitializeComponent();
-            oc = orderClass;
-            dataGridView1.DataSource = orderClass.List;
-            tbxTo.Enabled = false;
-            tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
-            checkBox1.CheckState = CheckState.Unchecked;
-            if(Properties.Settings.Default["PreferredStore"].ToString() == "")
+            try
             {
-                MessageBox.Show("You Can Set Your Preferred Store At Settings", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                checkBox1.CheckState = CheckState.Checked;
+                InitializeComponent();
+                oc = orderClass;
+                dataGridView1.DataSource = orderClass.List;
+                tbxTo.Enabled = false;
+                tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
+                checkBox1.CheckState = CheckState.Unchecked;
+                if (Properties.Settings.Default["PreferredStore"].ToString() == "")
+                {
+                    MessageBox.Show("You Can Set Your Preferred Store At Settings", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    checkBox1.CheckState = CheckState.Checked;
+                }
+                btnCancel.Text = "Go Back";
             }
-            btnCancel.Text = "Go Back";
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //PRINT PDF LOGIC
@@ -157,7 +164,8 @@ namespace Order_App
                 Paragraph heading = new Paragraph();
                 heading.Alignment = Element.ALIGN_LEFT;
                 heading.Add(new Chunk(string.Format("Date: {0}", DateTime.Now.Date.ToString("dd/MM/yyyy")), arialSmall));
-                heading.Add(new Chunk(string.Format("\nCustomer Name: {0}", Properties.Settings.Default["CustomerName"].ToString()), arialSmall)); 
+                heading.Add(new Chunk(string.Format("\nCustomer Name: {0}", Properties.Settings.Default["CustomerName"].ToString()), arialSmall));
+                heading.Add(new Chunk(string.Format("\nCustomer Numvber: {0}", Properties.Settings.Default["ContactNumber"].ToString()), arialSmall));
                 heading.Add(new Chunk(string.Format("\nCustomer Email: {0}", Properties.Settings.Default["EmailAddress"].ToString()), arialSmall));
                 document.Add(heading);
                 document.Add(line);

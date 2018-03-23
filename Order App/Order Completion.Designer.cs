@@ -55,7 +55,8 @@
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnPrint.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnPrint.Location = new System.Drawing.Point(697, 369);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(175, 50);
@@ -67,7 +68,8 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Location = new System.Drawing.Point(516, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
@@ -79,7 +81,8 @@
             // btnSend
             // 
             this.btnSend.BackColor = System.Drawing.Color.Green;
-            this.btnSend.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSend.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnSend.Location = new System.Drawing.Point(15, 295);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(325, 50);
