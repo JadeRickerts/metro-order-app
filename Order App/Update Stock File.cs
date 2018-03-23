@@ -23,23 +23,44 @@ namespace Order_App
         //FORM INITIALIZATION WITH NO VARIABLES
         public Form3()
         {
-            InitializeComponent();
-            progressBar.Visible = false;
-            lblLastUpdate.Visible = false;
-            lblUpdateDateTime.Visible = false;
+            try
+            {
+                InitializeComponent();
+                progressBar.Visible = false;
+                lblLastUpdate.Visible = false;
+                lblUpdateDateTime.Visible = false;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //FORM INITIALIZATION WITH BOOLEAN VARIABLES
         public Form3(bool update)
         {
-            InitializeComponent();
-            startUpdate();
+            try
+            {
+                InitializeComponent();
+                startUpdate();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //LOAD LATEST STOCK FILE FROM ONLINE DATABASE SERVER
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            startUpdate();
+            try
+            {
+                startUpdate();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //START STOCK FILE LOAD THREAD LOGIC
@@ -143,15 +164,29 @@ namespace Order_App
         //CLOSE FORM LOGIC
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //CLOSING FORM LOGIC
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool startup = false;
-            MainMenu mainMenu = new MainMenu(startup);
-            mainMenu.Show();
+            try
+            {
+                bool startup = false;
+                MainMenu mainMenu = new MainMenu(startup);
+                mainMenu.Show();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //CHECK UPDATE METHOD
