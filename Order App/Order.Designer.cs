@@ -74,6 +74,8 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(185, 92);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(310, 26);
@@ -85,11 +87,12 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.Green;
-            this.btnNext.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(697, 499);
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.btnNext.Location = new System.Drawing.Point(700, 499);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(175, 50);
-            this.btnNext.TabIndex = 2;
+            this.btnNext.Size = new System.Drawing.Size(172, 50);
+            this.btnNext.TabIndex = 5;
             this.btnNext.Text = "Finish Ordering";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Visible = false;
@@ -98,11 +101,12 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Location = new System.Drawing.Point(519, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel Order";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -218,31 +222,35 @@
             // 
             // descriptionToolStripLabel
             // 
+            this.descriptionToolStripLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionToolStripLabel.Name = "descriptionToolStripLabel";
-            this.descriptionToolStripLabel.Size = new System.Drawing.Size(70, 22);
-            this.descriptionToolStripLabel.Text = "Description:";
+            this.descriptionToolStripLabel.Size = new System.Drawing.Size(142, 22);
+            this.descriptionToolStripLabel.Text = "Search By Description:";
             // 
             // descriptionToolStripTextBox
             // 
+            this.descriptionToolStripTextBox.Font = new System.Drawing.Font("Arial", 9.75F);
             this.descriptionToolStripTextBox.Name = "descriptionToolStripTextBox";
-            this.descriptionToolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            this.descriptionToolStripTextBox.Size = new System.Drawing.Size(600, 25);
             // 
             // searchByDescriptionToolStripButton
             // 
             this.searchByDescriptionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchByDescriptionToolStripButton.Font = new System.Drawing.Font("Arial", 9.75F);
             this.searchByDescriptionToolStripButton.Name = "searchByDescriptionToolStripButton";
-            this.searchByDescriptionToolStripButton.Size = new System.Drawing.Size(46, 22);
+            this.searchByDescriptionToolStripButton.Size = new System.Drawing.Size(53, 22);
             this.searchByDescriptionToolStripButton.Text = "Search";
             this.searchByDescriptionToolStripButton.Click += new System.EventHandler(this.searchByDescriptionToolStripButton_Click);
             // 
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.Orange;
-            this.btnLoad.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnLoad.Location = new System.Drawing.Point(519, 428);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(353, 65);
-            this.btnLoad.TabIndex = 2;
+            this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load Stock File";
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -260,7 +268,9 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Order";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);

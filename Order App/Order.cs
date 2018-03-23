@@ -30,14 +30,28 @@ namespace Order_App
         //FORM INITIALIZATION WITH NO PARAMETERS
         public Order()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //FORM INITIALIZATION WITH PARAMETERS
         public Order(OrderClass order)
         {
-            InitializeComponent();
-            orderClass = order;
+            try
+            {
+                InitializeComponent();
+                orderClass = order;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //LOAD FORM WITH DEFAULT VALUES
@@ -51,52 +65,72 @@ namespace Order_App
         //SELECTING STOCK ITEM LOGIC
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                lblDescription02.Text = row.Cells[2].Value.ToString();
-                lblPackSize02.Text = row.Cells[3].Value.ToString();
-                lblStockCode02.Text = row.Cells[1].Value.ToString();
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                    lblDescription02.Text = row.Cells[2].Value.ToString();
+                    lblPackSize02.Text = row.Cells[3].Value.ToString();
+                    lblStockCode02.Text = row.Cells[1].Value.ToString();
+                }
             }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         //SAVING STOCK ITEM TO ORDER LOGIC
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (lblDescription02.Text == "Description" || lblPackSize02.Text == "PackSize" || lblStockCode02.Text == "StockCode" || tbxQuantity.Text == "")
+            try
             {
-                MessageBox.Show("You Must Select A Stock Item From The Table First", "Error: Stock Not Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else if (Int32.Parse(tbxQuantity.Text) <= 0)
-            {
-                MessageBox.Show("Quantity Ordered Should Be More Than Zero", "Error: Stock Ordered Negative or Zero", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
-            {
-                OrderItem orderItem = new OrderItem
+                if (lblDescription02.Text == "Description" || lblPackSize02.Text == "PackSize" || lblStockCode02.Text == "StockCode" || tbxQuantity.Text == "")
                 {
-                    description = lblDescription02.Text,
-                    packSize = lblPackSize02.Text,
-                    quantity = Int32.Parse(tbxQuantity.Text),
-                    stockCode = lblStockCode02.Text
-                };
-                orderClass.List.Add(orderItem);
-                //list.Add(orderItem);
-                btnNext.Visible = true;
-                tbxQuantity.Text = "";
-                lblDescription02.Text = "Description";
-                lblPackSize02.Text = "PackSize";
-                lblStockCode02.Text = "StockCode";
+                    MessageBox.Show("You Must Select A Stock Item From The Table First", "Error: Stock Not Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Int32.Parse(tbxQuantity.Text) <= 0)
+                {
+                    MessageBox.Show("Quantity Ordered Should Be More Than Zero", "Error: Stock Ordered Negative or Zero", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    OrderItem orderItem = new OrderItem
+                    {
+                        description = lblDescription02.Text,
+                        packSize = lblPackSize02.Text,
+                        quantity = Int32.Parse(tbxQuantity.Text),
+                        stockCode = lblStockCode02.Text
+                    };
+                    orderClass.List.Add(orderItem);
+                    btnNext.Visible = true;
+                    tbxQuantity.Text = "";
+                    lblDescription02.Text = "Description";
+                    lblPackSize02.Text = "PackSize";
+                    lblStockCode02.Text = "StockCode";
+                }
             }
-
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //COMPLETE ORDERING PROCESS
         private void btnNext_MouseClick(object sender, MouseEventArgs e)
         {
-            
-            //orderClass.List = list;
-            Form2 form2 = new Form2(orderClass);
-            form2.Show();
-            this.Close();
+            try
+            {
+                Form2 form2 = new Form2(orderClass);
+                form2.Show();
+                this.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         
         //SEARCH BY DESCRIPTION LOGIC
@@ -117,29 +151,43 @@ namespace Order_App
         //CANCEL ORDERING PROCESS
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to cancel order?", "Cancel Order", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                bool startup = false;
-                this.Close();
-                MainMenu mainMenu = new MainMenu(startup);
-                mainMenu.Show();
+                DialogResult result = MessageBox.Show("Do you really want to cancel order?", "Cancel Order", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    bool startup = false;
+                    this.Close();
+                    MainMenu mainMenu = new MainMenu(startup);
+                    mainMenu.Show();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //LOAD STOCK FILE LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            string path = "C:\\metro-order-app\\stock.xml";
-            DataSet dataSet = new DataSet();
-            dataSet.ReadXml(path);
-            DataTable dataTable = new DataTable();
-            dataTable = dataSet.Tables[0];
-            
-            bindingSource.DataSource = dataTable;
-            dataGridView1.DataSource = bindingSource;
-            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            btnLoad.Visible = false;
+            try
+            {
+                string path = "C:\\metro-order-app\\stock.xml";
+                DataSet dataSet = new DataSet();
+                dataSet.ReadXml(path);
+                DataTable dataTable = new DataTable();
+                dataTable = dataSet.Tables[0];
+
+                bindingSource.DataSource = dataTable;
+                dataGridView1.DataSource = bindingSource;
+                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                btnLoad.Visible = false;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
