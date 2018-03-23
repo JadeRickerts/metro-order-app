@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -28,24 +22,40 @@ namespace Order_App
         //FORM INITIALIZATION WITH NO VARIABLES
         public Form6()
         {
-            InitializeComponent();
-            openSystemSettings = false;
+            try
+            {
+                InitializeComponent();
+                openSystemSettings = false;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //LOAD USER SETTINGS SAVED VALUES
         private void Form6_Load(object sender, EventArgs e)
         {
-            tbxBusinessName.Text = Properties.Settings.Default["CustomerName"].ToString();
-            tbxEmailAddress.Text = Properties.Settings.Default["EmailAddress"].ToString();
-            tbxPreferredStore.Text = Properties.Settings.Default["PreferredStore"].ToString();
-            if(Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
+            try
             {
-                cbxAutoUpdateCheck.CheckState = CheckState.Checked;
-            } else if(Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == false)
-            {
-                cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
+                tbxBusinessName.Text = Properties.Settings.Default["CustomerName"].ToString();
+                tbxEmailAddress.Text = Properties.Settings.Default["EmailAddress"].ToString();
+                tbxContactNumber.Text = Properties.Settings.Default["ContactNumber"].ToString();
+                tbxPreferredStore.Text = Properties.Settings.Default["PreferredStore"].ToString();
+
+                if (Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
+                {
+                    cbxAutoUpdateCheck.CheckState = CheckState.Checked;
+                }
+                else if (Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == false)
+                {
+                    cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
+                }
             }
-            
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //LOAD STORE CONTACT LIST DATA GRID VIEW LOGIC
@@ -73,67 +83,104 @@ namespace Order_App
         //SELECTING CONTACT FROM DATA GRID VIEW LOGIC
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                tbxPreferredStore.Text = row.Cells[2].Value.ToString();
-
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                    tbxPreferredStore.Text = row.Cells[2].Value.ToString();
+                }
             }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         //SAVE USER SETTINGS LOGIC
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cbxAutoUpdateCheck.CheckState == CheckState.Checked)
+            try
             {
-                DialogResult autoUpdateCheckResult = MessageBox.Show("Auto Check For Updates At Start Up might slow down the app's start up depending on Internet connection speed.\nAre You Sure?", "User Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (autoUpdateCheckResult == DialogResult.No)
+                if (cbxAutoUpdateCheck.CheckState == CheckState.Checked)
                 {
-                    cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
+                    DialogResult autoUpdateCheckResult = MessageBox.Show("Auto Check For Updates At Start Up might slow down the app's start up depending on Internet connection speed.\nAre You Sure?", "User Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (autoUpdateCheckResult == DialogResult.No)
+                    {
+                        cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
+                    }
+                }
+                Properties.Settings.Default["CustomerName"] = tbxBusinessName.Text;
+                Properties.Settings.Default["EmailAddress"] = tbxEmailAddress.Text;
+                Properties.Settings.Default["ContactNumber"] = tbxContactNumber.Text;
+                Properties.Settings.Default["PreferredStore"] = tbxPreferredStore.Text;
+                if (cbxAutoUpdateCheck.CheckState == CheckState.Checked)
+                {
+                    Properties.Settings.Default["CheckForUpdates"] = true;
+                }
+                else if (cbxAutoUpdateCheck.CheckState == CheckState.Unchecked)
+                {
+                    Properties.Settings.Default["CheckForUpdates"] = false;
+                }
+                Properties.Settings.Default.Save();
+                DialogResult result = MessageBox.Show("Settings Updated", "System Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    this.Close();
                 }
             }
-            Properties.Settings.Default["CustomerName"] = tbxBusinessName.Text;
-            Properties.Settings.Default["EmailAddress"] = tbxEmailAddress.Text;
-            Properties.Settings.Default["PreferredStore"] = tbxPreferredStore.Text;
-            if(cbxAutoUpdateCheck.CheckState == CheckState.Checked)
+            catch (System.Exception ex)
             {
-                Properties.Settings.Default["CheckForUpdates"] = true;
-            } else if (cbxAutoUpdateCheck.CheckState == CheckState.Unchecked)
-            {
-                Properties.Settings.Default["CheckForUpdates"] = false;
-            }
-            Properties.Settings.Default.Save();
-            DialogResult result = MessageBox.Show("Settings Updated", "System Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (result == DialogResult.OK)
-            {
-                this.Close();
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //CLOSE FORM
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //FORM CLOSING LOGIC
         private void Form6_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(openSystemSettings == false)
+            try
             {
-                bool startup = false;
-                MainMenu mainMenu = new MainMenu(startup);
-                mainMenu.Show();
+                if (openSystemSettings == false)
+                {
+                    bool startup = false;
+                    MainMenu mainMenu = new MainMenu(startup);
+                    mainMenu.Show();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //OPEN APPLICATION SETTINGS LOGIN FORM LOGIC
         private void lblHeading_DoubleClick(object sender, EventArgs e)
         {
-            openSystemSettings = true;
-            Form5 form5 = new Form5();
-            form5.Show();
-            this.Close();
+            try
+            {
+                openSystemSettings = true;
+                Form5 form5 = new Form5();
+                form5.Show();
+                this.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

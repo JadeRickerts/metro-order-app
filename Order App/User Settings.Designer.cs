@@ -40,6 +40,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.cbxAutoUpdateCheck = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbxContactNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(13, 95);
+            this.label10.Location = new System.Drawing.Point(13, 123);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(123, 16);
             this.label10.TabIndex = 3;
@@ -56,10 +58,10 @@
             // tbxPreferredStore
             // 
             this.tbxPreferredStore.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPreferredStore.Location = new System.Drawing.Point(142, 92);
+            this.tbxPreferredStore.Location = new System.Drawing.Point(142, 120);
             this.tbxPreferredStore.Name = "tbxPreferredStore";
             this.tbxPreferredStore.Size = new System.Drawing.Size(430, 22);
-            this.tbxPreferredStore.TabIndex = 6;
+            this.tbxPreferredStore.TabIndex = 4;
             // 
             // tbxEmailAddress
             // 
@@ -67,7 +69,7 @@
             this.tbxEmailAddress.Location = new System.Drawing.Point(142, 64);
             this.tbxEmailAddress.Name = "tbxEmailAddress";
             this.tbxEmailAddress.Size = new System.Drawing.Size(430, 22);
-            this.tbxEmailAddress.TabIndex = 7;
+            this.tbxEmailAddress.TabIndex = 2;
             // 
             // label3
             // 
@@ -85,7 +87,7 @@
             this.tbxBusinessName.Location = new System.Drawing.Point(142, 36);
             this.tbxBusinessName.Name = "tbxBusinessName";
             this.tbxBusinessName.Size = new System.Drawing.Size(430, 22);
-            this.tbxBusinessName.TabIndex = 8;
+            this.tbxBusinessName.TabIndex = 1;
             // 
             // label2
             // 
@@ -113,20 +115,21 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 146);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 174);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 289);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 261);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Green;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(397, 441);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -134,11 +137,12 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(206, 441);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -146,11 +150,12 @@
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoad.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.Location = new System.Drawing.Point(16, 441);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(175, 50);
-            this.btnLoad.TabIndex = 12;
+            this.btnLoad.TabIndex = 6;
             this.btnLoad.Text = "Load Store File";
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -159,12 +164,30 @@
             // 
             this.cbxAutoUpdateCheck.AutoSize = true;
             this.cbxAutoUpdateCheck.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(142, 120);
+            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(142, 148);
             this.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck";
             this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(238, 20);
-            this.cbxAutoUpdateCheck.TabIndex = 13;
+            this.cbxAutoUpdateCheck.TabIndex = 5;
             this.cbxAutoUpdateCheck.Text = "Auto Check For Updates At Start Up";
             this.cbxAutoUpdateCheck.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 95);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Contact Number:";
+            // 
+            // tbxContactNumber
+            // 
+            this.tbxContactNumber.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxContactNumber.Location = new System.Drawing.Point(142, 92);
+            this.tbxContactNumber.Name = "tbxContactNumber";
+            this.tbxContactNumber.Size = new System.Drawing.Size(430, 22);
+            this.tbxContactNumber.TabIndex = 3;
             // 
             // Form6
             // 
@@ -180,6 +203,8 @@
             this.Controls.Add(this.lblHeading);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbxPreferredStore);
+            this.Controls.Add(this.tbxContactNumber);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxEmailAddress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxBusinessName);
@@ -212,5 +237,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.CheckBox cbxAutoUpdateCheck;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbxContactNumber;
     }
 }
