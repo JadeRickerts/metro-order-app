@@ -48,7 +48,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(498, 407);
+            this.dataGridView1.Size = new System.Drawing.Size(420, 407);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
             // 
@@ -70,7 +70,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(516, 369);
+            this.btnCancel.Location = new System.Drawing.Point(438, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 6;
@@ -83,9 +83,9 @@
             this.btnSend.BackColor = System.Drawing.Color.Green;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSend.Location = new System.Drawing.Point(15, 295);
+            this.btnSend.Location = new System.Drawing.Point(6, 295);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(325, 50);
+            this.btnSend.Size = new System.Drawing.Size(422, 50);
             this.btnSend.TabIndex = 5;
             this.btnSend.Text = "Send Order";
             this.btnSend.UseVisualStyleBackColor = false;
@@ -95,26 +95,26 @@
             // 
             this.tbxComment.AcceptsReturn = true;
             this.tbxComment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxComment.Location = new System.Drawing.Point(15, 73);
+            this.tbxComment.Location = new System.Drawing.Point(6, 73);
             this.tbxComment.Multiline = true;
             this.tbxComment.Name = "tbxComment";
-            this.tbxComment.Size = new System.Drawing.Size(325, 216);
+            this.tbxComment.Size = new System.Drawing.Size(422, 216);
             this.tbxComment.TabIndex = 4;
             this.tbxComment.Text = "Add Comment To Order";
             // 
             // tbxTo
             // 
             this.tbxTo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTo.Location = new System.Drawing.Point(106, 19);
+            this.tbxTo.Location = new System.Drawing.Point(198, 19);
             this.tbxTo.Name = "tbxTo";
-            this.tbxTo.Size = new System.Drawing.Size(234, 22);
+            this.tbxTo.Size = new System.Drawing.Size(230, 22);
             this.tbxTo.TabIndex = 1;
             // 
             // lblTo
             // 
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(12, 22);
+            this.lblTo.Location = new System.Drawing.Point(6, 22);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(88, 16);
             this.lblTo.TabIndex = 9;
@@ -124,7 +124,7 @@
             // 
             this.cbxSendCopy.AutoSize = true;
             this.cbxSendCopy.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.cbxSendCopy.Location = new System.Drawing.Point(180, 47);
+            this.cbxSendCopy.Location = new System.Drawing.Point(198, 47);
             this.cbxSendCopy.Name = "cbxSendCopy";
             this.cbxSendCopy.Size = new System.Drawing.Size(160, 20);
             this.cbxSendCopy.TabIndex = 3;
@@ -135,7 +135,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(15, 47);
+            this.checkBox1.Location = new System.Drawing.Point(6, 47);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(162, 20);
             this.checkBox1.TabIndex = 2;
@@ -152,9 +152,9 @@
             this.groupBox1.Controls.Add(this.lblTo);
             this.groupBox1.Controls.Add(this.cbxSendCopy);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(516, 12);
+            this.groupBox1.Location = new System.Drawing.Point(438, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 351);
+            this.groupBox1.Size = new System.Drawing.Size(434, 351);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Email Order";

@@ -76,7 +76,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(216, 452);
+            this.btnCancel.Location = new System.Drawing.Point(216, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 12;
@@ -89,7 +89,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Location = new System.Drawing.Point(397, 452);
+            this.btnSave.Location = new System.Drawing.Point(397, 499);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
             this.btnSave.TabIndex = 13;
@@ -118,25 +118,25 @@
             // tbxPassword
             // 
             this.tbxPassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(202, 112);
+            this.tbxPassword.Location = new System.Drawing.Point(220, 112);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(348, 22);
+            this.tbxPassword.Size = new System.Drawing.Size(330, 22);
             this.tbxPassword.TabIndex = 4;
             // 
             // tbxUserID
             // 
             this.tbxUserID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUserID.Location = new System.Drawing.Point(202, 84);
+            this.tbxUserID.Location = new System.Drawing.Point(220, 84);
             this.tbxUserID.Name = "tbxUserID";
-            this.tbxUserID.Size = new System.Drawing.Size(348, 22);
+            this.tbxUserID.Size = new System.Drawing.Size(330, 22);
             this.tbxUserID.TabIndex = 3;
             // 
             // tbxDatabase
             // 
             this.tbxDatabase.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDatabase.Location = new System.Drawing.Point(202, 56);
+            this.tbxDatabase.Location = new System.Drawing.Point(220, 56);
             this.tbxDatabase.Name = "tbxDatabase";
-            this.tbxDatabase.Size = new System.Drawing.Size(348, 22);
+            this.tbxDatabase.Size = new System.Drawing.Size(330, 22);
             this.tbxDatabase.TabIndex = 2;
             // 
             // label8
@@ -152,9 +152,9 @@
             // tbxServerName
             // 
             this.tbxServerName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxServerName.Location = new System.Drawing.Point(202, 28);
+            this.tbxServerName.Location = new System.Drawing.Point(220, 28);
             this.tbxServerName.Name = "tbxServerName";
-            this.tbxServerName.Size = new System.Drawing.Size(348, 22);
+            this.tbxServerName.Size = new System.Drawing.Size(330, 22);
             this.tbxServerName.TabIndex = 1;
             // 
             // label7
@@ -214,17 +214,17 @@
             // tbxAppSettingsPwd
             // 
             this.tbxAppSettingsPwd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxAppSettingsPwd.Location = new System.Drawing.Point(200, 53);
+            this.tbxAppSettingsPwd.Location = new System.Drawing.Point(218, 53);
             this.tbxAppSettingsPwd.Name = "tbxAppSettingsPwd";
-            this.tbxAppSettingsPwd.Size = new System.Drawing.Size(350, 22);
+            this.tbxAppSettingsPwd.Size = new System.Drawing.Size(332, 22);
             this.tbxAppSettingsPwd.TabIndex = 11;
             // 
             // tbxStockFile
             // 
             this.tbxStockFile.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxStockFile.Location = new System.Drawing.Point(200, 25);
+            this.tbxStockFile.Location = new System.Drawing.Point(218, 25);
             this.tbxStockFile.Name = "tbxStockFile";
-            this.tbxStockFile.Size = new System.Drawing.Size(350, 22);
+            this.tbxStockFile.Size = new System.Drawing.Size(332, 22);
             this.tbxStockFile.TabIndex = 10;
             // 
             // label4
@@ -260,7 +260,7 @@
             // cbxSSL
             // 
             this.cbxSSL.AutoSize = true;
-            this.cbxSSL.Location = new System.Drawing.Point(202, 141);
+            this.cbxSSL.Location = new System.Drawing.Point(218, 141);
             this.cbxSSL.Name = "cbxSSL";
             this.cbxSSL.Size = new System.Drawing.Size(58, 22);
             this.cbxSSL.TabIndex = 9;
@@ -270,25 +270,25 @@
             // tbxSMTPPassword
             // 
             this.tbxSMTPPassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSMTPPassword.Location = new System.Drawing.Point(202, 112);
+            this.tbxSMTPPassword.Location = new System.Drawing.Point(220, 112);
             this.tbxSMTPPassword.Name = "tbxSMTPPassword";
-            this.tbxSMTPPassword.Size = new System.Drawing.Size(348, 22);
+            this.tbxSMTPPassword.Size = new System.Drawing.Size(330, 22);
             this.tbxSMTPPassword.TabIndex = 8;
             // 
             // tbxSMTPUsername
             // 
             this.tbxSMTPUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSMTPUsername.Location = new System.Drawing.Point(202, 84);
+            this.tbxSMTPUsername.Location = new System.Drawing.Point(220, 84);
             this.tbxSMTPUsername.Name = "tbxSMTPUsername";
-            this.tbxSMTPUsername.Size = new System.Drawing.Size(348, 22);
+            this.tbxSMTPUsername.Size = new System.Drawing.Size(330, 22);
             this.tbxSMTPUsername.TabIndex = 7;
             // 
             // tbxSMTPPort
             // 
             this.tbxSMTPPort.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSMTPPort.Location = new System.Drawing.Point(202, 56);
+            this.tbxSMTPPort.Location = new System.Drawing.Point(220, 56);
             this.tbxSMTPPort.Name = "tbxSMTPPort";
-            this.tbxSMTPPort.Size = new System.Drawing.Size(348, 22);
+            this.tbxSMTPPort.Size = new System.Drawing.Size(330, 22);
             this.tbxSMTPPort.TabIndex = 6;
             // 
             // lblSSL
@@ -314,9 +314,9 @@
             // tbxSMTPServer
             // 
             this.tbxSMTPServer.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSMTPServer.Location = new System.Drawing.Point(202, 28);
+            this.tbxSMTPServer.Location = new System.Drawing.Point(220, 28);
             this.tbxSMTPServer.Name = "tbxSMTPServer";
-            this.tbxSMTPServer.Size = new System.Drawing.Size(348, 22);
+            this.tbxSMTPServer.Size = new System.Drawing.Size(330, 22);
             this.tbxSMTPServer.TabIndex = 5;
             // 
             // label3
@@ -354,7 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(584, 510);
+            this.ClientSize = new System.Drawing.Size(584, 561);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxDatabaseInfo);

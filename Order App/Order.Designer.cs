@@ -76,9 +76,9 @@
             this.btnAdd.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(185, 92);
+            this.btnAdd.Location = new System.Drawing.Point(215, 92);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(310, 26);
+            this.btnAdd.Size = new System.Drawing.Size(280, 26);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add To Order";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@
             // tbxQuantity
             // 
             this.tbxQuantity.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbxQuantity.Location = new System.Drawing.Point(123, 92);
+            this.tbxQuantity.Location = new System.Drawing.Point(169, 91);
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.Size = new System.Drawing.Size(40, 26);
             this.tbxQuantity.TabIndex = 1;
@@ -172,7 +172,7 @@
             // 
             this.lblPackSize02.AutoSize = true;
             this.lblPackSize02.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPackSize02.Location = new System.Drawing.Point(119, 69);
+            this.lblPackSize02.Location = new System.Drawing.Point(165, 69);
             this.lblPackSize02.Name = "lblPackSize02";
             this.lblPackSize02.Size = new System.Drawing.Size(72, 20);
             this.lblPackSize02.TabIndex = 0;
@@ -182,7 +182,7 @@
             // 
             this.lblDescription02.AutoSize = true;
             this.lblDescription02.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblDescription02.Location = new System.Drawing.Point(119, 46);
+            this.lblDescription02.Location = new System.Drawing.Point(165, 46);
             this.lblDescription02.Name = "lblDescription02";
             this.lblDescription02.Size = new System.Drawing.Size(194, 20);
             this.lblDescription02.TabIndex = 0;
@@ -192,7 +192,7 @@
             // 
             this.lblStockCode02.AutoSize = true;
             this.lblStockCode02.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockCode02.Location = new System.Drawing.Point(119, 23);
+            this.lblStockCode02.Location = new System.Drawing.Point(165, 23);
             this.lblStockCode02.Name = "lblStockCode02";
             this.lblStockCode02.Size = new System.Drawing.Size(44, 20);
             this.lblStockCode02.TabIndex = 0;

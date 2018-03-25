@@ -59,19 +59,19 @@
             // tbxPreferredStore
             // 
             this.tbxPreferredStore.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPreferredStore.Location = new System.Drawing.Point(142, 120);
+            this.tbxPreferredStore.Location = new System.Drawing.Point(213, 120);
             this.tbxPreferredStore.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxPreferredStore.Name = "tbxPreferredStore";
-            this.tbxPreferredStore.Size = new System.Drawing.Size(430, 22);
+            this.tbxPreferredStore.Size = new System.Drawing.Size(360, 22);
             this.tbxPreferredStore.TabIndex = 4;
             // 
             // tbxEmailAddress
             // 
             this.tbxEmailAddress.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmailAddress.Location = new System.Drawing.Point(142, 64);
+            this.tbxEmailAddress.Location = new System.Drawing.Point(213, 64);
             this.tbxEmailAddress.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxEmailAddress.Name = "tbxEmailAddress";
-            this.tbxEmailAddress.Size = new System.Drawing.Size(430, 22);
+            this.tbxEmailAddress.Size = new System.Drawing.Size(360, 22);
             this.tbxEmailAddress.TabIndex = 2;
             // 
             // label3
@@ -88,10 +88,10 @@
             // tbxBusinessName
             // 
             this.tbxBusinessName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBusinessName.Location = new System.Drawing.Point(142, 36);
+            this.tbxBusinessName.Location = new System.Drawing.Point(213, 36);
             this.tbxBusinessName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxBusinessName.Name = "tbxBusinessName";
-            this.tbxBusinessName.Size = new System.Drawing.Size(430, 22);
+            this.tbxBusinessName.Size = new System.Drawing.Size(360, 22);
             this.tbxBusinessName.TabIndex = 1;
             // 
             // label2
@@ -125,7 +125,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(16, 174);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 261);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 319);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -134,7 +134,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(397, 441);
+            this.btnSave.Location = new System.Drawing.Point(398, 499);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
@@ -148,7 +148,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(206, 441);
+            this.btnCancel.Location = new System.Drawing.Point(207, 499);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
@@ -162,7 +162,7 @@
             this.btnLoad.BackColor = System.Drawing.Color.DarkOrange;
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(16, 441);
+            this.btnLoad.Location = new System.Drawing.Point(17, 499);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(175, 50);
@@ -175,7 +175,7 @@
             // 
             this.cbxAutoUpdateCheck.AutoSize = true;
             this.cbxAutoUpdateCheck.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(142, 148);
+            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(213, 148);
             this.cbxAutoUpdateCheck.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck";
             this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(238, 20);
@@ -197,10 +197,10 @@
             // tbxContactNumber
             // 
             this.tbxContactNumber.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxContactNumber.Location = new System.Drawing.Point(142, 92);
+            this.tbxContactNumber.Location = new System.Drawing.Point(213, 92);
             this.tbxContactNumber.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxContactNumber.Name = "tbxContactNumber";
-            this.tbxContactNumber.Size = new System.Drawing.Size(430, 22);
+            this.tbxContactNumber.Size = new System.Drawing.Size(360, 22);
             this.tbxContactNumber.TabIndex = 3;
             // 
             // Form6
@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(584, 503);
+            this.ClientSize = new System.Drawing.Size(584, 561);
             this.Controls.Add(this.cbxAutoUpdateCheck);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
