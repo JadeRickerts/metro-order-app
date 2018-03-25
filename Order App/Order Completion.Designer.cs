@@ -39,7 +39,6 @@
             this.cbxSendCopy = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +48,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(860, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(420, 407);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
             // 
@@ -58,7 +57,7 @@
             this.btnPrint.BackColor = System.Drawing.Color.DarkOrange;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.Location = new System.Drawing.Point(691, 549);
+            this.btnPrint.Location = new System.Drawing.Point(697, 369);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(175, 50);
             this.btnPrint.TabIndex = 7;
@@ -71,7 +70,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(510, 549);
+            this.btnCancel.Location = new System.Drawing.Point(438, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 6;
@@ -84,9 +83,9 @@
             this.btnSend.BackColor = System.Drawing.Color.Green;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSend.Location = new System.Drawing.Point(679, 132);
+            this.btnSend.Location = new System.Drawing.Point(6, 295);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(175, 50);
+            this.btnSend.Size = new System.Drawing.Size(422, 50);
             this.btnSend.TabIndex = 5;
             this.btnSend.Text = "Send Order";
             this.btnSend.UseVisualStyleBackColor = false;
@@ -99,16 +98,16 @@
             this.tbxComment.Location = new System.Drawing.Point(6, 73);
             this.tbxComment.Multiline = true;
             this.tbxComment.Name = "tbxComment";
-            this.tbxComment.Size = new System.Drawing.Size(667, 109);
+            this.tbxComment.Size = new System.Drawing.Size(422, 216);
             this.tbxComment.TabIndex = 4;
             this.tbxComment.Text = "Add Comment To Order";
             // 
             // tbxTo
             // 
             this.tbxTo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTo.Location = new System.Drawing.Point(260, 19);
+            this.tbxTo.Location = new System.Drawing.Point(198, 19);
             this.tbxTo.Name = "tbxTo";
-            this.tbxTo.Size = new System.Drawing.Size(594, 22);
+            this.tbxTo.Size = new System.Drawing.Size(230, 22);
             this.tbxTo.TabIndex = 1;
             // 
             // lblTo
@@ -125,7 +124,7 @@
             // 
             this.cbxSendCopy.AutoSize = true;
             this.cbxSendCopy.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.cbxSendCopy.Location = new System.Drawing.Point(9, 47);
+            this.cbxSendCopy.Location = new System.Drawing.Point(198, 47);
             this.cbxSendCopy.Name = "cbxSendCopy";
             this.cbxSendCopy.Size = new System.Drawing.Size(160, 20);
             this.cbxSendCopy.TabIndex = 3;
@@ -136,7 +135,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(260, 47);
+            this.checkBox1.Location = new System.Drawing.Point(6, 47);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(162, 20);
             this.checkBox1.TabIndex = 2;
@@ -146,7 +145,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.tbxTo);
             this.groupBox1.Controls.Add(this.tbxComment);
             this.groupBox1.Controls.Add(this.checkBox1);
@@ -154,28 +152,19 @@
             this.groupBox1.Controls.Add(this.lblTo);
             this.groupBox1.Controls.Add(this.cbxSendCopy);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 355);
+            this.groupBox1.Location = new System.Drawing.Point(438, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(860, 188);
+            this.groupBox1.Size = new System.Drawing.Size(434, 351);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Email Order";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(679, 103);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(175, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 10;
-            this.progressBar1.Visible = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 611);
+            this.ClientSize = new System.Drawing.Size(884, 433);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPrint);
@@ -206,6 +195,5 @@
         private System.Windows.Forms.CheckBox cbxSendCopy;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.ProgressBar progressBar1;
     }
 }

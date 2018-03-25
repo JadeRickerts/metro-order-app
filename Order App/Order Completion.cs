@@ -4,8 +4,6 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Net.Mail;
-using System.Net;
-using System.ComponentModel;
 
 namespace Order_App
 {
@@ -22,10 +20,6 @@ namespace Order_App
                 InitializeComponent();
                 oc = orderClass;
                 dataGridView1.DataSource = orderClass.List;
-                dataGridView1.Columns[0].Width = 100;
-                dataGridView1.Columns[1].Width = 500;
-                dataGridView1.Columns[2].Width = 100;
-                dataGridView1.Columns[3].Width = 100;
                 tbxTo.Enabled = false;
                 tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
                 checkBox1.CheckState = CheckState.Unchecked;
@@ -93,87 +87,48 @@ namespace Order_App
         //SEND EMAIL LOGIC
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (tbxComment.Text == "Add Comment To Order")
+            if(tbxComment.Text == "Add Comment To Order")
             {
                 tbxComment.Text = "";
             }
-
-            if (tbxTo.Text != "")
+            try
             {
-                try
+                //SMTP MAIL SERVER SETTINGS
+                string file = @"C:\\metro-order-app\Order.pdf";
+                PrintPDF(file);
+                string username = Properties.Settings.Default["SMTPUsername"].ToString();
+                string password = Properties.Settings.Default["SMTPPassword"].ToString();
+                string smtp = Properties.Settings.Default["SMTPServerName"].ToString();
+
+                //MAIL MESSAGE CONFIG
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(username);
+                mail.To.Add(new MailAddress(tbxTo.Text));
+                if (cbxSendCopy.CheckState == CheckState.Checked)
                 {
-                    progressBar1.Visible = true;
-                    progressBar1.Style = ProgressBarStyle.Marquee;
-                    progressBar1.MarqueeAnimationSpeed = 50;
-
-                    BackgroundWorker backgroundWorker = new BackgroundWorker();
-                    backgroundWorker.DoWork += BackgroundWorker_DoWork;
-                    backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
-                    backgroundWorker.RunWorkerAsync();
+                    mail.Bcc.Add(new MailAddress(Properties.Settings.Default["EmailAddress"].ToString()));
                 }
-                catch (System.Exception ex)
+                mail.Subject = "Metro Order App";
+                mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), tbxComment.Text);
+                mail.Attachments.Add(new Attachment(file));
+                SmtpClient smtpClient = new SmtpClient(smtp);
+                smtpClient.Port = Int32.Parse(Properties.Settings.Default["SMTPPort"].ToString());
+                smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+                if (Properties.Settings.Default["SMTPSSL"].Equals(true))
                 {
-                    MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    smtpClient.EnableSsl = true;
+                } else
+                {
+                    smtpClient.EnableSsl = false;
                 }
-            } else
-            {
-                progressBar1.Visible = false;
-                tbxComment.Text = "Add Comment To Order";
-                MessageBox.Show("Please specify recipient e-mail address!", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            DialogResult mailResult;
-            mailResult = MessageBox.Show("Mail Sent!", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (mailResult == DialogResult.OK)
-            {
-                progressBar1.Visible = false;
-                progressBar1.MarqueeAnimationSpeed = 0;
-                progressBar1.Style = ProgressBarStyle.Blocks;
-                progressBar1.Value = progressBar1.Minimum;
+                smtpClient.Send(mail);
                 tbxComment.Text = "Add Comment To Order";
                 btnCancel.Text = "Close";
-            }
-        }
-
-        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //SMTP MAIL SERVER SETTINGS
-            string file = @"C:\\metro-order-app\Order.pdf";
-            PrintPDF(file);
-            string username = Properties.Settings.Default["SMTPUsername"].ToString();
-            string password = Properties.Settings.Default["SMTPPassword"].ToString();
-            string smtp = Properties.Settings.Default["SMTPServerName"].ToString();
-
-            //MAIL MESSAGE CONFIG
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress(username);
-            mail.To.Add(new MailAddress(tbxTo.Text));
-            if (cbxSendCopy.CheckState == CheckState.Checked)
+                MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } catch (System.Exception ex)
             {
-                mail.Bcc.Add(new MailAddress(Properties.Settings.Default["EmailAddress"].ToString()));
+                MessageBox.Show(ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            mail.Subject = "Metro Order App";
-            mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), tbxComment.Text);
-            mail.Attachments.Add(new Attachment(file));
-            SmtpClient smtpClient = new SmtpClient(smtp);
-            smtpClient.Port = Int32.Parse(Properties.Settings.Default["SMTPPort"].ToString());
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
-            if (Properties.Settings.Default["SMTPSSL"].Equals(true))
-            {
-                smtpClient.EnableSsl = true;
-            }
-            else
-            {
-                smtpClient.EnableSsl = false;
-            }
-
-            smtpClient.Timeout = 100000;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.Send(mail);
         }
 
         //PRINT PDF SETUP LOGIC METHOD
@@ -210,7 +165,7 @@ namespace Order_App
                 heading.Alignment = Element.ALIGN_LEFT;
                 heading.Add(new Chunk(string.Format("Date: {0}", DateTime.Now.Date.ToString("dd/MM/yyyy")), arialSmall));
                 heading.Add(new Chunk(string.Format("\nCustomer Name: {0}", Properties.Settings.Default["CustomerName"].ToString()), arialSmall));
-                heading.Add(new Chunk(string.Format("\nCustomer Number: {0}", Properties.Settings.Default["ContactNumber"].ToString()), arialSmall));
+                heading.Add(new Chunk(string.Format("\nCustomer Numvber: {0}", Properties.Settings.Default["ContactNumber"].ToString()), arialSmall));
                 heading.Add(new Chunk(string.Format("\nCustomer Email: {0}", Properties.Settings.Default["EmailAddress"].ToString()), arialSmall));
                 document.Add(heading);
                 document.Add(line);

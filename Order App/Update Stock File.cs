@@ -11,9 +11,10 @@ namespace Order_App
         //FORM VARIABLES
         MySqlConnection connection;
         string connectionString;
+        DataTable dataTable = new DataTable();
         DialogResult result;
         DateTime modifiedDate;
-        DataTable table = new DataTable();
+        
         bool loadStockFile = false;
         //DATABASE SERVER CONFIG
         string server = Properties.Settings.Default["ServerName"].ToString();
@@ -69,11 +70,7 @@ namespace Order_App
         {
             try
             {
-                progressBar.Visible = true;
-                progressBar.Style = ProgressBarStyle.Marquee;
-                System.Threading.Thread thread =
-                  new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
-                thread.Start();
+                loadTable();
                 btnUpdate.Text = "Update Stock File";
             }
             catch (System.Exception ex)
@@ -94,40 +91,19 @@ namespace Order_App
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
                 string sqlSelectAll = "SELECT * FROM codebeta_orderapp.stock";
                 mySqlDataAdapter.SelectCommand = new MySqlCommand(sqlSelectAll, connection);
-                mySqlDataAdapter.Fill(table);
-                setDataSource(table);
+                
+                mySqlDataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+                //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                progressBar.Visible = false;
                 result = MessageBox.Show("Successfully Established Connection", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadStockFile = true;
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //SET DATATABLE SOURCE
-        internal delegate void SetDataSourceDelegate(DataTable table);
-        private void setDataSource(DataTable table)
-        {
-            try
-            {
-                // Invoke method if required:
-                if (this.InvokeRequired)
-                {
-                    this.Invoke(new SetDataSourceDelegate(setDataSource), table);
-                }
-                else
-                {
-                    dataGridView1.DataSource = table;
-                    dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                    progressBar.Visible = false;
-                }
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        } 
 
         //WRITE DATAGRIDVIEW TO XML DOCUMENT
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -138,10 +114,10 @@ namespace Order_App
                 {
                     if (result == DialogResult.OK)
                     {
-                        table = (DataTable)dataGridView1.DataSource;
-                        table.TableName = "StockTable";
+                        dataTable = (DataTable)dataGridView1.DataSource;
+                        dataTable.TableName = "StockTable";
                         string stockfile = Directory.GetCurrentDirectory().ToString() + Properties.Settings.Default["XMLStockFile"].ToString();
-                        table.WriteXml(stockfile, XmlWriteMode.WriteSchema, true);
+                        dataTable.WriteXml(stockfile, XmlWriteMode.WriteSchema, true);
                         MessageBox.Show("Stock File Successfully Updated", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Properties.Settings.Default["LastStockUpdate"] = Convert.ToDateTime(lblUpdateDateTime.Text);
                         Properties.Settings.Default.Save();

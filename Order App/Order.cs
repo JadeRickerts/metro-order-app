@@ -49,7 +49,6 @@ namespace Order_App
             {
                 InitializeComponent();
                 orderClass = order;
-                btnNext.Visible = true;
             }
             catch (System.Exception ex)
             {
