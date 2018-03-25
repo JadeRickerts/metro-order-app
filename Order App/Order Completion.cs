@@ -94,7 +94,7 @@ namespace Order_App
             try
             {
                 //SMTP MAIL SERVER SETTINGS
-                string file = Directory.GetCurrentDirectory().ToString() + @"\Order.pdf";
+                string file = @"C:\\metro-order-app\Order.pdf";
                 PrintPDF(file);
                 string username = Properties.Settings.Default["SMTPUsername"].ToString();
                 string password = Properties.Settings.Default["SMTPPassword"].ToString();

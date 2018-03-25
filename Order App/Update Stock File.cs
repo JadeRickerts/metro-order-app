@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -139,7 +140,8 @@ namespace Order_App
                     {
                         table = (DataTable)dataGridView1.DataSource;
                         table.TableName = "StockTable";
-                        table.WriteXml(@"C:\\metro-order-app\\stock.xml", XmlWriteMode.WriteSchema, true);
+                        string stockfile = Directory.GetCurrentDirectory().ToString() + Properties.Settings.Default["XMLStockFile"].ToString();
+                        table.WriteXml(stockfile, XmlWriteMode.WriteSchema, true);
                         MessageBox.Show("Stock File Successfully Updated", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Properties.Settings.Default["LastStockUpdate"] = Convert.ToDateTime(lblUpdateDateTime.Text);
                         Properties.Settings.Default.Save();

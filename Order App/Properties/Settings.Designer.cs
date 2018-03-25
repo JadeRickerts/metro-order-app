@@ -49,7 +49,7 @@ namespace Order_App.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("@\"C:\\metro-order-app\\stock.xml\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("@\"\\stock.xml\"")]
         public string XMLStockFile {
             get {
                 return ((string)(this["XMLStockFile"]));

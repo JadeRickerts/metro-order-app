@@ -173,7 +173,7 @@ namespace Order_App
         {
             try
             {
-                string path = "C:\\metro-order-app\\stock.xml";
+                string path = Directory.GetCurrentDirectory().ToString() + Properties.Settings.Default["XMLStockFile"].ToString();
                 DataSet dataSet = new DataSet();
                 dataSet.ReadXml(path);
                 DataTable dataTable = new DataTable();
