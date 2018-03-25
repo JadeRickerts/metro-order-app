@@ -44,10 +44,6 @@
             this.lblDescription02 = new System.Windows.Forms.Label();
             this.lblStockCode02 = new System.Windows.Forms.Label();
             this.lblStockCode01 = new System.Windows.Forms.Label();
-            this.searchByDescriptionToolStrip = new System.Windows.Forms.ToolStrip();
-            this.descriptionToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.descriptionToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.searchByDescriptionToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
@@ -55,7 +51,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.searchByDescriptionToolStrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,10 +59,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 374);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -122,6 +117,7 @@
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.Size = new System.Drawing.Size(40, 26);
             this.tbxQuantity.TabIndex = 1;
+            this.tbxQuantity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxQuantity_KeyDown);
             // 
             // groupBox1
             // 
@@ -212,40 +208,6 @@
             this.lblStockCode01.TabIndex = 0;
             this.lblStockCode01.Text = "Stock Code:";
             // 
-            // searchByDescriptionToolStrip
-            // 
-            this.searchByDescriptionToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.descriptionToolStripLabel,
-            this.descriptionToolStripTextBox,
-            this.searchByDescriptionToolStripButton});
-            this.searchByDescriptionToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.searchByDescriptionToolStrip.Name = "searchByDescriptionToolStrip";
-            this.searchByDescriptionToolStrip.Size = new System.Drawing.Size(884, 25);
-            this.searchByDescriptionToolStrip.TabIndex = 5;
-            this.searchByDescriptionToolStrip.Text = "searchByDescriptionToolStrip";
-            // 
-            // descriptionToolStripLabel
-            // 
-            this.descriptionToolStripLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionToolStripLabel.Name = "descriptionToolStripLabel";
-            this.descriptionToolStripLabel.Size = new System.Drawing.Size(142, 22);
-            this.descriptionToolStripLabel.Text = "Search By Description:";
-            // 
-            // descriptionToolStripTextBox
-            // 
-            this.descriptionToolStripTextBox.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.descriptionToolStripTextBox.Name = "descriptionToolStripTextBox";
-            this.descriptionToolStripTextBox.Size = new System.Drawing.Size(600, 25);
-            // 
-            // searchByDescriptionToolStripButton
-            // 
-            this.searchByDescriptionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchByDescriptionToolStripButton.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.searchByDescriptionToolStripButton.Name = "searchByDescriptionToolStripButton";
-            this.searchByDescriptionToolStripButton.Size = new System.Drawing.Size(53, 22);
-            this.searchByDescriptionToolStripButton.Text = "Search";
-            this.searchByDescriptionToolStripButton.Click += new System.EventHandler(this.searchByDescriptionToolStripButton_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnSearch);
@@ -281,6 +243,7 @@
             this.tbxSearch.TabIndex = 1;
             this.tbxSearch.Text = "Search by Description";
             this.tbxSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxSearch_MouseClick);
+            this.tbxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyDown);
             // 
             // lblSearch
             // 
@@ -298,7 +261,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 661);
-            this.Controls.Add(this.searchByDescriptionToolStrip);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
@@ -315,12 +277,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.searchByDescriptionToolStrip.ResumeLayout(false);
-            this.searchByDescriptionToolStrip.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -342,10 +301,6 @@
         private System.Windows.Forms.Label lblStockCode02;
         private System.Windows.Forms.Label lblStockCode01;
         private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.ToolStrip searchByDescriptionToolStrip;
-        private System.Windows.Forms.ToolStripLabel descriptionToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox descriptionToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton searchByDescriptionToolStripButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;

@@ -18,6 +18,8 @@ namespace Order_App
         BindingSource bindingSource = new BindingSource();
         OrderClass orderClass = new OrderClass();
 
+
+
         //ORDER CLASS DEFINITION
         public class OrderClass
         {
@@ -61,6 +63,7 @@ namespace Order_App
             lblPackSize02.Text = "PackSize";
             lblStockCode02.Text = "StockCode";
 
+            //LOAD STOCK FILE LOGIC
             try
             {
                 string path = Properties.Settings.Default["XMLStockFile"].ToString();
@@ -71,12 +74,10 @@ namespace Order_App
 
                 bindingSource.DataSource = dataTable;
                 dataGridView1.DataSource = bindingSource;
-                //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 dataGridView1.Columns[0].Width = 50;
                 dataGridView1.Columns[1].Width = 100;
                 dataGridView1.Columns[2].Width = 500;
                 dataGridView1.Columns[3].Width = 100;
-                
             }
             catch (System.Exception ex)
             {
@@ -107,6 +108,17 @@ namespace Order_App
         //SAVING STOCK ITEM TO ORDER LOGIC
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            addToOrder();
+        }
+        private void tbxQuantity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addToOrder();
+            }
+        }
+        private void addToOrder()
+        {
             try
             {
                 if (lblDescription02.Text == "Description" || lblPackSize02.Text == "PackSize" || lblStockCode02.Text == "StockCode" || tbxQuantity.Text == "")
@@ -127,6 +139,7 @@ namespace Order_App
                         stockCode = lblStockCode02.Text
                     };
                     orderClass.List.Add(orderItem);
+                    MessageBox.Show(string.Format("{0} x {1} Added To Order", tbxQuantity.Text, lblDescription02.Text), "Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnNext.Visible = true;
                     tbxQuantity.Text = "";
                     lblDescription02.Text = "Description";
@@ -182,7 +195,7 @@ namespace Order_App
             }
         }
 
-        //LOAD STOCK FILE LOGIC
+        
         private void btnLoad_Click(object sender, EventArgs e)
         {
             
@@ -195,6 +208,11 @@ namespace Order_App
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            search();
+        }
+
+        private void search()
+        {
             try
             {
                 bindingSource.Filter = string.Format("Description like '%{0}%'", tbxSearch.Text);
@@ -205,5 +223,15 @@ namespace Order_App
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
+        private void tbxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                search();
+            }
+        }
+
+        
     }
 }
