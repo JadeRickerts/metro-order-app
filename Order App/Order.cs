@@ -60,6 +60,28 @@ namespace Order_App
             lblDescription02.Text = "Description";
             lblPackSize02.Text = "PackSize";
             lblStockCode02.Text = "StockCode";
+
+            try
+            {
+                string path = Properties.Settings.Default["XMLStockFile"].ToString();
+                DataSet dataSet = new DataSet();
+                dataSet.ReadXml(path);
+                DataTable dataTable = new DataTable();
+                dataTable = dataSet.Tables[0];
+
+                bindingSource.DataSource = dataTable;
+                dataGridView1.DataSource = bindingSource;
+                //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridView1.Columns[0].Width = 50;
+                dataGridView1.Columns[1].Width = 100;
+                dataGridView1.Columns[2].Width = 500;
+                dataGridView1.Columns[3].Width = 100;
+                
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //SELECTING STOCK ITEM LOGIC
@@ -136,15 +158,7 @@ namespace Order_App
         //SEARCH BY DESCRIPTION LOGIC
         private void searchByDescriptionToolStripButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                bindingSource.Filter = string.Format("Description like '%{0}%'", descriptionToolStripTextBox.Text);
-
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            
 
         }
 
@@ -171,22 +185,24 @@ namespace Order_App
         //LOAD STOCK FILE LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tbxSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbxSearch.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
             try
             {
-                string path = Directory.GetCurrentDirectory().ToString() + Properties.Settings.Default["XMLStockFile"].ToString();
-                DataSet dataSet = new DataSet();
-                dataSet.ReadXml(path);
-                DataTable dataTable = new DataTable();
-                dataTable = dataSet.Tables[0];
+                bindingSource.Filter = string.Format("Description like '%{0}%'", tbxSearch.Text);
 
-                bindingSource.DataSource = dataTable;
-                dataGridView1.DataSource = bindingSource;
-                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                btnLoad.Visible = false;
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
     }

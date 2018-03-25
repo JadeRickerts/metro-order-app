@@ -9,7 +9,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="XMLStockFile" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">@"\stock.xml"</Value>
+      <Value Profile="(Default)">C:\metro-order-app\stock.xml</Value>
     </Setting>
     <Setting Name="SystemSettingPwd" Type="System.String" Scope="Application">
       <Value Profile="(Default)">sefalana216009</Value>

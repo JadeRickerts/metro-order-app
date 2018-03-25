@@ -48,11 +48,15 @@
             this.descriptionToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.descriptionToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchByDescriptionToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.btnLoad = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.searchByDescriptionToolStrip.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -63,7 +67,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 385);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 358);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -89,7 +93,7 @@
             this.btnNext.BackColor = System.Drawing.Color.Green;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnNext.Location = new System.Drawing.Point(700, 499);
+            this.btnNext.Location = new System.Drawing.Point(700, 599);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(172, 50);
             this.btnNext.TabIndex = 5;
@@ -103,7 +107,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(519, 499);
+            this.btnCancel.Location = new System.Drawing.Point(519, 599);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 4;
@@ -131,9 +135,9 @@
             this.groupBox1.Controls.Add(this.lblStockCode02);
             this.groupBox1.Controls.Add(this.lblStockCode01);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 419);
+            this.groupBox1.Location = new System.Drawing.Point(12, 456);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(501, 130);
+            this.groupBox1.Size = new System.Drawing.Size(860, 137);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Order Information";
@@ -242,28 +246,61 @@
             this.searchByDescriptionToolStripButton.Text = "Search";
             this.searchByDescriptionToolStripButton.Click += new System.EventHandler(this.searchByDescriptionToolStripButton_Click);
             // 
-            // btnLoad
+            // groupBox2
             // 
-            this.btnLoad.BackColor = System.Drawing.Color.Orange;
-            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoad.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLoad.Location = new System.Drawing.Point(519, 428);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(353, 65);
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Load Stock File";
-            this.btnLoad.UseVisualStyleBackColor = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Controls.Add(this.tbxSearch);
+            this.groupBox2.Controls.Add(this.lblSearch);
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 393);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(860, 57);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search Stock";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(574, 17);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(280, 26);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // tbxSearch
+            // 
+            this.tbxSearch.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbxSearch.Location = new System.Drawing.Point(169, 16);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(399, 26);
+            this.tbxSearch.TabIndex = 1;
+            this.tbxSearch.Text = "Search by Description";
+            this.tbxSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxSearch_MouseClick);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.Location = new System.Drawing.Point(7, 20);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(68, 23);
+            this.lblSearch.TabIndex = 0;
+            this.lblSearch.Text = "Search:";
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.searchByDescriptionToolStrip);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dataGridView1);
@@ -280,6 +317,8 @@
             this.groupBox1.PerformLayout();
             this.searchByDescriptionToolStrip.ResumeLayout(false);
             this.searchByDescriptionToolStrip.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +346,9 @@
         private System.Windows.Forms.ToolStripLabel descriptionToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox descriptionToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchByDescriptionToolStripButton;
-        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox tbxSearch;
+        private System.Windows.Forms.Label lblSearch;
     }
 }
