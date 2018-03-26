@@ -42,7 +42,8 @@
             this.cbxAutoUpdateCheck = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxContactNumber = new System.Windows.Forms.TextBox();
-            this.lblLastUpdate = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lblDownloadProgress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,10 +124,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 197);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 174);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 296);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 288);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -168,7 +169,7 @@
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(175, 50);
             this.btnLoad.TabIndex = 6;
-            this.btnLoad.Text = "Load Store File";
+            this.btnLoad.Text = "Update Store File";
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
@@ -204,15 +205,22 @@
             this.tbxContactNumber.Size = new System.Drawing.Size(360, 22);
             this.tbxContactNumber.TabIndex = 3;
             // 
-            // lblLastUpdate
+            // progressBar
             // 
-            this.lblLastUpdate.AutoSize = true;
-            this.lblLastUpdate.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.lblLastUpdate.Location = new System.Drawing.Point(210, 171);
-            this.lblLastUpdate.Name = "lblLastUpdate";
-            this.lblLastUpdate.Size = new System.Drawing.Size(85, 16);
-            this.lblLastUpdate.TabIndex = 11;
-            this.lblLastUpdate.Text = "Last Updated";
+            this.progressBar.Location = new System.Drawing.Point(16, 470);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(175, 23);
+            this.progressBar.TabIndex = 11;
+            // 
+            // lblDownloadProgress
+            // 
+            this.lblDownloadProgress.AutoSize = true;
+            this.lblDownloadProgress.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDownloadProgress.Location = new System.Drawing.Point(209, 473);
+            this.lblDownloadProgress.Name = "lblDownloadProgress";
+            this.lblDownloadProgress.Size = new System.Drawing.Size(42, 16);
+            this.lblDownloadProgress.TabIndex = 12;
+            this.lblDownloadProgress.Text = "label4";
             // 
             // Form6
             // 
@@ -220,7 +228,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 561);
-            this.Controls.Add(this.lblLastUpdate);
+            this.Controls.Add(this.lblDownloadProgress);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.cbxAutoUpdateCheck);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
@@ -266,6 +275,7 @@
         private System.Windows.Forms.CheckBox cbxAutoUpdateCheck;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxContactNumber;
-        private System.Windows.Forms.Label lblLastUpdate;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblDownloadProgress;
     }
 }

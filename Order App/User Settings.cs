@@ -2,6 +2,8 @@
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.ComponentModel;
+using System.Net;
 
 namespace Order_App
 {
@@ -9,15 +11,10 @@ namespace Order_App
     public partial class Form6 : Form
     {
         //FORM VARIABLES
+        BindingSource bindingSource = new BindingSource();
+        Form3 form3 = new Form3();
         bool openSystemSettings;
-        MySqlConnection connection;
-        string connectionString;
-        DialogResult result;
         DataTable table = new DataTable();
-        string server = Properties.Settings.Default["ServerName"].ToString();
-        string database = Properties.Settings.Default["DatabaseName"].ToString();
-        string userID = Properties.Settings.Default["UserID"].ToString();
-        string password = Properties.Settings.Default["Password"].ToString();
 
         //FORM INITIALIZATION WITH NO VARIABLES
         public Form6()
@@ -38,11 +35,12 @@ namespace Order_App
         {
             try
             {
+                lblDownloadProgress.Visible = false;
+                progressBar.Visible = false;
                 tbxBusinessName.Text = Properties.Settings.Default["CustomerName"].ToString();
                 tbxEmailAddress.Text = Properties.Settings.Default["EmailAddress"].ToString();
                 tbxContactNumber.Text = Properties.Settings.Default["ContactNumber"].ToString();
                 tbxPreferredStore.Text = Properties.Settings.Default["PreferredStore"].ToString();
-                lblLastUpdate.Text = Properties.Settings.Default["LastStockUpdate"].ToString();
 
                 if (Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
                 {
@@ -52,6 +50,19 @@ namespace Order_App
                 {
                     cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
                 }
+
+                string path = Properties.Settings.Default["XMLStoreFile"].ToString();
+                DataSet dataSet = new DataSet();
+                dataSet.ReadXml(path);
+                DataTable dataTable = new DataTable();
+                dataTable = dataSet.Tables[0];
+
+                bindingSource.DataSource = dataTable;
+                dataGridView1.DataSource = bindingSource;
+                dataGridView1.Columns[0].Width = 30;
+                dataGridView1.Columns[1].Width = 150;
+                dataGridView1.Columns[2].Width = 150;
+                dataGridView1.Columns[3].Width = 120;
             }
             catch (System.Exception ex)
             {
@@ -62,23 +73,44 @@ namespace Order_App
         //LOAD STORE CONTACT LIST DATA GRID VIEW LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, userID, password);
-            try
+            bool updated = form3.checkUpdate(Properties.Settings.Default["WebStoreFile"].ToString(), "LastStoreUpdate");
+            if(updated == false)
             {
-                connection = new MySqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open();
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
-                string sqlSelectAll = "SELECT * FROM codebeta_orderapp.store";
-                mySqlDataAdapter.SelectCommand = new MySqlCommand(sqlSelectAll, connection);
-                mySqlDataAdapter.Fill(table);
-                dataGridView1.DataSource = table;
-                result = MessageBox.Show("Successfully Established Connection", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+                try
+                {
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(webClient_DownloadProgressChanged);
+                    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(webClient_DownloadFileCompleted);
+                    webClient.DownloadFileAsync(new Uri(Properties.Settings.Default["WebStoreFile"].ToString()), Properties.Settings.Default["XMLStoreFile"].ToString());
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else if (updated == true)
             {
-                MessageBox.Show(ex.Message, "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Store File Up-To-Date!", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
+        }
+
+        private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            Properties.Settings.Default["LastStoreUpdate"] = DateTime.Now;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Update Completed!", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnLoad.Enabled = false;
+            progressBar.Visible = false;
+            lblDownloadProgress.Visible = false;
+        }
+
+        private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            progressBar.Visible = true;
+            progressBar.Maximum = (int)e.TotalBytesToReceive / 100;
+            progressBar.Value = (int)e.BytesReceived / 100;
+            lblDownloadProgress.Visible = true;
+            lblDownloadProgress.Text = string.Format("Download Progress [{0} KB / {1} KB]", (double)e.BytesReceived / 1000, (double)e.TotalBytesToReceive / 1000);
         }
 
         //SELECTING CONTACT FROM DATA GRID VIEW LOGIC

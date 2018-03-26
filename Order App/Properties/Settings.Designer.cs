@@ -202,15 +202,32 @@ namespace Order_App.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.code-beta.com/metro-order-app/store.xml")]
         public string WebStoreFile {
             get {
                 return ((string)(this["WebStoreFile"]));
             }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\metro-order-app\\store.xml")]
+        public string XMLStoreFile {
+            get {
+                return ((string)(this["XMLStoreFile"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastStoreUpdate {
+            get {
+                return ((global::System.DateTime)(this["LastStoreUpdate"]));
+            }
             set {
-                this["WebStoreFile"] = value;
+                this["LastStoreUpdate"] = value;
             }
         }
     }

@@ -18,8 +18,6 @@ namespace Order_App
         BindingSource bindingSource = new BindingSource();
         OrderClass orderClass = new OrderClass();
 
-
-
         //ORDER CLASS DEFINITION
         public class OrderClass
         {
@@ -102,7 +100,6 @@ namespace Order_App
             {
                 MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         //SAVING STOCK ITEM TO ORDER LOGIC
@@ -195,7 +192,6 @@ namespace Order_App
             }
         }
 
-        
         private void btnLoad_Click(object sender, EventArgs e)
         {
             
@@ -231,7 +227,5 @@ namespace Order_App
                 search();
             }
         }
-
-        
     }
 }
