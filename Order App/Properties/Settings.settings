@@ -53,5 +53,11 @@
     <Setting Name="ContactNumber" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="WebStockFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.code-beta.com/metro-order-app/stock.xml</Value>
+    </Setting>
+    <Setting Name="WebStoreFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.code-beta.com/metro-order-app/store.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

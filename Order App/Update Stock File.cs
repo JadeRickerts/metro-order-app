@@ -1,36 +1,22 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Order_App
 {
     public partial class Form3 : Form
-    {
-        //FORM VARIABLES
-        MySqlConnection connection;
-        string connectionString;
-        DataTable dataTable = new DataTable();
-        DialogResult result;
-        DateTime modifiedDate;
-        
-        bool loadStockFile = false;
-        //DATABASE SERVER CONFIG
-        string server = Properties.Settings.Default["ServerName"].ToString();
-        string database = Properties.Settings.Default["DatabaseName"].ToString();
-        string uid = Properties.Settings.Default["UserID"].ToString();
-        string pwd = Properties.Settings.Default["Password"].ToString();
-        
+    {      
         //FORM INITIALIZATION WITH NO VARIABLES
         public Form3()
         {
             try
             {
                 InitializeComponent();
-                progressBar.Visible = false;
-                lblLastUpdate.Visible = false;
-                lblUpdateDateTime.Visible = false;
+                btnOpen.Enabled = false;
             }
             catch (System.Exception ex)
             {
@@ -44,7 +30,10 @@ namespace Order_App
             try
             {
                 InitializeComponent();
-                startUpdate();
+                if (update == true)
+                {
+                    startUpdate();
+                }
             }
             catch (System.Exception ex)
             {
@@ -55,14 +44,7 @@ namespace Order_App
         //LOAD LATEST STOCK FILE FROM ONLINE DATABASE SERVER
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            try
-            {
-                startUpdate();
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            startUpdate();
         }
 
         //START STOCK FILE LOAD THREAD LOGIC
@@ -70,8 +52,10 @@ namespace Order_App
         {
             try
             {
-                loadTable();
-                btnUpdate.Text = "Update Stock File";
+                WebClient webClient = new WebClient();
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(webClient_DownloadProgressChanged);
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(webClient_DownloadFileCompleted);
+                webClient.DownloadFileAsync(new Uri(Properties.Settings.Default["WebStockFile"].ToString()), Properties.Settings.Default["XMLStockFile"].ToString());
             }
             catch (System.Exception ex)
             {
@@ -79,30 +63,21 @@ namespace Order_App
             }
         }
 
-        //LOAD LATEST STOCK FILE TABLE
-        private void loadTable()
+        private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, uid, pwd);
-            try
-            {
-                connection = new MySqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open();
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
-                string sqlSelectAll = "SELECT * FROM codebeta_orderapp.stock";
-                mySqlDataAdapter.SelectCommand = new MySqlCommand(sqlSelectAll, connection);
-                
-                mySqlDataAdapter.Fill(dataTable);
-                dataGridView1.DataSource = dataTable;
-                //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                progressBar.Visible = false;
-                result = MessageBox.Show("Successfully Established Connection", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadStockFile = true;
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Properties.Settings.Default["LastStockUpdate"] = DateTime.Now;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Download Completed!", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnOpen.Enabled = false;
+            btnUpdate.Enabled = false;
+        }
+
+        private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            progressBar.Visible = true;
+            progressBar.Maximum = (int)e.TotalBytesToReceive / 100;
+            progressBar.Value = (int)e.BytesReceived / 100;
+            lblDownloadProgress.Text = string.Format("Download Progress [{0} MB / {1} MB]", (double)e.BytesReceived / 1000000, (double)e.TotalBytesToReceive / 1000000);
         }
 
         //WRITE DATAGRIDVIEW TO XML DOCUMENT
@@ -110,27 +85,14 @@ namespace Order_App
         {
             try
             {
-                if (loadStockFile == true)
+                bool update = checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), "LastStockUpdate");
+                if(update == true)
                 {
-                    if (result == DialogResult.OK)
-                    {
-                        dataTable = (DataTable)dataGridView1.DataSource;
-                        dataTable.TableName = "StockTable";
-                        string stockfile = Directory.GetCurrentDirectory().ToString() + Properties.Settings.Default["XMLStockFile"].ToString();
-                        dataTable.WriteXml(stockfile, XmlWriteMode.WriteSchema, true);
-                        MessageBox.Show("Stock File Successfully Updated", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Properties.Settings.Default["LastStockUpdate"] = Convert.ToDateTime(lblUpdateDateTime.Text);
-                        Properties.Settings.Default.Save();
-                        loadStockFile = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Load Latest Stock File First", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else if (loadStockFile == false)
+                    MessageBox.Show("Stock File Up-To-Date", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else if (update == false)
                 {
-                    checkUpdate();
+                    MessageBox.Show("Update Available", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnOpen.Enabled = true;
                 }
             }
             catch (System.Exception ex)
@@ -168,40 +130,26 @@ namespace Order_App
         }
 
         //CHECK UPDATE METHOD
-        private void checkUpdate()
+        public bool checkUpdate(string url, string type)
         {
-            connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, uid, pwd);
             try
             {
-                connection = new MySqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open();
-                MySqlCommand mySqlCommand;
-                MySqlDataReader mySqlDataReader;
-                string mySqlCommandString = "SELECT * FROM codebeta_orderapp.stockupdated WHERE codebeta_orderapp.stockupdated.id = 1";
-                mySqlCommand = new MySqlCommand(mySqlCommandString, connection);
-                mySqlDataReader = mySqlCommand.ExecuteReader();
-                if (mySqlDataReader.Read())
-                {
-                    modifiedDate = mySqlDataReader.GetDateTime("ModifiedDate");
-                }
-                connection.Close();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "HEAD"; // Important - Not interested in file contents
 
-                lblLastUpdate.Visible = true;
-                lblUpdateDateTime.Visible = true;
-                lblUpdateDateTime.Text = modifiedDate.ToString();
-                
-                if (modifiedDate == Convert.ToDateTime(Properties.Settings.Default["LastStockUpdate"]))
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                if (Convert.ToDateTime(Properties.Settings.Default[type]) >= response.LastModified)
                 {
-                    MessageBox.Show("Stock File Up-to-date", "Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
                 } else
                 {
-                    MessageBox.Show("New Stock File Available For Update", "Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
                 }
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (System.Exception ex)
             {
-                MessageBox.Show(ex.Message, "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
             }
         }
     }

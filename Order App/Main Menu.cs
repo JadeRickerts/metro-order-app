@@ -6,16 +6,8 @@ namespace Order_App
 {
     public partial class MainMenu : Form
     {
-        //FORM VARIABLES
-        MySqlConnection connection;
-        DateTime modifiedDate;
-        string connectionString;
         bool startup;
-        //DATABASE SERVER VARIABLES FROM APP SETTINGS
-        string server = Properties.Settings.Default["ServerName"].ToString();
-        string database = Properties.Settings.Default["DatabaseName"].ToString();
-        string uid = Properties.Settings.Default["UserID"].ToString();
-        string pwd = Properties.Settings.Default["Password"].ToString();
+        Form3 form3 = new Form3();
 
         //FORM INITIALIZATION WITH NO PARAMETERS
         public MainMenu()
@@ -45,57 +37,11 @@ namespace Order_App
             }
         }
 
-        //CHECK FOR STOCK FILE UPDATE METHOD
-        private void checkUpdate()
-        {
-            connectionString = string.Format("server={0}; database={1}; uid={2}; pwd={3}", server, database, uid, pwd);
-            try
-            {
-                connection = new MySqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open();
-                MySqlCommand mySqlCommand;
-                MySqlDataReader mySqlDataReader;
-                string mySqlCommandString = "SELECT * FROM codebeta_orderapp.StockUpdated WHERE codebeta_orderapp.StockUpdated.id = 1";
-                mySqlCommand = new MySqlCommand(mySqlCommandString, connection);
-                mySqlDataReader = mySqlCommand.ExecuteReader();
-                if (mySqlDataReader.Read())
-                {
-                    modifiedDate = mySqlDataReader.GetDateTime("ModifiedDate");
-                }
-                connection.Close();
-
-                if (modifiedDate == Convert.ToDateTime(Properties.Settings.Default["LastStockUpdate"]))
-                {
-                    MessageBox.Show("Stock File Up-to-date", "Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    DialogResult result = MessageBox.Show("New Stock File Available For Update.\nWould You Like To Update Now?", "Stock File Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        bool update = true;
-                        Form3 form3 = new Form3(update);
-                        form3.Show();
-                        this.Hide();
-                    }
-                }
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message, "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         //MAIN MENU FORM STARTUP CONFIG
         private void MainMenu_Load(object sender, EventArgs e)
         {
             try
             {
-                if (startup == true && Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
-                {
-                    checkUpdate();
-                }
                 if (Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "")
                 {
                     MessageBox.Show("Please Click On User Settings to Setup App Before Ordering", "Metro Order App", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -172,6 +118,34 @@ namespace Order_App
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //CHECK FOR UPDATES IF USER SETTING IS SELECTED
+        private void MainMenu_Shown(object sender, EventArgs e)
+        {
+            if ((bool)Properties.Settings.Default["CheckForUpdates"] == true)
+            {
+                bool update = form3.checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), type: "LastStockUpdate");
+                if (update == true)
+                {
+                    MessageBox.Show("Stock File Up-To-Date!", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (update == false)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Update Available! \nWould You Like To Update?", "Main Menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        bool startUpdate = true;
+                        Form3 form = new Form3(startUpdate);
+                        this.Hide();
+                        form.Show();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //DO NOTHING
+                    }
+                }
             }
         }
     }

@@ -131,6 +131,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Metro Order Application";
             this.Load += new System.EventHandler(this.MainMenu_Load);
+            this.Shown += new System.EventHandler(this.MainMenu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

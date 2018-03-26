@@ -192,5 +192,26 @@ namespace Order_App.Properties {
                 this["ContactNumber"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.code-beta.com/metro-order-app/stock.xml")]
+        public string WebStockFile {
+            get {
+                return ((string)(this["WebStockFile"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.code-beta.com/metro-order-app/store.xml")]
+        public string WebStoreFile {
+            get {
+                return ((string)(this["WebStoreFile"]));
+            }
+            set {
+                this["WebStoreFile"] = value;
+            }
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace Order_App
                 tbxEmailAddress.Text = Properties.Settings.Default["EmailAddress"].ToString();
                 tbxContactNumber.Text = Properties.Settings.Default["ContactNumber"].ToString();
                 tbxPreferredStore.Text = Properties.Settings.Default["PreferredStore"].ToString();
+                lblLastUpdate.Text = Properties.Settings.Default["LastStockUpdate"].ToString();
 
                 if (Convert.ToBoolean(Properties.Settings.Default["CheckForUpdates"]) == true)
                 {
