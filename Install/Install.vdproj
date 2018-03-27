@@ -15,8 +15,14 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_10CD4B3B2C7F4B598FE08C96A5DE0688"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2EDD6B2B8BC94BB5E654C14299668C34"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,55 +46,55 @@
         "Entry"
         {
         "MsmKey" = "8:_3A0A22E918F378A5A9F6BCC77EEAB393"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_52CCA4A3FCC6F9D2C43ED8C78D77302D"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7662ACA5E9C38F3ECC10BD9E36BB514B"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_766762D1F7771D517CCFD1A94D63977D"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7822EBEF30CBE55CDDF8F87B48B5BD2C"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "MsmKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_52CCA4A3FCC6F9D2C43ED8C78D77302D"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7662ACA5E9C38F3ECC10BD9E36BB514B"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_766762D1F7771D517CCFD1A94D63977D"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7822EBEF30CBE55CDDF8F87B48B5BD2C"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_82F3CBD1C0ABED05E9C85F94203ADC2F"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8B3874EFDB54A796DCF5E6D25B12BC3C"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A9C0CCE7299D51C068E18518E8D6295E"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -99,20 +105,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B0A98978B52A4EA3A6690015713431CF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C0767AB5A846EBFB7FEFC0EA2364508A"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C0767AB5A846EBFB7FEFC0EA2364508A"
         "OwnerKey" = "8:_52CCA4A3FCC6F9D2C43ED8C78D77302D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C802542ABE614018A34ECB58BC0FD2EA"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,7 +136,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+        "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -205,6 +211,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -221,6 +243,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -250,6 +288,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10CD4B3B2C7F4B598FE08C96A5DE0688"
+            {
+            "SourcePath" = "8:..\\Order App\\bin\\Debug\\resources\\stock.xml"
+            "TargetName" = "8:stock.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2EDD6B2B8BC94BB5E654C14299668C34"
             {
             "AssemblyRegister" = "3:1"
@@ -529,6 +587,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0A98978B52A4EA3A6690015713431CF"
+            {
+            "SourcePath" = "8:..\\Order App\\bin\\Debug\\resources\\store.xml"
+            "TargetName" = "8:store.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C0767AB5A846EBFB7FEFC0EA2364508A"
             {
             "AssemblyRegister" = "3:1"
@@ -558,26 +636,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C802542ABE614018A34ECB58BC0FD2EA"
-            {
-            "SourcePath" = "8:C:\\metro-order-app\\stock.xml"
-            "TargetName" = "8:stock.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8324E0A85244304A4C5324E71FD26B2"
@@ -616,6 +674,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B9FA3B70CFD949D4BE103B1A357D7136"
+                    {
+                    "Name" = "8:resources"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_5E8B6D8109494987A59E51C43D9A7CC1"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_8BEE117936E64BD6A96B06048C090691"
@@ -666,9 +735,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Install Metro Order Application"
+        "ProductName" = "8:Metro Order Application"
         "ProductCode" = "8:{660BF70D-D30B-418F-B33B-85A756FF7472}"
-        "PackageCode" = "8:{AE05B47D-A8CE-409F-81DC-E301D29F1F7C}"
+        "PackageCode" = "8:{D394701F-2600-487F-BD47-570012730383}"
         "UpgradeCode" = "8:{6B9E710D-7D1F-4175-BC6C-2462D76FE4F3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -679,7 +748,7 @@
         "Manufacturer" = "8:Code-Beta"
         "ARPHELPTELEPHONE" = "8:+264 61 216009"
         "ARPHELPLINK" = "8:www.code-beta.com/help"
-        "Title" = "8:Install Metro Order Application"
+        "Title" = "8:Metro Order Application"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Jade Rickerts"
         "Keywords" = "8:order, metro, "
@@ -788,7 +857,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6FF39CE99DE84067B99E2DAE113737E8"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2FB5DD7B7B9A4953A015EC68D35760F9"
             {
             "Name" = "8:Metro Order App"
             "Arguments" = "8:"
@@ -796,24 +865,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7F6AC8EA02B14D558C377B327DB04475"
-            "Folder" = "8:_8BEE117936E64BD6A96B06048C090691"
-            "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Icon" = "8:_F8324E0A85244304A4C5324E71FD26B2"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_800D02DFA1864DC781B10B132CFACF3E"
-            {
-            "Name" = "8:Metro Order App"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_7F6AC8EA02B14D558C377B327DB04475"
+            "Target" = "8:_3C6A45E69A844144BF944776E1BB41DD"
             "Folder" = "8:_7F3D086B78B24AEAAA3AEAE92157635A"
             "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Icon" = "8:_F8324E0A85244304A4C5324E71FD26B2"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DE532CD99B2C4953B3D5620210ED99F1"
+            {
+            "Name" = "8:Metro Order App"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_3C6A45E69A844144BF944776E1BB41DD"
+            "Folder" = "8:_8BEE117936E64BD6A96B06048C090691"
+            "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -1215,9 +1284,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7F6AC8EA02B14D558C377B327DB04475"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3C6A45E69A844144BF944776E1BB41DD"
             {
-            "SourcePath" = "8:..\\Order App\\obj\\Debug\\Metro Order App.exe"
+            "SourcePath" = "8:..\\Order App\\obj\\Release\\Metro Order App.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
@@ -1235,7 +1304,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
+            "OutputConfiguration" = "8:Release|Any CPU"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{825B1FFC-E23D-4278-8CCC-E41B49E0C557}"
             "ShowKeyOutput" = "11:TRUE"

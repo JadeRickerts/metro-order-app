@@ -51,6 +51,15 @@ namespace Order_App
                     cbxAutoUpdateCheck.CheckState = CheckState.Unchecked;
                 }
 
+                if(Convert.ToBoolean(Properties.Settings.Default["SendOrderCopy"]) == true)
+                {
+                    cbxSendOrder.CheckState = CheckState.Checked;
+                }
+                else if (Convert.ToBoolean(Properties.Settings.Default["SendOrderCopy"]) == false)
+                {
+                    cbxSendOrder.CheckState = CheckState.Unchecked;
+                }
+
                 string path = Properties.Settings.Default["XMLStoreFile"].ToString();
                 DataSet dataSet = new DataSet();
                 dataSet.ReadXml(path);
@@ -156,6 +165,15 @@ namespace Order_App
                 {
                     Properties.Settings.Default["CheckForUpdates"] = false;
                 }
+                if (cbxSendOrder.CheckState == CheckState.Checked)
+                {
+                    Properties.Settings.Default["SendOrderCopy"] = true;
+                }
+                else if (cbxSendOrder.CheckState == CheckState.Unchecked)
+                {
+                    Properties.Settings.Default["SendOrderCopy"] = false;
+                }
+                
                 Properties.Settings.Default.Save();
                 DialogResult result = MessageBox.Show("Settings Updated", "System Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)

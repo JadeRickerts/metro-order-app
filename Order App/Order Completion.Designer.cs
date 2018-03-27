@@ -39,6 +39,7 @@
             this.cbxSendCopy = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(420, 407);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 300);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
             // 
@@ -57,7 +58,7 @@
             this.btnPrint.BackColor = System.Drawing.Color.DarkOrange;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.Location = new System.Drawing.Point(697, 369);
+            this.btnPrint.Location = new System.Drawing.Point(697, 499);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(175, 50);
             this.btnPrint.TabIndex = 7;
@@ -70,7 +71,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(438, 369);
+            this.btnCancel.Location = new System.Drawing.Point(516, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 6;
@@ -83,9 +84,9 @@
             this.btnSend.BackColor = System.Drawing.Color.Green;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSend.Location = new System.Drawing.Point(6, 295);
+            this.btnSend.Location = new System.Drawing.Point(685, 119);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(422, 50);
+            this.btnSend.Size = new System.Drawing.Size(169, 50);
             this.btnSend.TabIndex = 5;
             this.btnSend.Text = "Send Order";
             this.btnSend.UseVisualStyleBackColor = false;
@@ -95,19 +96,19 @@
             // 
             this.tbxComment.AcceptsReturn = true;
             this.tbxComment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxComment.Location = new System.Drawing.Point(6, 73);
+            this.tbxComment.Location = new System.Drawing.Point(6, 47);
             this.tbxComment.Multiline = true;
             this.tbxComment.Name = "tbxComment";
-            this.tbxComment.Size = new System.Drawing.Size(422, 216);
+            this.tbxComment.Size = new System.Drawing.Size(673, 122);
             this.tbxComment.TabIndex = 4;
             this.tbxComment.Text = "Add Comment To Order";
             // 
             // tbxTo
             // 
             this.tbxTo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTo.Location = new System.Drawing.Point(198, 19);
+            this.tbxTo.Location = new System.Drawing.Point(143, 19);
             this.tbxTo.Name = "tbxTo";
-            this.tbxTo.Size = new System.Drawing.Size(230, 22);
+            this.tbxTo.Size = new System.Drawing.Size(536, 22);
             this.tbxTo.TabIndex = 1;
             // 
             // lblTo
@@ -123,10 +124,10 @@
             // cbxSendCopy
             // 
             this.cbxSendCopy.AutoSize = true;
-            this.cbxSendCopy.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.cbxSendCopy.Location = new System.Drawing.Point(198, 47);
+            this.cbxSendCopy.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSendCopy.Location = new System.Drawing.Point(685, 51);
             this.cbxSendCopy.Name = "cbxSendCopy";
-            this.cbxSendCopy.Size = new System.Drawing.Size(160, 20);
+            this.cbxSendCopy.Size = new System.Drawing.Size(140, 18);
             this.cbxSendCopy.TabIndex = 3;
             this.cbxSendCopy.Text = "Send Order To Yourself";
             this.cbxSendCopy.UseVisualStyleBackColor = true;
@@ -134,10 +135,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(6, 47);
+            this.checkBox1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(685, 23);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(162, 20);
+            this.checkBox1.Size = new System.Drawing.Size(137, 18);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Send To Different Email";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -145,6 +146,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.progressBar);
             this.groupBox1.Controls.Add(this.tbxTo);
             this.groupBox1.Controls.Add(this.tbxComment);
             this.groupBox1.Controls.Add(this.checkBox1);
@@ -152,19 +154,27 @@
             this.groupBox1.Controls.Add(this.lblTo);
             this.groupBox1.Controls.Add(this.cbxSendCopy);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(438, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 318);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(434, 351);
+            this.groupBox1.Size = new System.Drawing.Size(860, 175);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Email Order";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(685, 90);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(169, 23);
+            this.progressBar.TabIndex = 10;
+            this.progressBar.Visible = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 433);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPrint);
@@ -195,5 +205,6 @@
         private System.Windows.Forms.CheckBox cbxSendCopy;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

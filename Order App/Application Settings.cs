@@ -23,12 +23,11 @@ namespace Order_App
         {
             try
             {
-                tbxStockFile.Text = Properties.Settings.Default["XMLStockFile"].ToString();
                 tbxAppSettingsPwd.Text = Properties.Settings.Default["SystemSettingPwd"].ToString();
-                tbxServerName.Text = Properties.Settings.Default["ServerName"].ToString();
-                tbxDatabase.Text = Properties.Settings.Default["DatabaseName"].ToString();
-                tbxUserID.Text = Properties.Settings.Default["UserID"].ToString();
-                tbxPassword.Text = Properties.Settings.Default["Password"].ToString();
+                tbxStockLoc.Text = Properties.Settings.Default["XMLStockFile"].ToString();
+                tbxStoreLoc.Text = Properties.Settings.Default["XMLStoreFile"].ToString();
+                tbxStockURL.Text = Properties.Settings.Default["WebStockFile"].ToString();
+                tbxStoreURL.Text = Properties.Settings.Default["WebStoreFile"].ToString();
                 tbxSMTPServer.Text = Properties.Settings.Default["SMTPServerName"].ToString();
                 tbxSMTPPort.Text = Properties.Settings.Default["SMTPPort"].ToString();
                 tbxSMTPUsername.Text = Properties.Settings.Default["SMTPUsername"].ToString();
@@ -42,6 +41,15 @@ namespace Order_App
                 {
                     cbxSSL.CheckState = CheckState.Unchecked;
                 }
+
+                if (Properties.Settings.Default["StartUp"].Equals(true))
+                {
+                    cbxStartUp.CheckState = CheckState.Checked;
+                }
+                else
+                {
+                    cbxStartUp.CheckState = CheckState.Unchecked;
+                }
             }
             catch (System.Exception ex)
             {
@@ -54,11 +62,11 @@ namespace Order_App
         {
             try
             {
-                //DATABASE FILE INFO
-                Properties.Settings.Default["ServerName"] = tbxServerName.Text;
-                Properties.Settings.Default["DatabaseName"] = tbxDatabase.Text;
-                Properties.Settings.Default["UserID"] = tbxUserID.Text;
-                Properties.Settings.Default["Password"] = tbxPassword.Text;
+                //FILE INFORMATION
+                Properties.Settings.Default["XMLStockFile"] = tbxStockLoc.Text;
+                Properties.Settings.Default["XMLStoreFile"] = tbxStoreLoc.Text;
+                Properties.Settings.Default["WebStockFile"] = tbxStockURL.Text;
+                Properties.Settings.Default["WebStoreFile"] = tbxStoreURL.Text;
                 //SMTP SERVER INFO
                 Properties.Settings.Default["SMTPServerName"] = tbxSMTPServer.Text;
                 Properties.Settings.Default["SMTPPort"] = Int32.Parse(tbxSMTPPort.Text);
@@ -73,8 +81,15 @@ namespace Order_App
                     Properties.Settings.Default["SMTPSSL"] = false;
                 }
                 //OTHER INFO
-                Properties.Settings.Default["XMLStockFile"] = tbxStockFile.Text;
                 Properties.Settings.Default["SystemSettingPwd"] = tbxAppSettingsPwd.Text;
+                if (cbxStartUp.CheckState == CheckState.Checked)
+                {
+                    Properties.Settings.Default["StartUp"] = true;
+                }
+                else
+                {
+                    Properties.Settings.Default["StartUp"] = false;
+                }
                 //SAVE
                 Properties.Settings.Default.Save();
                 DialogResult result = MessageBox.Show("Settings Updated", "System Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,6 +134,11 @@ namespace Order_App
             {
                 MessageBox.Show(ex.Message, "Application Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -44,6 +44,7 @@
             this.tbxContactNumber = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.lblDownloadProgress = new System.Windows.Forms.Label();
+            this.cbxSendOrder = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(13, 123);
+            this.label10.Location = new System.Drawing.Point(13, 149);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(123, 16);
@@ -61,19 +62,19 @@
             // tbxPreferredStore
             // 
             this.tbxPreferredStore.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPreferredStore.Location = new System.Drawing.Point(213, 120);
+            this.tbxPreferredStore.Location = new System.Drawing.Point(273, 146);
             this.tbxPreferredStore.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxPreferredStore.Name = "tbxPreferredStore";
-            this.tbxPreferredStore.Size = new System.Drawing.Size(360, 22);
+            this.tbxPreferredStore.Size = new System.Drawing.Size(400, 22);
             this.tbxPreferredStore.TabIndex = 4;
             // 
             // tbxEmailAddress
             // 
             this.tbxEmailAddress.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmailAddress.Location = new System.Drawing.Point(213, 64);
+            this.tbxEmailAddress.Location = new System.Drawing.Point(273, 64);
             this.tbxEmailAddress.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxEmailAddress.Name = "tbxEmailAddress";
-            this.tbxEmailAddress.Size = new System.Drawing.Size(360, 22);
+            this.tbxEmailAddress.Size = new System.Drawing.Size(400, 22);
             this.tbxEmailAddress.TabIndex = 2;
             // 
             // label3
@@ -90,10 +91,10 @@
             // tbxBusinessName
             // 
             this.tbxBusinessName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBusinessName.Location = new System.Drawing.Point(213, 36);
+            this.tbxBusinessName.Location = new System.Drawing.Point(273, 36);
             this.tbxBusinessName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxBusinessName.Name = "tbxBusinessName";
-            this.tbxBusinessName.Size = new System.Drawing.Size(360, 22);
+            this.tbxBusinessName.Size = new System.Drawing.Size(400, 22);
             this.tbxBusinessName.TabIndex = 1;
             // 
             // label2
@@ -124,10 +125,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 174);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 200);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(657, 262);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -136,7 +137,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(398, 499);
+            this.btnSave.Location = new System.Drawing.Point(498, 499);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
@@ -150,7 +151,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(207, 499);
+            this.btnCancel.Location = new System.Drawing.Point(257, 499);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
@@ -177,7 +178,7 @@
             // 
             this.cbxAutoUpdateCheck.AutoSize = true;
             this.cbxAutoUpdateCheck.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(213, 148);
+            this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(273, 174);
             this.cbxAutoUpdateCheck.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck";
             this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(238, 20);
@@ -189,7 +190,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 95);
+            this.label1.Location = new System.Drawing.Point(13, 121);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 16);
@@ -199,10 +200,10 @@
             // tbxContactNumber
             // 
             this.tbxContactNumber.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxContactNumber.Location = new System.Drawing.Point(213, 92);
+            this.tbxContactNumber.Location = new System.Drawing.Point(273, 118);
             this.tbxContactNumber.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxContactNumber.Name = "tbxContactNumber";
-            this.tbxContactNumber.Size = new System.Drawing.Size(360, 22);
+            this.tbxContactNumber.Size = new System.Drawing.Size(400, 22);
             this.tbxContactNumber.TabIndex = 3;
             // 
             // progressBar
@@ -222,14 +223,27 @@
             this.lblDownloadProgress.TabIndex = 12;
             this.lblDownloadProgress.Text = "label4";
             // 
+            // cbxSendOrder
+            // 
+            this.cbxSendOrder.AutoSize = true;
+            this.cbxSendOrder.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSendOrder.Location = new System.Drawing.Point(273, 92);
+            this.cbxSendOrder.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cbxSendOrder.Name = "cbxSendOrder";
+            this.cbxSendOrder.Size = new System.Drawing.Size(220, 20);
+            this.cbxSendOrder.TabIndex = 5;
+            this.cbxSendOrder.Text = "Always Send A Copy of the Order";
+            this.cbxSendOrder.UseVisualStyleBackColor = true;
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(584, 561);
+            this.ClientSize = new System.Drawing.Size(684, 561);
             this.Controls.Add(this.lblDownloadProgress);
             this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.cbxSendOrder);
             this.Controls.Add(this.cbxAutoUpdateCheck);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
@@ -277,5 +291,6 @@
         private System.Windows.Forms.TextBox tbxContactNumber;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblDownloadProgress;
+        private System.Windows.Forms.CheckBox cbxSendOrder;
     }
 }

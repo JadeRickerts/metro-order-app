@@ -4,6 +4,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Net.Mail;
+using System.ComponentModel;
 
 namespace Order_App
 {
@@ -11,6 +12,8 @@ namespace Order_App
     {
         //FORM VARIABLES
         Order.OrderClass oc = new Order.OrderClass();
+        BackgroundWorker emailBackgroundWorker = new BackgroundWorker();
+        BackgroundWorker printBackgroundWorker = new BackgroundWorker();
 
         //FORM INITIALIZATION
         public Form2(Order.OrderClass orderClass)
@@ -20,13 +23,19 @@ namespace Order_App
                 InitializeComponent();
                 oc = orderClass;
                 dataGridView1.DataSource = orderClass.List;
+                dataGridView1.Columns[0].Width = 100;
+                dataGridView1.Columns[1].Width = 500;
+                dataGridView1.Columns[2].Width = 100;
+                dataGridView1.Columns[3].Width = 100;
                 tbxTo.Enabled = false;
                 tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
                 checkBox1.CheckState = CheckState.Unchecked;
-                if (Properties.Settings.Default["PreferredStore"].ToString() == "")
+                if((bool)Properties.Settings.Default["SendOrderCopy"] == true)
                 {
-                    MessageBox.Show("You Can Set Your Preferred Store At Settings", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    checkBox1.CheckState = CheckState.Checked;
+                    cbxSendCopy.CheckState = CheckState.Checked;
+                } else
+                {
+                    cbxSendCopy.CheckState = CheckState.Unchecked;
                 }
                 btnCancel.Text = "Go Back";
             }
@@ -48,9 +57,13 @@ namespace Order_App
                 saveFileDialog.FilterIndex = 2;
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    PrintPDF(saveFileDialog.FileName);
-                    MessageBox.Show("Order Saved As PDF", "Save Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnCancel.Text = "Close";
+                    printBackgroundWorker.DoWork += new DoWorkEventHandler(printBackgroundWorker_DoWork);
+                    printBackgroundWorker.ProgressChanged += new ProgressChangedEventHandler(printBackgroundWorker_ProgressChanged);
+                    printBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(printBackgroundWorker_RunWorkerCompleted);
+                    printBackgroundWorker.RunWorkerAsync(saveFileDialog.FileName);
+                    progressBar.Visible = true;
+                    progressBar.Style = ProgressBarStyle.Marquee;
+                    progressBar.MarqueeAnimationSpeed = 50;
                 }
             }
             catch (System.Exception ex)
@@ -83,23 +96,27 @@ namespace Order_App
                 MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         //SEND EMAIL LOGIC
-        private void btnSend_Click(object sender, EventArgs e)
+        private void SendEmail()
         {
-            if(tbxComment.Text == "Add Comment To Order")
-            {
-                tbxComment.Text = "";
-            }
             try
             {
                 //SMTP MAIL SERVER SETTINGS
-                string file = @"C:\\metro-order-app\Order.pdf";
-                PrintPDF(file);
+                string file = @"C:\metro-order-app\Order.pdf";
+                printBackgroundWorker.RunWorkerAsync(file);
                 string username = Properties.Settings.Default["SMTPUsername"].ToString();
                 string password = Properties.Settings.Default["SMTPPassword"].ToString();
                 string smtp = Properties.Settings.Default["SMTPServerName"].ToString();
-
+                string message;
+                if (tbxComment.Text == "Add Comment To Order")
+                {
+                    message = "";
+                }
+                else
+                {
+                    message = tbxComment.Text;
+                }
                 //MAIL MESSAGE CONFIG
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(username);
@@ -109,7 +126,7 @@ namespace Order_App
                     mail.Bcc.Add(new MailAddress(Properties.Settings.Default["EmailAddress"].ToString()));
                 }
                 mail.Subject = "Metro Order App";
-                mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), tbxComment.Text);
+                mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), message);
                 mail.Attachments.Add(new Attachment(file));
                 SmtpClient smtpClient = new SmtpClient(smtp);
                 smtpClient.Port = Int32.Parse(Properties.Settings.Default["SMTPPort"].ToString());
@@ -117,18 +134,46 @@ namespace Order_App
                 if (Properties.Settings.Default["SMTPSSL"].Equals(true))
                 {
                     smtpClient.EnableSsl = true;
-                } else
+                }
+                else
                 {
                     smtpClient.EnableSsl = false;
                 }
                 smtpClient.Send(mail);
-                tbxComment.Text = "Add Comment To Order";
-                btnCancel.Text = "Close";
-                MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } catch (System.Exception ex)
+            }
+            catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            
+            emailBackgroundWorker.DoWork += new DoWorkEventHandler(emailBackgroundWorker_DoWork);
+            emailBackgroundWorker.ProgressChanged += new ProgressChangedEventHandler(emailBackgroundWorker_ProgressChanged);
+            emailBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(emailBackgroundWorker_RunWorkerCompleted);
+            emailBackgroundWorker.RunWorkerAsync();
+            progressBar.Visible = true;
+            progressBar.Style = ProgressBarStyle.Marquee;
+            progressBar.MarqueeAnimationSpeed = 50;
+        }
+
+        private void emailBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SendEmail();
+        }
+
+        private void emailBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            
+        }
+
+        private void emailBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            progressBar.Visible = false;
+            btnCancel.Text = "Close";
+            MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //PRINT PDF SETUP LOGIC METHOD
@@ -165,7 +210,7 @@ namespace Order_App
                 heading.Alignment = Element.ALIGN_LEFT;
                 heading.Add(new Chunk(string.Format("Date: {0}", DateTime.Now.Date.ToString("dd/MM/yyyy")), arialSmall));
                 heading.Add(new Chunk(string.Format("\nCustomer Name: {0}", Properties.Settings.Default["CustomerName"].ToString()), arialSmall));
-                heading.Add(new Chunk(string.Format("\nCustomer Numvber: {0}", Properties.Settings.Default["ContactNumber"].ToString()), arialSmall));
+                heading.Add(new Chunk(string.Format("\nCustomer Number: {0}", Properties.Settings.Default["ContactNumber"].ToString()), arialSmall));
                 heading.Add(new Chunk(string.Format("\nCustomer Email: {0}", Properties.Settings.Default["EmailAddress"].ToString()), arialSmall));
                 document.Add(heading);
                 document.Add(line);
@@ -189,11 +234,30 @@ namespace Order_App
                 }
                 document.Add(pdfPTable);
                 document.Close();
+                btnCancel.Text = "Close";
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
+        }
+
+        private void printBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string file = (string)e.Argument;
+            PrintPDF(file);
+        }
+
+        private void printBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            
+        }
+
+        private void printBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            progressBar.Visible = false;
+            btnCancel.Text = "Close";
+            MessageBox.Show("Order Saved As PDF", "Save Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //EMAIL TO SELECTION LOGIC
