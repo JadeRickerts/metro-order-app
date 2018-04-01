@@ -61,19 +61,24 @@ namespace Order_App
             lblDescription02.Text = "Description";
             lblPackSize02.Text = "PackSize";
             lblStockCode02.Text = "StockCode";
-
-            BackgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorker_DoWork);
-            BackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
-            BackgroundWorker.RunWorkerAsync();
+            progressBar.Visible = false;
+            btnLoadStockTable.Visible = true;
+            
             
         }
 
-        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void btnLoadStockTable_MouseClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("Stock File Successfully Loaded", "Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //BackgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorker_DoWork);
+            //BackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+            //BackgroundWorker.RunWorkerAsync();
+            //progressBar.Style = ProgressBarStyle.Marquee;
+            //progressBar.MarqueeAnimationSpeed = 50;
+            //progressBar.Visible = true;
+            LoadStockTable();
         }
-
-        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        
+        private void LoadStockTable()
         {
             //LOAD STOCK FILE LOGIC
             try
@@ -90,11 +95,25 @@ namespace Order_App
                 dataGridView1.Columns[1].Width = 100;
                 dataGridView1.Columns[2].Width = 500;
                 dataGridView1.Columns[3].Width = 100;
+
+                MessageBox.Show("Stock File Successfully Loaded", "Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //progressBar.Visible = false;
+                btnLoadStockTable.Visible = false;
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            
+        }
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
         }
 
         //SELECTING STOCK ITEM LOGIC
@@ -241,5 +260,7 @@ namespace Order_App
                 search();
             }
         }
+
+        
     }
 }

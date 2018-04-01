@@ -48,6 +48,8 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.btnLoadStockTable = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -124,6 +126,7 @@
             this.groupBox1.Controls.Add(this.lblQuantity);
             this.groupBox1.Controls.Add(this.lblPackSize01);
             this.groupBox1.Controls.Add(this.lblDescription01);
+            this.groupBox1.Controls.Add(this.btnLoadStockTable);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.lblPackSize02);
             this.groupBox1.Controls.Add(this.tbxQuantity);
@@ -255,12 +258,34 @@
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Search:";
             // 
+            // btnLoadStockTable
+            // 
+            this.btnLoadStockTable.BackColor = System.Drawing.Color.Green;
+            this.btnLoadStockTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadStockTable.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnLoadStockTable.Location = new System.Drawing.Point(574, 92);
+            this.btnLoadStockTable.Name = "btnLoadStockTable";
+            this.btnLoadStockTable.Size = new System.Drawing.Size(280, 26);
+            this.btnLoadStockTable.TabIndex = 5;
+            this.btnLoadStockTable.Text = "Load Stock Table";
+            this.btnLoadStockTable.UseVisualStyleBackColor = false;
+            this.btnLoadStockTable.Visible = false;
+            this.btnLoadStockTable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnLoadStockTable_MouseClick);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 599);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(175, 50);
+            this.progressBar.TabIndex = 6;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 661);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
@@ -305,5 +330,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Button btnLoadStockTable;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

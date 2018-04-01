@@ -66,7 +66,7 @@
             this.tbxPreferredStore.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxPreferredStore.Name = "tbxPreferredStore";
             this.tbxPreferredStore.Size = new System.Drawing.Size(400, 22);
-            this.tbxPreferredStore.TabIndex = 4;
+            this.tbxPreferredStore.TabIndex = 5;
             // 
             // tbxEmailAddress
             // 
@@ -141,7 +141,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -155,7 +155,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -169,7 +169,7 @@
             this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(175, 50);
-            this.btnLoad.TabIndex = 6;
+            this.btnLoad.TabIndex = 7;
             this.btnLoad.Text = "Update Store File";
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -182,7 +182,7 @@
             this.cbxAutoUpdateCheck.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck";
             this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(238, 20);
-            this.cbxAutoUpdateCheck.TabIndex = 5;
+            this.cbxAutoUpdateCheck.TabIndex = 6;
             this.cbxAutoUpdateCheck.Text = "Auto Check For Updates At Start Up";
             this.cbxAutoUpdateCheck.UseVisualStyleBackColor = true;
             // 
@@ -204,7 +204,7 @@
             this.tbxContactNumber.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbxContactNumber.Name = "tbxContactNumber";
             this.tbxContactNumber.Size = new System.Drawing.Size(400, 22);
-            this.tbxContactNumber.TabIndex = 3;
+            this.tbxContactNumber.TabIndex = 4;
             // 
             // progressBar
             // 
@@ -231,7 +231,7 @@
             this.cbxSendOrder.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbxSendOrder.Name = "cbxSendOrder";
             this.cbxSendOrder.Size = new System.Drawing.Size(220, 20);
-            this.cbxSendOrder.TabIndex = 5;
+            this.cbxSendOrder.TabIndex = 3;
             this.cbxSendOrder.Text = "Always Send A Copy of the Order";
             this.cbxSendOrder.UseVisualStyleBackColor = true;
             // 
