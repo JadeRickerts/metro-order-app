@@ -55,14 +55,14 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnPrint.BackColor = System.Drawing.Color.Green;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.btnPrint.Location = new System.Drawing.Point(697, 499);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(175, 50);
             this.btnPrint.TabIndex = 7;
-            this.btnPrint.Text = "Save Order As PDF";
+            this.btnPrint.Text = "Done";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -146,7 +146,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.progressBar);
             this.groupBox1.Controls.Add(this.tbxTo);
             this.groupBox1.Controls.Add(this.tbxComment);
             this.groupBox1.Controls.Add(this.checkBox1);
@@ -160,10 +159,11 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Email Order";
+            this.groupBox1.Visible = false;
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(685, 90);
+            this.progressBar.Location = new System.Drawing.Point(12, 526);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(169, 23);
             this.progressBar.TabIndex = 10;
@@ -175,6 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPrint);

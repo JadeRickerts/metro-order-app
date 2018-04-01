@@ -41,6 +41,7 @@
             this.lblStoreLoc = new System.Windows.Forms.Label();
             this.lblStockLoc = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxStartUp = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbxAppSettingsPwd = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -54,7 +55,10 @@
             this.lblSMTPUsername = new System.Windows.Forms.Label();
             this.lblSMTPPort = new System.Windows.Forms.Label();
             this.lblSMTPServer = new System.Windows.Forms.Label();
-            this.cbxStartUp = new System.Windows.Forms.CheckBox();
+            this.lblLastStockUpdate1 = new System.Windows.Forms.Label();
+            this.lblLastStoreUpdate1 = new System.Windows.Forms.Label();
+            this.lblLastStockUpdate2 = new System.Windows.Forms.Label();
+            this.lblLastStoreUpdate2 = new System.Windows.Forms.Label();
             this.gbxDatabaseInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -189,15 +193,30 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbxStartUp);
+            this.groupBox1.Controls.Add(this.lblLastStoreUpdate2);
+            this.groupBox1.Controls.Add(this.lblLastStoreUpdate1);
+            this.groupBox1.Controls.Add(this.lblLastStockUpdate2);
+            this.groupBox1.Controls.Add(this.lblLastStockUpdate1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbxAppSettingsPwd);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(16, 359);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(656, 87);
+            this.groupBox1.Size = new System.Drawing.Size(656, 134);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Other Information";
+            // 
+            // cbxStartUp
+            // 
+            this.cbxStartUp.AutoSize = true;
+            this.cbxStartUp.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxStartUp.Location = new System.Drawing.Point(318, 98);
+            this.cbxStartUp.Name = "cbxStartUp";
+            this.cbxStartUp.Size = new System.Drawing.Size(65, 20);
+            this.cbxStartUp.TabIndex = 12;
+            this.cbxStartUp.Text = "Start Up";
+            this.cbxStartUp.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -330,15 +349,45 @@
             this.lblSMTPServer.TabIndex = 6;
             this.lblSMTPServer.Text = "SMTP Server Name: ";
             // 
-            // cbxStartUp
+            // lblLastStockUpdate1
             // 
-            this.cbxStartUp.AutoSize = true;
-            this.cbxStartUp.Location = new System.Drawing.Point(318, 53);
-            this.cbxStartUp.Name = "cbxStartUp";
-            this.cbxStartUp.Size = new System.Drawing.Size(84, 22);
-            this.cbxStartUp.TabIndex = 12;
-            this.cbxStartUp.Text = "Start Up";
-            this.cbxStartUp.UseVisualStyleBackColor = true;
+            this.lblLastStockUpdate1.AutoSize = true;
+            this.lblLastStockUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStockUpdate1.Location = new System.Drawing.Point(7, 54);
+            this.lblLastStockUpdate1.Name = "lblLastStockUpdate1";
+            this.lblLastStockUpdate1.Size = new System.Drawing.Size(162, 16);
+            this.lblLastStockUpdate1.TabIndex = 3;
+            this.lblLastStockUpdate1.Text = "Last Stock File Update Date: ";
+            // 
+            // lblLastStoreUpdate1
+            // 
+            this.lblLastStoreUpdate1.AutoSize = true;
+            this.lblLastStoreUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(7, 79);
+            this.lblLastStoreUpdate1.Name = "lblLastStoreUpdate1";
+            this.lblLastStoreUpdate1.Size = new System.Drawing.Size(161, 16);
+            this.lblLastStoreUpdate1.TabIndex = 3;
+            this.lblLastStoreUpdate1.Text = "Last Store FIle Update Date: ";
+            // 
+            // lblLastStockUpdate2
+            // 
+            this.lblLastStockUpdate2.AutoSize = true;
+            this.lblLastStockUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStockUpdate2.Location = new System.Drawing.Point(317, 54);
+            this.lblLastStockUpdate2.Name = "lblLastStockUpdate2";
+            this.lblLastStockUpdate2.Size = new System.Drawing.Size(143, 16);
+            this.lblLastStockUpdate2.TabIndex = 3;
+            this.lblLastStockUpdate2.Text = "Last Stock File Update Date: ";
+            // 
+            // lblLastStoreUpdate2
+            // 
+            this.lblLastStoreUpdate2.AutoSize = true;
+            this.lblLastStoreUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(317, 79);
+            this.lblLastStoreUpdate2.Name = "lblLastStoreUpdate2";
+            this.lblLastStoreUpdate2.Size = new System.Drawing.Size(144, 16);
+            this.lblLastStoreUpdate2.TabIndex = 3;
+            this.lblLastStoreUpdate2.Text = "Last Store FIle Update Date: ";
             // 
             // Form4
             // 
@@ -400,5 +449,9 @@
         private System.Windows.Forms.CheckBox cbxSSL;
         private System.Windows.Forms.Label lblSSL;
         private System.Windows.Forms.CheckBox cbxStartUp;
+        private System.Windows.Forms.Label lblLastStoreUpdate2;
+        private System.Windows.Forms.Label lblLastStoreUpdate1;
+        private System.Windows.Forms.Label lblLastStockUpdate2;
+        private System.Windows.Forms.Label lblLastStockUpdate1;
     }
 }

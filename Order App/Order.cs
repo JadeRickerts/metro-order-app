@@ -17,6 +17,7 @@ namespace Order_App
         //FORM VARIABLES
         BindingSource bindingSource = new BindingSource();
         OrderClass orderClass = new OrderClass();
+        BackgroundWorker BackgroundWorker = new BackgroundWorker();
 
         //ORDER CLASS DEFINITION
         public class OrderClass
@@ -61,6 +62,19 @@ namespace Order_App
             lblPackSize02.Text = "PackSize";
             lblStockCode02.Text = "StockCode";
 
+            BackgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorker_DoWork);
+            BackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+            BackgroundWorker.RunWorkerAsync();
+            
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Stock File Successfully Loaded", "Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
             //LOAD STOCK FILE LOGIC
             try
             {

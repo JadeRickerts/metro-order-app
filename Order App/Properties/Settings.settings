@@ -53,7 +53,7 @@
     <Setting Name="LastStoreUpdate" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="StartUp" Type="System.Boolean" Scope="Application">
+    <Setting Name="StartUp" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="SendOrderCopy" Type="System.Boolean" Scope="User">

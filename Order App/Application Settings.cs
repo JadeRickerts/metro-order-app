@@ -32,6 +32,8 @@ namespace Order_App
                 tbxSMTPPort.Text = Properties.Settings.Default["SMTPPort"].ToString();
                 tbxSMTPUsername.Text = Properties.Settings.Default["SMTPUsername"].ToString();
                 tbxSMTPPassword.Text = Properties.Settings.Default["SMTPPassword"].ToString();
+                lblLastStoreUpdate2.Text = Properties.Settings.Default["LastStoreUpdate"].ToString();
+                lblLastStockUpdate2.Text = Properties.Settings.Default["LastStockUpdate"].ToString();
 
                 if (Properties.Settings.Default["SMTPSSL"].Equals(true))
                 {

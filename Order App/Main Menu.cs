@@ -117,6 +117,7 @@ namespace Order_App
                 if((bool)Properties.Settings.Default["StartUp"] == true)
                 {
                     copyStartUpFiles();
+                    resetUserSettings();
                 }
                 else
                 {
@@ -162,6 +163,19 @@ namespace Order_App
             {
                 MessageBox.Show(ex.Message, "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void resetUserSettings()
+        {
+            DateTime value = new DateTime(2018, 3, 1);
+            
+            Properties.Settings.Default["ContactNumber"] = "";
+            Properties.Settings.Default["CustomerName"] = "";
+            Properties.Settings.Default["PreferredStore"] = "";
+            Properties.Settings.Default["EmailAddress"] = "";
+            Properties.Settings.Default["LastStockUpdate"] = value;
+            Properties.Settings.Default["LastStoreUpdate"] = value;
+            Properties.Settings.Default.Save();
         }
 
         private void copyStartUpFiles()

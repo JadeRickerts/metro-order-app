@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_10CD4B3B2C7F4B598FE08C96A5DE0688"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2EDD6B2B8BC94BB5E654C14299668C34"
         "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
@@ -59,6 +53,12 @@
         {
         "MsmKey" = "8:_52CCA4A3FCC6F9D2C43ED8C78D77302D"
         "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_69B76B7DFF684CA9AB0B19D895E9CFD7"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,12 +130,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7662ACA5E9C38F3ECC10BD9E36BB514B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -191,6 +185,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A9C0CCE7299D51C068E18518E8D6295E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7662ACA5E9C38F3ECC10BD9E36BB514B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -288,26 +288,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10CD4B3B2C7F4B598FE08C96A5DE0688"
-            {
-            "SourcePath" = "8:..\\Order App\\bin\\Debug\\resources\\stock.xml"
-            "TargetName" = "8:stock.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2EDD6B2B8BC94BB5E654C14299668C34"
             {
             "AssemblyRegister" = "3:1"
@@ -399,6 +379,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69B76B7DFF684CA9AB0B19D895E9CFD7"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\stock.xml"
+            "TargetName" = "8:stock.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7662ACA5E9C38F3ECC10BD9E36BB514B"
@@ -868,7 +868,7 @@
             "Target" = "8:_3C6A45E69A844144BF944776E1BB41DD"
             "Folder" = "8:_7F3D086B78B24AEAAA3AEAE92157635A"
             "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Icon" = "8:"
+            "Icon" = "8:_F8324E0A85244304A4C5324E71FD26B2"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DE532CD99B2C4953B3D5620210ED99F1"
@@ -882,7 +882,7 @@
             "Target" = "8:_3C6A45E69A844144BF944776E1BB41DD"
             "Folder" = "8:_8BEE117936E64BD6A96B06048C090691"
             "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Icon" = "8:"
+            "Icon" = "8:_F8324E0A85244304A4C5324E71FD26B2"
             "Feature" = "8:"
             }
         }

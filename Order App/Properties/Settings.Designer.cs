@@ -195,12 +195,15 @@ namespace Order_App.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool StartUp {
             get {
                 return ((bool)(this["StartUp"]));
+            }
+            set {
+                this["StartUp"] = value;
             }
         }
         
