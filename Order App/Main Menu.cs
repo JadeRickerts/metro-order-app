@@ -113,8 +113,9 @@ namespace Order_App
         {
             try
             {
+                
                 //Check if stock and store startup files were copied
-                if((bool)Properties.Settings.Default["StartUp"] == true)
+                if (!Directory.Exists(@"C:\metro-order-app"))
                 {
                     copyStartUpFiles();
                     resetUserSettings();
@@ -167,14 +168,33 @@ namespace Order_App
 
         private void resetUserSettings()
         {
+            //SET DEFAULT VALUES
             DateTime value = new DateTime(2018, 3, 1);
             
+            //user settings
             Properties.Settings.Default["ContactNumber"] = "";
             Properties.Settings.Default["CustomerName"] = "";
             Properties.Settings.Default["PreferredStore"] = "";
             Properties.Settings.Default["EmailAddress"] = "";
+            Properties.Settings.Default["CheckForUpdates"] = false;
+            Properties.Settings.Default["SendOrderCopy"] = true;
+            
+            //file settings
             Properties.Settings.Default["LastStockUpdate"] = value;
             Properties.Settings.Default["LastStoreUpdate"] = value;
+            Properties.Settings.Default["XMLStockFile"] = @"C:\metro-order-app\stock.xml";
+            Properties.Settings.Default["XMLStoreFile"] = @"C:\metro-order-app\store.xml";
+            Properties.Settings.Default["WebStockFile"] = "http://www.code-beta.com/metro-order-app/stock.xml";
+            Properties.Settings.Default["WebStoreFile"] = "http://www.code-beta.com/metro-order-app/store.xml";
+            //mail settings
+            Properties.Settings.Default["SMTPServerName"] = "mail.code-beta.com";
+            Properties.Settings.Default["SMTPUsername"] = "metro-order-app@code-beta.com";
+            Properties.Settings.Default["SMTPPassword"] = "sefalana216009";
+            Properties.Settings.Default["SMTPPort"] = 25;
+            Properties.Settings.Default["SMTPSSL"] = false;
+            //application settings
+            Properties.Settings.Default["SystemSettingPwd"] = "sefalana216009";
+
             Properties.Settings.Default.Save();
         }
 

@@ -47,21 +47,27 @@ namespace Order_App.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\metro-order-app\\stock.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string XMLStockFile {
             get {
                 return ((string)(this["XMLStockFile"]));
             }
+            set {
+                this["XMLStockFile"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sefalana216009")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SystemSettingPwd {
             get {
                 return ((string)(this["SystemSettingPwd"]));
+            }
+            set {
+                this["SystemSettingPwd"] = value;
             }
         }
         
@@ -77,48 +83,61 @@ namespace Order_App.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mail.code-beta.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SMTPServerName {
             get {
                 return ((string)(this["SMTPServerName"]));
             }
+            set {
+                this["SMTPServerName"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("metro-order-app@code-beta.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SMTPUsername {
             get {
                 return ((string)(this["SMTPUsername"]));
             }
+            set {
+                this["SMTPUsername"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sefalana216009")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SMTPPassword {
             get {
                 return ((string)(this["SMTPPassword"]));
             }
+            set {
+                this["SMTPPassword"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("25")]
         public int SMTPPort {
             get {
                 return ((int)(this["SMTPPort"]));
             }
+            set {
+                this["SMTPPort"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool SMTPSSL {
             get {
                 return ((bool)(this["SMTPSSL"]));
+            }
+            set {
+                this["SMTPSSL"] = value;
             }
         }
         
@@ -135,7 +154,6 @@ namespace Order_App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool CheckForUpdates {
             get {
                 return ((bool)(this["CheckForUpdates"]));
@@ -157,30 +175,39 @@ namespace Order_App.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.code-beta.com/metro-order-app/stock.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string WebStockFile {
             get {
                 return ((string)(this["WebStockFile"]));
             }
+            set {
+                this["WebStockFile"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.code-beta.com/metro-order-app/store.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string WebStoreFile {
             get {
                 return ((string)(this["WebStoreFile"]));
             }
+            set {
+                this["WebStoreFile"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\metro-order-app\\store.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string XMLStoreFile {
             get {
                 return ((string)(this["XMLStoreFile"]));
+            }
+            set {
+                this["XMLStoreFile"] = value;
             }
         }
         
@@ -197,7 +224,6 @@ namespace Order_App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool StartUp {
             get {
                 return ((bool)(this["StartUp"]));
@@ -209,7 +235,6 @@ namespace Order_App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SendOrderCopy {
             get {
                 return ((bool)(this["SendOrderCopy"]));

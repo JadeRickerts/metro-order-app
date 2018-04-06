@@ -247,9 +247,9 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:1"
+            "PrerequisitesLocation" = "2:2"
             "Url" = "8:"
-            "ComponentsUrl" = "8:"
+            "ComponentsUrl" = "8:C:\\Users\\Jade Rickert\\Downloads"
                 "Items"
                 {
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
@@ -737,7 +737,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Metro Order Application"
         "ProductCode" = "8:{660BF70D-D30B-418F-B33B-85A756FF7472}"
-        "PackageCode" = "8:{D394701F-2600-487F-BD47-570012730383}"
+        "PackageCode" = "8:{493CE8C1-4FD6-4988-9967-0BD8CE829CAF}"
         "UpgradeCode" = "8:{6B9E710D-7D1F-4175-BC6C-2462D76FE4F3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
