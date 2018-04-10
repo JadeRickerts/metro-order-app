@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbxDatabaseInfo = new System.Windows.Forms.GroupBox();
@@ -64,22 +63,12 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Application Settings";
-            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(216, 499);
+            this.btnCancel.Location = new System.Drawing.Point(316, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 12;
@@ -92,7 +81,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Location = new System.Drawing.Point(397, 499);
+            this.btnSave.Location = new System.Drawing.Point(497, 499);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
             this.btnSave.TabIndex = 13;
@@ -111,7 +100,7 @@
             this.gbxDatabaseInfo.Controls.Add(this.lblStoreLoc);
             this.gbxDatabaseInfo.Controls.Add(this.lblStockLoc);
             this.gbxDatabaseInfo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDatabaseInfo.Location = new System.Drawing.Point(16, 36);
+            this.gbxDatabaseInfo.Location = new System.Drawing.Point(16, 12);
             this.gbxDatabaseInfo.Name = "gbxDatabaseInfo";
             this.gbxDatabaseInfo.Size = new System.Drawing.Size(656, 142);
             this.gbxDatabaseInfo.TabIndex = 4;
@@ -200,7 +189,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbxAppSettingsPwd);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 359);
+            this.groupBox1.Location = new System.Drawing.Point(16, 335);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(656, 134);
             this.groupBox1.TabIndex = 5;
@@ -210,10 +199,10 @@
             // cbxStartUp
             // 
             this.cbxStartUp.AutoSize = true;
-            this.cbxStartUp.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxStartUp.Location = new System.Drawing.Point(318, 98);
+            this.cbxStartUp.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.cbxStartUp.Location = new System.Drawing.Point(318, 53);
             this.cbxStartUp.Name = "cbxStartUp";
-            this.cbxStartUp.Size = new System.Drawing.Size(65, 20);
+            this.cbxStartUp.Size = new System.Drawing.Size(75, 20);
             this.cbxStartUp.TabIndex = 12;
             this.cbxStartUp.Text = "Start Up";
             this.cbxStartUp.UseVisualStyleBackColor = true;
@@ -222,7 +211,7 @@
             // 
             this.lblLastStoreUpdate2.AutoSize = true;
             this.lblLastStoreUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(317, 79);
+            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(315, 108);
             this.lblLastStoreUpdate2.Name = "lblLastStoreUpdate2";
             this.lblLastStoreUpdate2.Size = new System.Drawing.Size(144, 16);
             this.lblLastStoreUpdate2.TabIndex = 3;
@@ -232,7 +221,7 @@
             // 
             this.lblLastStoreUpdate1.AutoSize = true;
             this.lblLastStoreUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(7, 79);
+            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(8, 108);
             this.lblLastStoreUpdate1.Name = "lblLastStoreUpdate1";
             this.lblLastStoreUpdate1.Size = new System.Drawing.Size(161, 16);
             this.lblLastStoreUpdate1.TabIndex = 3;
@@ -242,7 +231,7 @@
             // 
             this.lblLastStockUpdate2.AutoSize = true;
             this.lblLastStockUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStockUpdate2.Location = new System.Drawing.Point(317, 54);
+            this.lblLastStockUpdate2.Location = new System.Drawing.Point(315, 78);
             this.lblLastStockUpdate2.Name = "lblLastStockUpdate2";
             this.lblLastStockUpdate2.Size = new System.Drawing.Size(143, 16);
             this.lblLastStockUpdate2.TabIndex = 3;
@@ -252,7 +241,7 @@
             // 
             this.lblLastStockUpdate1.AutoSize = true;
             this.lblLastStockUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStockUpdate1.Location = new System.Drawing.Point(7, 54);
+            this.lblLastStockUpdate1.Location = new System.Drawing.Point(7, 78);
             this.lblLastStockUpdate1.Name = "lblLastStockUpdate1";
             this.lblLastStockUpdate1.Size = new System.Drawing.Size(162, 16);
             this.lblLastStockUpdate1.TabIndex = 3;
@@ -289,7 +278,7 @@
             this.groupBox2.Controls.Add(this.lblSMTPPort);
             this.groupBox2.Controls.Add(this.lblSMTPServer);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 184);
+            this.groupBox2.Location = new System.Drawing.Point(16, 160);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(656, 169);
             this.groupBox2.TabIndex = 4;
@@ -299,9 +288,10 @@
             // cbxSSL
             // 
             this.cbxSSL.AutoSize = true;
-            this.cbxSSL.Location = new System.Drawing.Point(318, 144);
+            this.cbxSSL.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.cbxSSL.Location = new System.Drawing.Point(320, 143);
             this.cbxSSL.Name = "cbxSSL";
-            this.cbxSSL.Size = new System.Drawing.Size(58, 22);
+            this.cbxSSL.Size = new System.Drawing.Size(52, 20);
             this.cbxSSL.TabIndex = 9;
             this.cbxSSL.Text = "SSL";
             this.cbxSSL.UseVisualStyleBackColor = true;
@@ -399,7 +389,6 @@
             this.Controls.Add(this.gbxDatabaseInfo);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form4";
@@ -415,13 +404,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbxDatabaseInfo;
