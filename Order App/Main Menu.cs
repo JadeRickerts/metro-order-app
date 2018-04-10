@@ -38,13 +38,8 @@ namespace Order_App
             }
         }
 
-        //MAIN MENU FORM STARTUP CONFIG
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        //OPEN ORDER FORM
+        //FORMS
+        //1. OPEN ORDER FORM
         private void btnOrder_Click(object sender, EventArgs e)
         {
             try
@@ -59,7 +54,7 @@ namespace Order_App
             }
         }
 
-        //OPEN UPDATE STOCK FILE FORM
+        //2. OPEN UPDATE STOCK FILE FORM
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -75,7 +70,7 @@ namespace Order_App
             }
         }
 
-        //OPEN USER SETTINGS FORM
+        //3. OPEN USER SETTINGS FORM
         private void btnSettings_Click(object sender, EventArgs e)
         {
             try
@@ -91,7 +86,7 @@ namespace Order_App
             }
         }
 
-        //EXIT APPLICATION
+        //4. EXIT APPLICATION
         private void btnExit_Click(object sender, EventArgs e)
         {
             try
@@ -113,21 +108,17 @@ namespace Order_App
         {
             try
             {
-                
-                //Check if stock and store startup files were copied
+                //Check if metro-order-app folder exists, reset user settings and copy files over if it does not exist. 
                 if (!Directory.Exists(@"C:\metro-order-app"))
                 {
                     copyStartUpFiles();
                     resetUserSettings();
                 }
-                else
-                {
-                    //DO NOTHING
-                }
+
                 //Check if basic info has been submitted otherwise user can't order
                 if (Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "")
                 {
-                    MessageBox.Show("Please Click On User Settings to Setup App Before Ordering", "Metro Order App", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please Click On User Settings to Setup App Before Ordering. \nPlease Enter Business Name and Email to create orders.", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnOrder.Enabled = false;
                 }
                 else
@@ -135,7 +126,7 @@ namespace Order_App
                     btnOrder.Enabled = true;
                 }
 
-                //Check if "check for updates" user setting is active. 
+                //Check if "check for updates" user setting is active. If active, check for updates. If update is available, ask user how to proceed. 
                 if ((bool)Properties.Settings.Default["CheckForUpdates"] == true)
                 {
                     bool update = form3.checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), type: "LastStockUpdate");
@@ -153,10 +144,6 @@ namespace Order_App
                             this.Hide();
                             form.Show();
                         }
-                        else if (dialogResult == DialogResult.No)
-                        {
-                            //DO NOTHING
-                        }
                     }
                 }
             }
@@ -166,9 +153,12 @@ namespace Order_App
             }
         }
 
+        //FUNCTIONS
+        //Set user settings to default if metro-order-app folder doesn't exist. 
         private void resetUserSettings()
         {
             //SET DEFAULT VALUES
+            //This is the date when the final stock file is uploaded to the host server.
             DateTime value = new DateTime(2018, 3, 1);
             
             //user settings
@@ -179,57 +169,58 @@ namespace Order_App
             Properties.Settings.Default["CheckForUpdates"] = false;
             Properties.Settings.Default["SendOrderCopy"] = true;
             
-            //file settings
+            //file settings - setup before going live!
             Properties.Settings.Default["LastStockUpdate"] = value;
             Properties.Settings.Default["LastStoreUpdate"] = value;
             Properties.Settings.Default["XMLStockFile"] = @"C:\metro-order-app\stock.xml";
             Properties.Settings.Default["XMLStoreFile"] = @"C:\metro-order-app\store.xml";
             Properties.Settings.Default["WebStockFile"] = "http://www.code-beta.com/metro-order-app/stock.xml";
             Properties.Settings.Default["WebStoreFile"] = "http://www.code-beta.com/metro-order-app/store.xml";
-            //mail settings
+            //mail settings - setup before going live!
             Properties.Settings.Default["SMTPServerName"] = "mail.code-beta.com";
             Properties.Settings.Default["SMTPUsername"] = "metro-order-app@code-beta.com";
             Properties.Settings.Default["SMTPPassword"] = "sefalana216009";
             Properties.Settings.Default["SMTPPort"] = 25;
             Properties.Settings.Default["SMTPSSL"] = false;
-            //application settings
+            //application settings - setup before going live!
             Properties.Settings.Default["SystemSettingPwd"] = "sefalana216009";
 
             Properties.Settings.Default.Save();
         }
 
+        //Copy files in resources folder in Program Files to metro-order-app folder on C: drive.
         private void copyStartUpFiles()
         {
             string fileName = "stock.xml";
-            string sourcePath = string.Format(@"{0}\{1}", Directory.GetCurrentDirectory().ToString(), "resources");
-            string targetPath = string.Format(@"C:\metro-order-app\");
+            string resourcesPath = string.Format(@"{0}\{1}", Directory.GetCurrentDirectory().ToString(), "resources");
+            string metroOrderAppFolderPath = string.Format(@"C:\metro-order-app\");
 
             // Use Path class to manipulate file and directory paths.
-            string sourceFile = Path.Combine(sourcePath, fileName);
-            string destFile = Path.Combine(targetPath, fileName);
+            string sourceFile = Path.Combine(resourcesPath, fileName);
+            string destFile = Path.Combine(metroOrderAppFolderPath, fileName);
 
-            // To copy a folder's contents to a new location:
+            // Copy resources folder content to metro-order-app folder:
             // Create a new target folder, if necessary.
-            if (!Directory.Exists(targetPath))
+            if (!Directory.Exists(metroOrderAppFolderPath))
             {
-                Directory.CreateDirectory(targetPath);
+                Directory.CreateDirectory(metroOrderAppFolderPath);
             }
-            if (Directory.Exists(sourcePath))
+            if (Directory.Exists(resourcesPath))
             {
-                string[] files = Directory.GetFiles(sourcePath);
+                string[] files = Directory.GetFiles(resourcesPath);
 
                 // Copy the files and overwrite destination files if they already exist.
                 foreach (string s in files)
                 {
                     // Use static Path methods to extract only the file name from the path.
                     fileName = Path.GetFileName(s);
-                    destFile = Path.Combine(targetPath, fileName);
+                    destFile = Path.Combine(metroOrderAppFolderPath, fileName);
                     File.Copy(s, destFile, true);
                 }
             }
             else
             {
-                Console.WriteLine("Source path does not exist!");
+                MessageBox.Show("Resources Folder Does Not Exist!", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Properties.Settings.Default["StartUp"] = false;
             Properties.Settings.Default.Save();
