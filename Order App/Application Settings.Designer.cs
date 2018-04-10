@@ -42,6 +42,10 @@
             this.lblStockLoc = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxStartUp = new System.Windows.Forms.CheckBox();
+            this.lblLastStoreUpdate2 = new System.Windows.Forms.Label();
+            this.lblLastStoreUpdate1 = new System.Windows.Forms.Label();
+            this.lblLastStockUpdate2 = new System.Windows.Forms.Label();
+            this.lblLastStockUpdate1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbxAppSettingsPwd = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,10 +59,6 @@
             this.lblSMTPUsername = new System.Windows.Forms.Label();
             this.lblSMTPPort = new System.Windows.Forms.Label();
             this.lblSMTPServer = new System.Windows.Forms.Label();
-            this.lblLastStockUpdate1 = new System.Windows.Forms.Label();
-            this.lblLastStoreUpdate1 = new System.Windows.Forms.Label();
-            this.lblLastStockUpdate2 = new System.Windows.Forms.Label();
-            this.lblLastStoreUpdate2 = new System.Windows.Forms.Label();
             this.gbxDatabaseInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -218,6 +218,46 @@
             this.cbxStartUp.Text = "Start Up";
             this.cbxStartUp.UseVisualStyleBackColor = true;
             // 
+            // lblLastStoreUpdate2
+            // 
+            this.lblLastStoreUpdate2.AutoSize = true;
+            this.lblLastStoreUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(317, 79);
+            this.lblLastStoreUpdate2.Name = "lblLastStoreUpdate2";
+            this.lblLastStoreUpdate2.Size = new System.Drawing.Size(144, 16);
+            this.lblLastStoreUpdate2.TabIndex = 3;
+            this.lblLastStoreUpdate2.Text = "Last Store FIle Update Date: ";
+            // 
+            // lblLastStoreUpdate1
+            // 
+            this.lblLastStoreUpdate1.AutoSize = true;
+            this.lblLastStoreUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(7, 79);
+            this.lblLastStoreUpdate1.Name = "lblLastStoreUpdate1";
+            this.lblLastStoreUpdate1.Size = new System.Drawing.Size(161, 16);
+            this.lblLastStoreUpdate1.TabIndex = 3;
+            this.lblLastStoreUpdate1.Text = "Last Store FIle Update Date: ";
+            // 
+            // lblLastStockUpdate2
+            // 
+            this.lblLastStockUpdate2.AutoSize = true;
+            this.lblLastStockUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStockUpdate2.Location = new System.Drawing.Point(317, 54);
+            this.lblLastStockUpdate2.Name = "lblLastStockUpdate2";
+            this.lblLastStockUpdate2.Size = new System.Drawing.Size(143, 16);
+            this.lblLastStockUpdate2.TabIndex = 3;
+            this.lblLastStockUpdate2.Text = "Last Stock File Update Date: ";
+            // 
+            // lblLastStockUpdate1
+            // 
+            this.lblLastStockUpdate1.AutoSize = true;
+            this.lblLastStockUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastStockUpdate1.Location = new System.Drawing.Point(7, 54);
+            this.lblLastStockUpdate1.Name = "lblLastStockUpdate1";
+            this.lblLastStockUpdate1.Size = new System.Drawing.Size(162, 16);
+            this.lblLastStockUpdate1.TabIndex = 3;
+            this.lblLastStockUpdate1.Text = "Last Stock File Update Date: ";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -255,7 +295,6 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Database Information";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // cbxSSL
             // 
@@ -348,46 +387,6 @@
             this.lblSMTPServer.Size = new System.Drawing.Size(114, 16);
             this.lblSMTPServer.TabIndex = 6;
             this.lblSMTPServer.Text = "SMTP Server Name: ";
-            // 
-            // lblLastStockUpdate1
-            // 
-            this.lblLastStockUpdate1.AutoSize = true;
-            this.lblLastStockUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStockUpdate1.Location = new System.Drawing.Point(7, 54);
-            this.lblLastStockUpdate1.Name = "lblLastStockUpdate1";
-            this.lblLastStockUpdate1.Size = new System.Drawing.Size(162, 16);
-            this.lblLastStockUpdate1.TabIndex = 3;
-            this.lblLastStockUpdate1.Text = "Last Stock File Update Date: ";
-            // 
-            // lblLastStoreUpdate1
-            // 
-            this.lblLastStoreUpdate1.AutoSize = true;
-            this.lblLastStoreUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(7, 79);
-            this.lblLastStoreUpdate1.Name = "lblLastStoreUpdate1";
-            this.lblLastStoreUpdate1.Size = new System.Drawing.Size(161, 16);
-            this.lblLastStoreUpdate1.TabIndex = 3;
-            this.lblLastStoreUpdate1.Text = "Last Store FIle Update Date: ";
-            // 
-            // lblLastStockUpdate2
-            // 
-            this.lblLastStockUpdate2.AutoSize = true;
-            this.lblLastStockUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStockUpdate2.Location = new System.Drawing.Point(317, 54);
-            this.lblLastStockUpdate2.Name = "lblLastStockUpdate2";
-            this.lblLastStockUpdate2.Size = new System.Drawing.Size(143, 16);
-            this.lblLastStockUpdate2.TabIndex = 3;
-            this.lblLastStockUpdate2.Text = "Last Stock File Update Date: ";
-            // 
-            // lblLastStoreUpdate2
-            // 
-            this.lblLastStoreUpdate2.AutoSize = true;
-            this.lblLastStoreUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(317, 79);
-            this.lblLastStoreUpdate2.Name = "lblLastStoreUpdate2";
-            this.lblLastStoreUpdate2.Size = new System.Drawing.Size(144, 16);
-            this.lblLastStoreUpdate2.TabIndex = 3;
-            this.lblLastStoreUpdate2.Text = "Last Store FIle Update Date: ";
             // 
             // Form4
             // 

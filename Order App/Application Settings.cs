@@ -23,18 +23,24 @@ namespace Order_App
         {
             try
             {
-                tbxAppSettingsPwd.Text = Properties.Settings.Default["SystemSettingPwd"].ToString();
+                //Populate the textboxes with the saved values in the user.config file
+                
+                //File information
                 tbxStockLoc.Text = Properties.Settings.Default["XMLStockFile"].ToString();
                 tbxStoreLoc.Text = Properties.Settings.Default["XMLStoreFile"].ToString();
                 tbxStockURL.Text = Properties.Settings.Default["WebStockFile"].ToString();
                 tbxStoreURL.Text = Properties.Settings.Default["WebStoreFile"].ToString();
+                //SMTP Server Information
                 tbxSMTPServer.Text = Properties.Settings.Default["SMTPServerName"].ToString();
                 tbxSMTPPort.Text = Properties.Settings.Default["SMTPPort"].ToString();
                 tbxSMTPUsername.Text = Properties.Settings.Default["SMTPUsername"].ToString();
                 tbxSMTPPassword.Text = Properties.Settings.Default["SMTPPassword"].ToString();
+                //Other Information
                 lblLastStoreUpdate2.Text = Properties.Settings.Default["LastStoreUpdate"].ToString();
                 lblLastStockUpdate2.Text = Properties.Settings.Default["LastStockUpdate"].ToString();
+                tbxAppSettingsPwd.Text = Properties.Settings.Default["SystemSettingPwd"].ToString();
 
+                //Populate tickboxes. True = ticked, false = unticked.
                 if (Properties.Settings.Default["SMTPSSL"].Equals(true))
                 {
                     cbxSSL.CheckState = CheckState.Checked;
@@ -64,12 +70,15 @@ namespace Order_App
         {
             try
             {
-                //FILE INFORMATION
+                //Save values in the textboxes to user.config file. 
+                //All settings are user settings (user scope) because it allows for it to be saved during runtime.
+                
+                //File Information
                 Properties.Settings.Default["XMLStockFile"] = tbxStockLoc.Text;
                 Properties.Settings.Default["XMLStoreFile"] = tbxStoreLoc.Text;
                 Properties.Settings.Default["WebStockFile"] = tbxStockURL.Text;
                 Properties.Settings.Default["WebStoreFile"] = tbxStoreURL.Text;
-                //SMTP SERVER INFO
+                //SMTP Server Information
                 Properties.Settings.Default["SMTPServerName"] = tbxSMTPServer.Text;
                 Properties.Settings.Default["SMTPPort"] = Int32.Parse(tbxSMTPPort.Text);
                 Properties.Settings.Default["SMTPUsername"] = tbxSMTPUsername.Text;
@@ -82,7 +91,7 @@ namespace Order_App
                 {
                     Properties.Settings.Default["SMTPSSL"] = false;
                 }
-                //OTHER INFO
+                //Other Information
                 Properties.Settings.Default["SystemSettingPwd"] = tbxAppSettingsPwd.Text;
                 if (cbxStartUp.CheckState == CheckState.Checked)
                 {
@@ -94,7 +103,7 @@ namespace Order_App
                 }
                 //SAVE
                 Properties.Settings.Default.Save();
-                DialogResult result = MessageBox.Show("Settings Updated", "System Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("Settings Updated", "Application Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
                     this.Close();
@@ -111,7 +120,7 @@ namespace Order_App
         {
             try
             {
-                DialogResult result = MessageBox.Show("Are You Sure You Want To Close System Settings?", "System Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Are You Sure You Want To Close System Settings?", "Application Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     this.Close();
@@ -136,11 +145,6 @@ namespace Order_App
             {
                 MessageBox.Show(ex.Message, "Application Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
