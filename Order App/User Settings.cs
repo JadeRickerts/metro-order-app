@@ -79,7 +79,7 @@ namespace Order_App
             }
         }
 
-        //LOAD STORE CONTACT LIST DATA GRID VIEW LOGIC
+        //UPDATE STORE FILE LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
             bool updated = form3.checkUpdate(Properties.Settings.Default["WebStoreFile"].ToString(), "LastStoreUpdate");

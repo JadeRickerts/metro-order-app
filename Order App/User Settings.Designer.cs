@@ -181,9 +181,9 @@
             this.cbxAutoUpdateCheck.Location = new System.Drawing.Point(273, 174);
             this.cbxAutoUpdateCheck.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck";
-            this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(238, 20);
+            this.cbxAutoUpdateCheck.Size = new System.Drawing.Size(232, 20);
             this.cbxAutoUpdateCheck.TabIndex = 6;
-            this.cbxAutoUpdateCheck.Text = "Auto Check For Updates At Start Up";
+            this.cbxAutoUpdateCheck.Text = "Auto Check for Updates at Start Up";
             this.cbxAutoUpdateCheck.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -232,7 +232,7 @@
             this.cbxSendOrder.Name = "cbxSendOrder";
             this.cbxSendOrder.Size = new System.Drawing.Size(220, 20);
             this.cbxSendOrder.TabIndex = 3;
-            this.cbxSendOrder.Text = "Always Send A Copy of the Order";
+            this.cbxSendOrder.Text = "Always Send a Copy of the Order";
             this.cbxSendOrder.UseVisualStyleBackColor = true;
             // 
             // Form6
