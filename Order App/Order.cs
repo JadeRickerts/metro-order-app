@@ -63,19 +63,15 @@ namespace Order_App
             lblStockCode02.Text = "StockCode";
             progressBar.Visible = false;
             btnLoadStockTable.Visible = true;
-            
-            
+            btnAdd.Enabled = false;
+            btnSearch.Enabled = false;
         }
 
         private void btnLoadStockTable_MouseClick(object sender, MouseEventArgs e)
         {
-            //BackgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorker_DoWork);
-            //BackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
-            //BackgroundWorker.RunWorkerAsync();
-            //progressBar.Style = ProgressBarStyle.Marquee;
-            //progressBar.MarqueeAnimationSpeed = 50;
-            //progressBar.Visible = true;
             LoadStockTable();
+            btnAdd.Enabled = true;
+            btnSearch.Enabled = true;
         }
         
         private void LoadStockTable()

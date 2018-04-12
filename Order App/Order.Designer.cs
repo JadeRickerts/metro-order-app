@@ -40,6 +40,7 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.lblPackSize01 = new System.Windows.Forms.Label();
             this.lblDescription01 = new System.Windows.Forms.Label();
+            this.btnLoadStockTable = new System.Windows.Forms.Button();
             this.lblPackSize02 = new System.Windows.Forms.Label();
             this.lblDescription02 = new System.Windows.Forms.Label();
             this.lblStockCode02 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.btnLoadStockTable = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
@@ -81,7 +81,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(280, 26);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Add To Order";
+            this.btnAdd.Text = "Add to Order";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -171,6 +171,20 @@
             this.lblDescription01.TabIndex = 0;
             this.lblDescription01.Text = "Description:";
             // 
+            // btnLoadStockTable
+            // 
+            this.btnLoadStockTable.BackColor = System.Drawing.Color.Green;
+            this.btnLoadStockTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadStockTable.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnLoadStockTable.Location = new System.Drawing.Point(574, 92);
+            this.btnLoadStockTable.Name = "btnLoadStockTable";
+            this.btnLoadStockTable.Size = new System.Drawing.Size(280, 26);
+            this.btnLoadStockTable.TabIndex = 5;
+            this.btnLoadStockTable.Text = "Load Stock Table";
+            this.btnLoadStockTable.UseVisualStyleBackColor = false;
+            this.btnLoadStockTable.Visible = false;
+            this.btnLoadStockTable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnLoadStockTable_MouseClick);
+            // 
             // lblPackSize02
             // 
             this.lblPackSize02.AutoSize = true;
@@ -257,20 +271,6 @@
             this.lblSearch.Size = new System.Drawing.Size(68, 23);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Search:";
-            // 
-            // btnLoadStockTable
-            // 
-            this.btnLoadStockTable.BackColor = System.Drawing.Color.Green;
-            this.btnLoadStockTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadStockTable.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnLoadStockTable.Location = new System.Drawing.Point(574, 92);
-            this.btnLoadStockTable.Name = "btnLoadStockTable";
-            this.btnLoadStockTable.Size = new System.Drawing.Size(280, 26);
-            this.btnLoadStockTable.TabIndex = 5;
-            this.btnLoadStockTable.Text = "Load Stock Table";
-            this.btnLoadStockTable.UseVisualStyleBackColor = false;
-            this.btnLoadStockTable.Visible = false;
-            this.btnLoadStockTable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnLoadStockTable_MouseClick);
             // 
             // progressBar
             // 
