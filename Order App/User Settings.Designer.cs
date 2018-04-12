@@ -203,9 +203,11 @@
             this.tbxContactNumber.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxContactNumber.Location = new System.Drawing.Point(273, 118);
             this.tbxContactNumber.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbxContactNumber.MaxLength = 10;
             this.tbxContactNumber.Name = "tbxContactNumber";
             this.tbxContactNumber.Size = new System.Drawing.Size(400, 22);
             this.tbxContactNumber.TabIndex = 4;
+            this.tbxContactNumber.Leave += new System.EventHandler(this.tbxContactNumber_Leave);
             // 
             // progressBar
             // 

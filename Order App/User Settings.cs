@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System.ComponentModel;
 using System.Net;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace Order_App
 {
@@ -239,10 +240,24 @@ namespace Order_App
         {
             if (!new EmailAddressAttribute().IsValid(tbxEmailAddress.Text))
             {
-                MessageBox.Show("Please Enter A Valid Email Address", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please Enter a Valid Email Address", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbxEmailAddress.Clear();
             }
                 
+        }
+
+        private void tbxContactNumber_Leave(object sender, EventArgs e)
+        {
+            if(isPhoneNumber(tbxContactNumber.Text) == false)
+            {
+                MessageBox.Show("Please Enter a Valid Phone Number with No Spaces", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbxContactNumber.Clear();
+            }
+        }
+
+        private static bool isPhoneNumber(string telephoneNumber)
+        {
+            return Regex.Match(telephoneNumber, @"^([0-9]{10})$").Success;
         }
     }
 }

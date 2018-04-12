@@ -5,6 +5,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Net.Mail;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Order_App
 {
@@ -319,6 +320,15 @@ namespace Order_App
                         }
                     }
                 }
+            }
+        }
+
+        private void tbxTo_Leave(object sender, EventArgs e)
+        {
+            if (!new EmailAddressAttribute().IsValid(tbxTo.Text))
+            {
+                MessageBox.Show("Please Enter A Valid Email Address", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbxTo.Clear();
             }
         }
     }

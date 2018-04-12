@@ -111,6 +111,7 @@
             this.tbxTo.Name = "tbxTo";
             this.tbxTo.Size = new System.Drawing.Size(536, 22);
             this.tbxTo.TabIndex = 1;
+            this.tbxTo.Leave += new System.EventHandler(this.tbxTo_Leave);
             // 
             // lblTo
             // 
