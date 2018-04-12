@@ -59,18 +59,23 @@ namespace Order_App
         {
             if(done == false)
             {
-                //save pdf to metro-order-app folder
-                string file = @"C:\metro-order-app\Order.pdf";
-                printBackgroundWorker.DoWork += new DoWorkEventHandler(printBackgroundWorker_DoWork);
-                printBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(printBackgroundWorker_RunWorkerCompleted);
-                printBackgroundWorker.RunWorkerAsync(file);
-                progressBar.Visible = true;
-                progressBar.Style = ProgressBarStyle.Marquee;
-                progressBar.MarqueeAnimationSpeed = 50;
-                //set done to true
-                done = true;
-                groupBox1.Visible = true;
-                btnPrint.Text = "Save PDF";
+                DialogResult dialogResult = MessageBox.Show("Are You Sure You Are Done?", "Order Completion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    //save pdf to metro-order-app folder
+                    string file = @"C:\metro-order-app\Order.pdf";
+                    printBackgroundWorker.DoWork += new DoWorkEventHandler(printBackgroundWorker_DoWork);
+                    printBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(printBackgroundWorker_RunWorkerCompleted);
+                    printBackgroundWorker.RunWorkerAsync(file);
+                    progressBar.Visible = true;
+                    progressBar.Style = ProgressBarStyle.Marquee;
+                    progressBar.MarqueeAnimationSpeed = 50;
+                    //set done to true
+                    done = true;
+                    groupBox1.Visible = true;
+                    btnPrint.Text = "Save PDF";
+                }
+                
             } else if (done == true)
             {
                 try
@@ -296,18 +301,21 @@ namespace Order_App
 
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            DataGridViewColumn col = dataGridView1.Columns[e.ColumnIndex] as DataGridViewColumn;
-            DataGridViewTextBoxCell cell = dataGridView1[e.ColumnIndex, e.RowIndex] as DataGridViewTextBoxCell;
-            if (cell != null)
+            DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex] as DataGridViewColumn;
+            if(column.Name == "quantity")
             {
-                char[] chars = e.FormattedValue.ToString().ToCharArray();
-                foreach (char c in chars)
+                DataGridViewTextBoxCell cell = dataGridView1[e.ColumnIndex, e.RowIndex] as DataGridViewTextBoxCell;
+                if (cell != null)
                 {
-                    if (char.IsDigit(c) == false)
+                    char[] chars = e.FormattedValue.ToString().ToCharArray();
+                    foreach (char c in chars)
                     {
-                        MessageBox.Show("Quantity should be a whole number that's more than zero!", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        e.Cancel = true;
-                        break;
+                        if (char.IsDigit(c) == false)
+                        {
+                            MessageBox.Show("Quantity should be a whole number that's more than zero!", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            e.Cancel = true;
+                            break;
+                        }
                     }
                 }
             }
