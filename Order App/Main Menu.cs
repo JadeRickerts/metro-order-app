@@ -118,7 +118,7 @@ namespace Order_App
                 //Check if basic info has been submitted otherwise user can't order
                 if (Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "")
                 {
-                    MessageBox.Show("Please Click On User Settings to Setup App Before Ordering. \nPlease Enter Business Name and Email to create orders.", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please Click On User Settings to Setup App Before Ordering. \nPlease Enter Business Name and Email Address to Create Orders.", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnOrder.Enabled = false;
                 }
                 else

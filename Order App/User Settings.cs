@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.ComponentModel;
 using System.Net;
+using System.ComponentModel.DataAnnotations;
 
 namespace Order_App
 {
@@ -232,6 +233,16 @@ namespace Order_App
             {
                 MessageBox.Show(ex.Message, "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tbxEmailAddress_Leave(object sender, EventArgs e)
+        {
+            if (!new EmailAddressAttribute().IsValid(tbxEmailAddress.Text))
+            {
+                MessageBox.Show("Please Enter A Valid Email Address", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbxEmailAddress.Clear();
+            }
+                
         }
     }
 }

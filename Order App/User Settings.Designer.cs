@@ -76,6 +76,7 @@
             this.tbxEmailAddress.Name = "tbxEmailAddress";
             this.tbxEmailAddress.Size = new System.Drawing.Size(400, 22);
             this.tbxEmailAddress.TabIndex = 2;
+            this.tbxEmailAddress.Leave += new System.EventHandler(this.tbxEmailAddress_Leave);
             // 
             // label3
             // 
