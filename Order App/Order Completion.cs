@@ -28,6 +28,10 @@ namespace Order_App
                 dataGridView1.Columns[1].Width = 500;
                 dataGridView1.Columns[2].Width = 100;
                 dataGridView1.Columns[3].Width = 100;
+                dataGridView1.Columns[0].ReadOnly = true;
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = false;
                 tbxTo.Enabled = false;
                 tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
                 checkBox1.CheckState = CheckState.Unchecked;
