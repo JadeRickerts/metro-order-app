@@ -9,7 +9,9 @@ using MySql.Data.MySqlClient;
 namespace Order_App
 {
     public partial class Form3 : Form
-    {      
+    {
+        WebClient webClient = new WebClient();
+
         //FORM INITIALIZATION WITH NO VARIABLES
         public Form3()
         {
@@ -52,10 +54,10 @@ namespace Order_App
         {
             try
             {
-                WebClient webClient = new WebClient();
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(webClient_DownloadProgressChanged);
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(webClient_DownloadFileCompleted);
                 webClient.DownloadFileAsync(new Uri(Properties.Settings.Default["WebStockFile"].ToString()), Properties.Settings.Default["XMLStockFile"].ToString());
+                btnCancel.Text = "Cancel";
             }
             catch (System.Exception ex)
             {
@@ -65,11 +67,26 @@ namespace Order_App
 
         private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
+            //If download is cancelled.
+            if (e.Cancelled)
+            {
+                MessageBox.Show("The download has been cancelled", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //If an error occurs.
+            if (e.Error != null)
+            {
+                MessageBox.Show("An error ocurred while trying to download file", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //If everything went well and the file downloaded. 
             Properties.Settings.Default["LastStockUpdate"] = DateTime.Now;
             Properties.Settings.Default.Save();
             MessageBox.Show("Download Completed!", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnOpen.Enabled = false;
             btnUpdate.Enabled = false;
+            btnCancel.Text = "Close";
         }
 
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -78,6 +95,15 @@ namespace Order_App
             progressBar.Maximum = (int)e.TotalBytesToReceive / 100;
             progressBar.Value = (int)e.BytesReceived / 100;
             lblDownloadProgress.Text = string.Format("Download Progress [{0} MB / {1} MB]", (double)e.BytesReceived / 1000000, (double)e.TotalBytesToReceive / 1000000);
+        }
+
+        //CANCEL DOWNLOAD LOGIC
+        private void cancelDownload()
+        {
+            webClient.CancelAsync();
+            progressBar.Value = 0;
+            lblDownloadProgress.Text = "Download Progress";
+            btnCancel.Text = "Close";
         }
 
         //WRITE DATAGRIDVIEW TO XML DOCUMENT
@@ -104,14 +130,21 @@ namespace Order_App
         //CLOSE FORM LOGIC
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            try
+            if(btnCancel.Text == "Close")
             {
-                this.Close();
-            }
-            catch (System.Exception ex)
+                try
+                {
+                    this.Close();
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else if (btnCancel.Text == "Cancel")
             {
-                MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cancelDownload();
             }
+            
         }
 
         //CLOSING FORM LOGIC
