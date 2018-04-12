@@ -166,31 +166,6 @@ namespace Order_App
             btnCancel.Text = "Close";
         }
 
-        //CLOSE FORM OR GO BACK TO ORDER LOGIC
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (btnCancel.Text == "Go Back")
-                {
-                    Order order = new Order(oc);
-                    order.Show();
-                    this.Close();
-                }
-                else if (btnCancel.Text == "Close")
-                {
-                    bool startup = false;
-                    this.Close();
-                    MainMenu mainMenu = new MainMenu(startup);
-                    mainMenu.Show();
-                }
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         //SEND EMAIL LOGIC
         private void SendEmail()
         {
@@ -245,11 +220,6 @@ namespace Order_App
             emailBackgroundWorker.DoWork += new DoWorkEventHandler(emailBackgroundWorker_DoWork);
             emailBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(emailBackgroundWorker_RunWorkerCompleted);
             emailBackgroundWorker.RunWorkerAsync();
-            //string file = @"C:\metro-order-app\Order.pdf";
-            //email = true;
-            //printBackgroundWorker.DoWork += new DoWorkEventHandler(printBackgroundWorker_DoWork);
-            //printBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(printBackgroundWorker_RunWorkerCompleted);
-            //printBackgroundWorker.RunWorkerAsync(file);
             progressBar.Visible = true;
             progressBar.Style = ProgressBarStyle.Marquee;
             progressBar.MarqueeAnimationSpeed = 50;
@@ -257,16 +227,12 @@ namespace Order_App
 
         private void emailBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //string file = @"C:\metro-order-app\Order.pdf";
-            //email = true;
-            //PrintPDF(file);
             SendEmail();
         }
 
         private void emailBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             progressBar.Visible = false;
-            //btnCancel.Text = "Close";
             MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -287,6 +253,31 @@ namespace Order_App
                     {
                         tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
                     }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //CLOSE FORM OR GO BACK TO ORDER LOGIC
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnCancel.Text == "Go Back")
+                {
+                    Order order = new Order(oc);
+                    order.Show();
+                    this.Close();
+                }
+                else if (btnCancel.Text == "Close")
+                {
+                    bool startup = false;
+                    this.Close();
+                    MainMenu mainMenu = new MainMenu(startup);
+                    mainMenu.Show();
                 }
             }
             catch (System.Exception ex)
