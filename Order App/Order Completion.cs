@@ -293,5 +293,24 @@ namespace Order_App
                 MessageBox.Show(ex.Message, "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            DataGridViewColumn col = dataGridView1.Columns[e.ColumnIndex] as DataGridViewColumn;
+            DataGridViewTextBoxCell cell = dataGridView1[e.ColumnIndex, e.RowIndex] as DataGridViewTextBoxCell;
+            if (cell != null)
+            {
+                char[] chars = e.FormattedValue.ToString().ToCharArray();
+                foreach (char c in chars)
+                {
+                    if (char.IsDigit(c) == false)
+                    {
+                        MessageBox.Show("Quantity should be a whole number that's more than zero!", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
