@@ -102,7 +102,7 @@
             this.tbxComment.Name = "tbxComment";
             this.tbxComment.Size = new System.Drawing.Size(673, 122);
             this.tbxComment.TabIndex = 4;
-            this.tbxComment.Text = "Add Comment To Order";
+            this.tbxComment.Text = "Add Comment to Order";
             // 
             // tbxTo
             // 
@@ -128,9 +128,9 @@
             this.cbxSendCopy.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSendCopy.Location = new System.Drawing.Point(685, 51);
             this.cbxSendCopy.Name = "cbxSendCopy";
-            this.cbxSendCopy.Size = new System.Drawing.Size(140, 18);
+            this.cbxSendCopy.Size = new System.Drawing.Size(138, 18);
             this.cbxSendCopy.TabIndex = 3;
-            this.cbxSendCopy.Text = "Send Order To Yourself";
+            this.cbxSendCopy.Text = "Send Order to Yourself";
             this.cbxSendCopy.UseVisualStyleBackColor = true;
             // 
             // checkBox1
@@ -139,9 +139,9 @@
             this.checkBox1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(685, 23);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(137, 18);
+            this.checkBox1.Size = new System.Drawing.Size(135, 18);
             this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Send To Different Email";
+            this.checkBox1.Text = "Send to Different Email";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 

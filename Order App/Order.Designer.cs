@@ -94,7 +94,7 @@
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(172, 50);
             this.btnNext.TabIndex = 5;
-            this.btnNext.Text = "Finish Ordering";
+            this.btnNext.Text = "View Order";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Visible = false;
             this.btnNext.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnNext_MouseClick);

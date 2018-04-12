@@ -299,6 +299,7 @@ namespace Order_App
             }
         }
 
+        //QUANTITY COLUMN IN DATAGRIDVIEW VALIDATION
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex] as DataGridViewColumn;
