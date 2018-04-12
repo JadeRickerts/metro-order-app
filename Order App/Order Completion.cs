@@ -32,6 +32,10 @@ namespace Order_App
                 dataGridView1.Columns[1].ReadOnly = true;
                 dataGridView1.Columns[2].ReadOnly = true;
                 dataGridView1.Columns[3].ReadOnly = false;
+                dataGridView1.Columns[0].HeaderText = "Stock Code";
+                dataGridView1.Columns[1].HeaderText = "Description";
+                dataGridView1.Columns[2].HeaderText = "Pack Size";
+                dataGridView1.Columns[3].HeaderText = "Quantity";
                 tbxTo.Enabled = false;
                 tbxTo.Text = Properties.Settings.Default["PreferredStore"].ToString();
                 checkBox1.CheckState = CheckState.Unchecked;
