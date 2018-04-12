@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.IO;
 
 namespace Order_App
@@ -9,6 +8,7 @@ namespace Order_App
     {
         bool startup;
         Form3 form3 = new Form3();
+        
 
         //FORM INITIALIZATION WITH NO PARAMETERS
         public MainMenu()
@@ -224,6 +224,16 @@ namespace Order_App
             }
             Properties.Settings.Default["StartUp"] = false;
             Properties.Settings.Default.Save();
+        }
+
+        private void MainMenu_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"C:\metro-order-app\help.pdf");
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show(string.Format("Application Name: {0}\nApplication Version: {1}", Application.ProductName, Application.ProductVersion), "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0063BCACE5064D70A286D96A7140771C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_234F51462F66442CAF2E86338F9E7BEF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2EDD6B2B8BC94BB5E654C14299668C34"
         "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
@@ -53,12 +65,6 @@
         {
         "MsmKey" = "8:_52CCA4A3FCC6F9D2C43ED8C78D77302D"
         "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_69B76B7DFF684CA9AB0B19D895E9CFD7"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -105,12 +111,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B0A98978B52A4EA3A6690015713431CF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C0767AB5A846EBFB7FEFC0EA2364508A"
         "OwnerKey" = "8:_3C6A45E69A844144BF944776E1BB41DD"
         "MsmSig" = "8:_UNDEFINED"
@@ -119,6 +119,12 @@
         {
         "MsmKey" = "8:_C0767AB5A846EBFB7FEFC0EA2364508A"
         "OwnerKey" = "8:_52CCA4A3FCC6F9D2C43ED8C78D77302D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DEA44CE4B0414FBE932A872C0C9553FC"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -288,6 +294,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0063BCACE5064D70A286D96A7140771C"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Current\\Metro Order App\\stock.xml"
+            "TargetName" = "8:stock.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_234F51462F66442CAF2E86338F9E7BEF"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Current\\Metro Order App\\store.xml"
+            "TargetName" = "8:store.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2EDD6B2B8BC94BB5E654C14299668C34"
             {
             "AssemblyRegister" = "3:1"
@@ -379,26 +425,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69B76B7DFF684CA9AB0B19D895E9CFD7"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\stock.xml"
-            "TargetName" = "8:stock.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7662ACA5E9C38F3ECC10BD9E36BB514B"
@@ -587,26 +613,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0A98978B52A4EA3A6690015713431CF"
-            {
-            "SourcePath" = "8:..\\Order App\\bin\\Debug\\resources\\store.xml"
-            "TargetName" = "8:store.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C0767AB5A846EBFB7FEFC0EA2364508A"
             {
             "AssemblyRegister" = "3:1"
@@ -636,6 +642,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEA44CE4B0414FBE932A872C0C9553FC"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Current\\Metro Order App\\help.pdf"
+            "TargetName" = "8:help.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8324E0A85244304A4C5324E71FD26B2"
