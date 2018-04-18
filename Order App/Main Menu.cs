@@ -178,10 +178,10 @@ namespace Order_App
             Properties.Settings.Default["WebStoreFile"] = "http://www.metro.com.na/downloads/store.xml";
             //mail settings - setup before going live!
             Properties.Settings.Default["SMTPServerName"] = "mail.code-beta.com";
-            Properties.Settings.Default["SMTPUsername"] = "metro-order-app@metro.com.na";
-            Properties.Settings.Default["SMTPPassword"] = "2gUPX3Xj/Rm#";
+            Properties.Settings.Default["SMTPUsername"] = "metro-order-app@code-beta.com";
+            Properties.Settings.Default["SMTPPassword"] = "sefalana216009";
             Properties.Settings.Default["SMTPPort"] = 25;
-            Properties.Settings.Default["SMTPSSL"] = true;
+            Properties.Settings.Default["SMTPSSL"] = false;
             //application settings - setup before going live!
             Properties.Settings.Default["SystemSettingPwd"] = "root";
 
