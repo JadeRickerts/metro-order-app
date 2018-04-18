@@ -16,6 +16,7 @@ namespace Order_App
         BackgroundWorker emailBackgroundWorker = new BackgroundWorker();
         BackgroundWorker printBackgroundWorker = new BackgroundWorker();
         bool done = false;
+        bool mailError = false;
 
         //FORM INITIALIZATION
         public Form2(Order.OrderClass orderClass)
@@ -187,50 +188,43 @@ namespace Order_App
         //SEND EMAIL LOGIC
         private void SendEmail()
         {
-            try
+            //SMTP MAIL SERVER SETTINGS
+            string file = @"C:\metro-order-app\Order.pdf";
+            string username = Properties.Settings.Default["SMTPUsername"].ToString();
+            string password = Properties.Settings.Default["SMTPPassword"].ToString();
+            string smtp = Properties.Settings.Default["SMTPServerName"].ToString();
+            string message;
+            if (tbxComment.Text == "Add Comment To Order")
             {
-                //SMTP MAIL SERVER SETTINGS
-                string file = @"C:\metro-order-app\Order.pdf";
-                string username = Properties.Settings.Default["SMTPUsername"].ToString();
-                string password = Properties.Settings.Default["SMTPPassword"].ToString();
-                string smtp = Properties.Settings.Default["SMTPServerName"].ToString();
-                string message;
-                if (tbxComment.Text == "Add Comment To Order")
-                {
-                    message = "";
-                }
-                else
-                {
-                    message = tbxComment.Text;
-                }
-                //MAIL MESSAGE CONFIG
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(username);
-                mail.To.Add(new MailAddress(tbxTo.Text));
-                if (cbxSendCopy.CheckState == CheckState.Checked)
-                {
-                    mail.Bcc.Add(new MailAddress(Properties.Settings.Default["EmailAddress"].ToString()));
-                }
-                mail.Subject = "Metro Order App";
-                mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), message);
-                mail.Attachments.Add(new Attachment(file));
-                SmtpClient smtpClient = new SmtpClient(smtp);
-                smtpClient.Port = Int32.Parse(Properties.Settings.Default["SMTPPort"].ToString());
-                smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
-                if (Properties.Settings.Default["SMTPSSL"].Equals(true))
-                {
-                    smtpClient.EnableSsl = true;
-                }
-                else
-                {
-                    smtpClient.EnableSsl = false;
-                }
-                smtpClient.Send(mail);
+                message = "";
             }
-            catch (System.Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                message = tbxComment.Text;
             }
+            //MAIL MESSAGE CONFIG
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(username);
+            mail.To.Add(new MailAddress(tbxTo.Text));
+            if (cbxSendCopy.CheckState == CheckState.Checked)
+            {
+                mail.Bcc.Add(new MailAddress(Properties.Settings.Default["EmailAddress"].ToString()));
+            }
+            mail.Subject = "Metro Order App";
+            mail.Body = string.Format("Good day\n\nPlease find attached order from {0}.\n\n{1}", Properties.Settings.Default["CustomerName"].ToString(), message);
+            mail.Attachments.Add(new Attachment(file));
+            SmtpClient smtpClient = new SmtpClient(smtp);
+            smtpClient.Port = Int32.Parse(Properties.Settings.Default["SMTPPort"].ToString());
+            smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+            if (Properties.Settings.Default["SMTPSSL"].Equals(true))
+            {
+                smtpClient.EnableSsl = true;
+            }
+            else
+            {
+                smtpClient.EnableSsl = false;
+            }
+            smtpClient.Send(mail);
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -252,17 +246,24 @@ namespace Order_App
 
         private void emailBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            SendEmail();
+            try
+            {
+                SendEmail();
+            } catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mailError = true;
+            }
         }
 
         private void emailBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Error != null)
+            progressBar.Visible = false;
+            if (mailError == true)
             {
                 MessageBox.Show("Something is Wrong with the Connection. \nPlease Check Your Internet Connection and Try Again or Save PDF and Send Manually.", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            } else if (mailError == false)
             {
-                progressBar.Visible = false;
                 MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
