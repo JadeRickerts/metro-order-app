@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.ComponentModel;
 using System.Net;
 using System.ComponentModel.DataAnnotations;
@@ -84,8 +83,8 @@ namespace Order_App
         //UPDATE STORE FILE LOGIC
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            bool updated = form3.checkUpdate(Properties.Settings.Default["WebStoreFile"].ToString(), "LastStoreUpdate");
-            if(updated == false)
+            string updated = form3.checkUpdate(Properties.Settings.Default["WebStoreFile"].ToString(), "LastStoreUpdate");
+            if(updated == "false")
             {
                 try
                 {
@@ -98,21 +97,28 @@ namespace Order_App
                 {
                     MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } else if (updated == true)
+            } else if (updated == "true")
             {
                 MessageBox.Show("Store File Up-To-Date!", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
         }
 
         private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            Properties.Settings.Default["LastStoreUpdate"] = DateTime.Now;
-            Properties.Settings.Default.Save();
-            MessageBox.Show("Update Completed!", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            btnLoad.Enabled = false;
-            progressBar.Visible = false;
-            lblDownloadProgress.Visible = false;
+            if(e.Error != null)
+            {
+                MessageBox.Show("Something is Wrong with the Connection. \nPlease Check Your Internet Connection and Try Again or Save PDF and Send Manually.", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else if(e.Cancelled){
+                MessageBox.Show("Download Cancelled.", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                Properties.Settings.Default["LastStoreUpdate"] = DateTime.Now;
+                Properties.Settings.Default.Save();
+                MessageBox.Show("Update Completed!", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnLoad.Enabled = false;
+                progressBar.Visible = false;
+                lblDownloadProgress.Visible = false;
+            }
         }
 
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

@@ -235,12 +235,19 @@ namespace Order_App
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            emailBackgroundWorker.DoWork += new DoWorkEventHandler(emailBackgroundWorker_DoWork);
-            emailBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(emailBackgroundWorker_RunWorkerCompleted);
-            emailBackgroundWorker.RunWorkerAsync();
-            progressBar.Visible = true;
-            progressBar.Style = ProgressBarStyle.Marquee;
-            progressBar.MarqueeAnimationSpeed = 50;
+            if(tbxTo.Text == "")
+            {
+                MessageBox.Show("Please Enter Recipient's Email Address Before Sending Order", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                emailBackgroundWorker.DoWork += new DoWorkEventHandler(emailBackgroundWorker_DoWork);
+                emailBackgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(emailBackgroundWorker_RunWorkerCompleted);
+                emailBackgroundWorker.RunWorkerAsync();
+                progressBar.Visible = true;
+                progressBar.Style = ProgressBarStyle.Marquee;
+                progressBar.MarqueeAnimationSpeed = 50;
+            }
         }
 
         private void emailBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -250,8 +257,14 @@ namespace Order_App
 
         private void emailBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            progressBar.Visible = false;
-            MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (e.Error != null)
+            {
+                MessageBox.Show("Something is Wrong with the Connection. \nPlease Check Your Internet Connection and Try Again or Save PDF and Send Manually.", "Order Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                progressBar.Visible = false;
+                MessageBox.Show("Mail Sent!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         //EMAIL TO SELECTION LOGIC

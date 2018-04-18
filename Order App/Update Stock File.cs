@@ -65,6 +65,7 @@ namespace Order_App
             }
         }
 
+        //BACKGROUND WORKER COMPLETED LOGIC
         private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             //If download is cancelled.
@@ -89,6 +90,7 @@ namespace Order_App
             btnCancel.Text = "Close";
         }
 
+        //BACKGROUND WORKER DOWNLOAD PROGRESS LOGIC
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar.Visible = true;
@@ -111,11 +113,11 @@ namespace Order_App
         {
             try
             {
-                bool update = checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), "LastStockUpdate");
-                if(update == true)
+                string update = checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), "LastStockUpdate");
+                if(update == "true")
                 {
                     MessageBox.Show("Stock File Up-To-Date", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } else if (update == false)
+                } else if (update == "false")
                 {
                     MessageBox.Show("Update Available", "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnOpen.Enabled = true;
@@ -163,7 +165,7 @@ namespace Order_App
         }
 
         //CHECK UPDATE METHOD
-        public bool checkUpdate(string url, string type)
+        public string checkUpdate(string url, string type)
         {
             try
             {
@@ -173,16 +175,16 @@ namespace Order_App
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 if (Convert.ToDateTime(Properties.Settings.Default[type]) >= response.LastModified)
                 {
-                    return true;
+                    return "true";
                 } else
                 {
-                    return false;
+                    return "false";
                 }
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Update Stock File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
+                return "error";
             }
         }
     }
