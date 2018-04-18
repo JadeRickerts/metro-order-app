@@ -116,9 +116,9 @@ namespace Order_App
                 }
 
                 //Check if basic info has been submitted otherwise user can't order
-                if (Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "")
+                if (Properties.Settings.Default["EmailAddress"].ToString() == "" || Properties.Settings.Default["CustomerName"].ToString() == "" || Properties.Settings.Default["ContactNumber"].ToString() == "")
                 {
-                    MessageBox.Show("Please Click On User Settings to Setup App Before Ordering. \nPlease Enter Business Name and Email Address to Create Orders.", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please Click On User Settings to Setup App Before Ordering. \nPlease Enter Business Name, Contact Number and Email Address to Create Orders.", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnOrder.Enabled = false;
                 }
                 else
@@ -178,10 +178,10 @@ namespace Order_App
             Properties.Settings.Default["WebStoreFile"] = "http://www.metro.com.na/downloads/store.xml";
             //mail settings - setup before going live!
             Properties.Settings.Default["SMTPServerName"] = "mail.code-beta.com";
-            Properties.Settings.Default["SMTPUsername"] = "metro-order-app@code-beta.com";
-            Properties.Settings.Default["SMTPPassword"] = "sefalana216009";
+            Properties.Settings.Default["SMTPUsername"] = "metro-order-app@metro.com.na";
+            Properties.Settings.Default["SMTPPassword"] = "2gUPX3Xj/Rm#";
             Properties.Settings.Default["SMTPPort"] = 25;
-            Properties.Settings.Default["SMTPSSL"] = false;
+            Properties.Settings.Default["SMTPSSL"] = true;
             //application settings - setup before going live!
             Properties.Settings.Default["SystemSettingPwd"] = "root";
 
