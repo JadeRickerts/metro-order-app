@@ -129,12 +129,12 @@ namespace Order_App
                 //Check if "check for updates" user setting is active. If active, check for updates. If update is available, ask user how to proceed. 
                 if ((bool)Properties.Settings.Default["CheckForUpdates"] == true)
                 {
-                    bool update = form3.checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), type: "LastStockUpdate");
-                    if (update == true)
+                    string update = form3.checkUpdate(Properties.Settings.Default["WebStockFile"].ToString(), type: "LastStockUpdate");
+                    if (update == "true")
                     {
                         MessageBox.Show("Stock File Up-To-Date!", "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else if (update == false)
+                    else if (update == "false")
                     {
                         DialogResult dialogResult = MessageBox.Show("Update Available! \nWould You Like To Update?", "Main Menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dialogResult == DialogResult.Yes)
