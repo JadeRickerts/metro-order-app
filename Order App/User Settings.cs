@@ -254,11 +254,11 @@ namespace Order_App
 
         private void tbxContactNumber_Leave(object sender, EventArgs e)
         {
-            if(isPhoneNumber(tbxContactNumber.Text) == false)
-            {
-                MessageBox.Show("Please Enter a Valid Phone Number with No Spaces", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tbxContactNumber.Clear();
-            }
+            //if(isPhoneNumber(tbxContactNumber.Text) == false)
+            //{
+            //    MessageBox.Show("Please Enter a Valid Phone Number with No Spaces", "User Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    tbxContactNumber.Clear();
+            //}
         }
 
         private static bool isPhoneNumber(string telephoneNumber)
