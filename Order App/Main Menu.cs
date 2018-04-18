@@ -174,8 +174,8 @@ namespace Order_App
             Properties.Settings.Default["LastStoreUpdate"] = value;
             Properties.Settings.Default["XMLStockFile"] = @"C:\metro-order-app\stock.xml";
             Properties.Settings.Default["XMLStoreFile"] = @"C:\metro-order-app\store.xml";
-            Properties.Settings.Default["WebStockFile"] = "http://www.code-beta.com/metro-order-app/stock.xml";
-            Properties.Settings.Default["WebStoreFile"] = "http://www.code-beta.com/metro-order-app/store.xml";
+            Properties.Settings.Default["WebStockFile"] = "http://www.metro.com.na/downloads/stock.xml";
+            Properties.Settings.Default["WebStoreFile"] = "http://www.metro.com.na/downloads/store.xml";
             //mail settings - setup before going live!
             Properties.Settings.Default["SMTPServerName"] = "mail.code-beta.com";
             Properties.Settings.Default["SMTPUsername"] = "metro-order-app@code-beta.com";
@@ -183,7 +183,7 @@ namespace Order_App
             Properties.Settings.Default["SMTPPort"] = 25;
             Properties.Settings.Default["SMTPSSL"] = false;
             //application settings - setup before going live!
-            Properties.Settings.Default["SystemSettingPwd"] = "sefalana216009";
+            Properties.Settings.Default["SystemSettingPwd"] = "root";
 
             Properties.Settings.Default.Save();
         }

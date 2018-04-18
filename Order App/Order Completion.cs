@@ -121,11 +121,15 @@ namespace Order_App
                 iTextSharp.text.Font arialBig = FontFactory.GetFont("Arial", 18);
                 iTextSharp.text.Font arialSmall = FontFactory.GetFont("Arial", 12);
 
-                //TITLE
-                Paragraph title = new Paragraph();
-                title.Alignment = Element.ALIGN_CENTER;
-                title.Add(new Chunk("Metro Order App", arialBig));
-                document.Add(title);
+                //HEADER IMAGE
+                Image jpg = Image.GetInstance(@"C:\metro-order-app\document.jpg");
+                document.Add(jpg);
+
+                ////TITLE
+                //Paragraph title = new Paragraph();
+                //title.Alignment = Element.ALIGN_CENTER;
+                //title.Add(new Chunk("Metro Order App", arialBig));
+                //document.Add(title);
 
                 //LINE
                 Paragraph line = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_CENTER, 0.0F)));

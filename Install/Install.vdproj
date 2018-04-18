@@ -123,13 +123,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D70843EF020C40E0A79A5A3649385E7A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_DEA44CE4B0414FBE932A872C0C9553FC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F8324E0A85244304A4C5324E71FD26B2"
+        "MsmKey" = "8:_EE3D5279B85C4ECDA5328A01A15FE263"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -644,6 +650,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D70843EF020C40E0A79A5A3649385E7A"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Current\\Metro Order App\\logo.ico"
+            "TargetName" = "8:logo.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEA44CE4B0414FBE932A872C0C9553FC"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Current\\Metro Order App\\help.pdf"
@@ -664,12 +690,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8324E0A85244304A4C5324E71FD26B2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE3D5279B85C4ECDA5328A01A15FE263"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\Metro_Logo_s_Final_.ico"
-            "TargetName" = "8:Metro_Logo_s_Final_.ico"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Current\\Metro Order App\\document.jpg"
+            "TargetName" = "8:document.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
+            "Folder" = "8:_B9FA3B70CFD949D4BE103B1A357D7136"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -780,7 +806,7 @@
         "Keywords" = "8:order, metro, "
         "ARPCOMMENTS" = "8:This is an application created for Metro Cash & Carry Namibia customers in order to create a purchase order that is sent Metro. "
         "ARPURLINFOABOUT" = "8:www.code-beta.com"
-        "ARPPRODUCTICON" = "8:_F8324E0A85244304A4C5324E71FD26B2"
+        "ARPPRODUCTICON" = "8:_D70843EF020C40E0A79A5A3649385E7A"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -894,7 +920,7 @@
             "Target" = "8:_3C6A45E69A844144BF944776E1BB41DD"
             "Folder" = "8:_7F3D086B78B24AEAAA3AEAE92157635A"
             "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Icon" = "8:_F8324E0A85244304A4C5324E71FD26B2"
+            "Icon" = "8:_D70843EF020C40E0A79A5A3649385E7A"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DE532CD99B2C4953B3D5620210ED99F1"
@@ -908,7 +934,7 @@
             "Target" = "8:_3C6A45E69A844144BF944776E1BB41DD"
             "Folder" = "8:_8BEE117936E64BD6A96B06048C090691"
             "WorkingFolder" = "8:_1A4467506C19475ABD9CCB7733E8C537"
-            "Icon" = "8:_F8324E0A85244304A4C5324E71FD26B2"
+            "Icon" = "8:_D70843EF020C40E0A79A5A3649385E7A"
             "Feature" = "8:"
             }
         }
