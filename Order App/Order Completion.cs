@@ -206,7 +206,6 @@ namespace Order_App
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(username);
             mail.To.Add(new MailAddress(tbxTo.Text));
-            mail.To.Add(new MailAddress("jrickerts@metro.com.na"));
             if (cbxSendCopy.CheckState == CheckState.Checked)
             {
                 mail.Bcc.Add(new MailAddress(Properties.Settings.Default["EmailAddress"].ToString()));
