@@ -159,7 +159,7 @@ namespace Order_App
         {
             //SET DEFAULT VALUES
             //This is the date when the final stock file is uploaded to the host server.
-            DateTime value = new DateTime(2018, 4, 18);
+            DateTime value = new DateTime(2017, 4, 18);
             
             //user settings
             Properties.Settings.Default["ContactNumber"] = "";
