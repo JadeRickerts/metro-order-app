@@ -40,6 +40,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.btnTemplate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(516, 499);
+            this.btnCancel.Location = new System.Drawing.Point(335, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 6;
@@ -171,6 +172,19 @@
             this.progressBar.TabIndex = 10;
             this.progressBar.Visible = false;
             // 
+            // btnTemplate
+            // 
+            this.btnTemplate.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTemplate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.btnTemplate.Location = new System.Drawing.Point(516, 499);
+            this.btnTemplate.Name = "btnTemplate";
+            this.btnTemplate.Size = new System.Drawing.Size(175, 50);
+            this.btnTemplate.TabIndex = 6;
+            this.btnTemplate.Text = "Save Template";
+            this.btnTemplate.UseVisualStyleBackColor = false;
+            this.btnTemplate.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +193,7 @@
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnTemplate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dataGridView1);
@@ -209,5 +224,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button btnTemplate;
     }
 }

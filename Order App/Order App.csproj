@@ -77,6 +77,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -103,6 +104,12 @@
     </Compile>
     <Compile Include="Order Completion.Designer.cs">
       <DependentUpon>Order Completion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Promotions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Promotions.Designer.cs">
+      <DependentUpon>Promotions.cs</DependentUpon>
     </Compile>
     <Compile Include="Update Stock File.cs">
       <SubType>Form</SubType>
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order Completion.resx">
       <DependentUpon>Order Completion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Promotions.resx">
+      <DependentUpon>Promotions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Stock File.resx">
       <DependentUpon>Update Stock File.cs</DependentUpon>
@@ -196,6 +206,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bgWorker\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

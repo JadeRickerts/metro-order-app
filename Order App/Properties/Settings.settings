@@ -59,5 +59,14 @@
     <Setting Name="SendOrderCopy" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="LastPromoUpdate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WebPromoFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.dropbox.com/s/0b11n6it6ivkfew/promo.zip?dl=0</Value>
+    </Setting>
+    <Setting Name="XMLPromoFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

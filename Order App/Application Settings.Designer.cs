@@ -58,6 +58,12 @@
             this.lblSMTPUsername = new System.Windows.Forms.Label();
             this.lblSMTPPort = new System.Windows.Forms.Label();
             this.lblSMTPServer = new System.Windows.Forms.Label();
+            this.lblPromoLoc = new System.Windows.Forms.Label();
+            this.tbxPromoLoc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbxPromoURL = new System.Windows.Forms.TextBox();
+            this.lblLastPromoUpdate1 = new System.Windows.Forms.Label();
+            this.lblLastPromoUpdate2 = new System.Windows.Forms.Label();
             this.gbxDatabaseInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,7 +74,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(316, 499);
+            this.btnCancel.Location = new System.Drawing.Point(316, 599);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 12;
@@ -81,7 +87,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Location = new System.Drawing.Point(497, 499);
+            this.btnSave.Location = new System.Drawing.Point(497, 599);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 50);
             this.btnSave.TabIndex = 13;
@@ -91,18 +97,22 @@
             // 
             // gbxDatabaseInfo
             // 
+            this.gbxDatabaseInfo.Controls.Add(this.tbxPromoURL);
             this.gbxDatabaseInfo.Controls.Add(this.tbxStoreURL);
             this.gbxDatabaseInfo.Controls.Add(this.tbxStockURL);
+            this.gbxDatabaseInfo.Controls.Add(this.tbxPromoLoc);
+            this.gbxDatabaseInfo.Controls.Add(this.label1);
             this.gbxDatabaseInfo.Controls.Add(this.tbxStoreLoc);
             this.gbxDatabaseInfo.Controls.Add(this.lblStoreURL);
             this.gbxDatabaseInfo.Controls.Add(this.tbxStockLoc);
+            this.gbxDatabaseInfo.Controls.Add(this.lblPromoLoc);
             this.gbxDatabaseInfo.Controls.Add(this.lblStockURL);
             this.gbxDatabaseInfo.Controls.Add(this.lblStoreLoc);
             this.gbxDatabaseInfo.Controls.Add(this.lblStockLoc);
             this.gbxDatabaseInfo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatabaseInfo.Location = new System.Drawing.Point(16, 12);
             this.gbxDatabaseInfo.Name = "gbxDatabaseInfo";
-            this.gbxDatabaseInfo.Size = new System.Drawing.Size(656, 142);
+            this.gbxDatabaseInfo.Size = new System.Drawing.Size(656, 201);
             this.gbxDatabaseInfo.TabIndex = 4;
             this.gbxDatabaseInfo.TabStop = false;
             this.gbxDatabaseInfo.Text = "Application File Information";
@@ -110,7 +120,7 @@
             // tbxStoreURL
             // 
             this.tbxStoreURL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxStoreURL.Location = new System.Drawing.Point(320, 112);
+            this.tbxStoreURL.Location = new System.Drawing.Point(320, 140);
             this.tbxStoreURL.Name = "tbxStoreURL";
             this.tbxStoreURL.Size = new System.Drawing.Size(330, 22);
             this.tbxStoreURL.TabIndex = 4;
@@ -118,7 +128,7 @@
             // tbxStockURL
             // 
             this.tbxStockURL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxStockURL.Location = new System.Drawing.Point(320, 84);
+            this.tbxStockURL.Location = new System.Drawing.Point(320, 112);
             this.tbxStockURL.Name = "tbxStockURL";
             this.tbxStockURL.Size = new System.Drawing.Size(330, 22);
             this.tbxStockURL.TabIndex = 3;
@@ -135,7 +145,7 @@
             // 
             this.lblStoreURL.AutoSize = true;
             this.lblStoreURL.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStoreURL.Location = new System.Drawing.Point(6, 115);
+            this.lblStoreURL.Location = new System.Drawing.Point(6, 143);
             this.lblStoreURL.Name = "lblStoreURL";
             this.lblStoreURL.Size = new System.Drawing.Size(89, 16);
             this.lblStoreURL.TabIndex = 3;
@@ -153,7 +163,7 @@
             // 
             this.lblStockURL.AutoSize = true;
             this.lblStockURL.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockURL.Location = new System.Drawing.Point(6, 87);
+            this.lblStockURL.Location = new System.Drawing.Point(6, 115);
             this.lblStockURL.Name = "lblStockURL";
             this.lblStockURL.Size = new System.Drawing.Size(91, 16);
             this.lblStockURL.TabIndex = 4;
@@ -182,16 +192,18 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbxStartUp);
+            this.groupBox1.Controls.Add(this.lblLastPromoUpdate2);
             this.groupBox1.Controls.Add(this.lblLastStoreUpdate2);
+            this.groupBox1.Controls.Add(this.lblLastPromoUpdate1);
             this.groupBox1.Controls.Add(this.lblLastStoreUpdate1);
             this.groupBox1.Controls.Add(this.lblLastStockUpdate2);
             this.groupBox1.Controls.Add(this.lblLastStockUpdate1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbxAppSettingsPwd);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 335);
+            this.groupBox1.Location = new System.Drawing.Point(16, 394);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(656, 134);
+            this.groupBox1.Size = new System.Drawing.Size(656, 161);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Other Information";
@@ -211,21 +223,21 @@
             // 
             this.lblLastStoreUpdate2.AutoSize = true;
             this.lblLastStoreUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(315, 108);
+            this.lblLastStoreUpdate2.Location = new System.Drawing.Point(314, 104);
             this.lblLastStoreUpdate2.Name = "lblLastStoreUpdate2";
-            this.lblLastStoreUpdate2.Size = new System.Drawing.Size(144, 16);
+            this.lblLastStoreUpdate2.Size = new System.Drawing.Size(143, 16);
             this.lblLastStoreUpdate2.TabIndex = 3;
-            this.lblLastStoreUpdate2.Text = "Last Store FIle Update Date: ";
+            this.lblLastStoreUpdate2.Text = "Last Store File Update Date: ";
             // 
             // lblLastStoreUpdate1
             // 
             this.lblLastStoreUpdate1.AutoSize = true;
             this.lblLastStoreUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(8, 108);
+            this.lblLastStoreUpdate1.Location = new System.Drawing.Point(7, 104);
             this.lblLastStoreUpdate1.Name = "lblLastStoreUpdate1";
-            this.lblLastStoreUpdate1.Size = new System.Drawing.Size(161, 16);
+            this.lblLastStoreUpdate1.Size = new System.Drawing.Size(160, 16);
             this.lblLastStoreUpdate1.TabIndex = 3;
-            this.lblLastStoreUpdate1.Text = "Last Store FIle Update Date: ";
+            this.lblLastStoreUpdate1.Text = "Last Store File Update Date: ";
             // 
             // lblLastStockUpdate2
             // 
@@ -278,7 +290,7 @@
             this.groupBox2.Controls.Add(this.lblSMTPPort);
             this.groupBox2.Controls.Add(this.lblSMTPServer);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 160);
+            this.groupBox2.Location = new System.Drawing.Point(16, 219);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(656, 169);
             this.groupBox2.TabIndex = 4;
@@ -378,12 +390,68 @@
             this.lblSMTPServer.TabIndex = 6;
             this.lblSMTPServer.Text = "SMTP Server Name: ";
             // 
+            // lblPromoLoc
+            // 
+            this.lblPromoLoc.AutoSize = true;
+            this.lblPromoLoc.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromoLoc.Location = new System.Drawing.Point(6, 87);
+            this.lblPromoLoc.Name = "lblPromoLoc";
+            this.lblPromoLoc.Size = new System.Drawing.Size(153, 16);
+            this.lblPromoLoc.TabIndex = 5;
+            this.lblPromoLoc.Text = "Local Promo File Location: ";
+            // 
+            // tbxPromoLoc
+            // 
+            this.tbxPromoLoc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPromoLoc.Location = new System.Drawing.Point(320, 84);
+            this.tbxPromoLoc.Name = "tbxPromoLoc";
+            this.tbxPromoLoc.Size = new System.Drawing.Size(330, 22);
+            this.tbxPromoLoc.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 171);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Promo File URL:";
+            // 
+            // tbxPromoURL
+            // 
+            this.tbxPromoURL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPromoURL.Location = new System.Drawing.Point(320, 168);
+            this.tbxPromoURL.Name = "tbxPromoURL";
+            this.tbxPromoURL.Size = new System.Drawing.Size(330, 22);
+            this.tbxPromoURL.TabIndex = 4;
+            // 
+            // lblLastPromoUpdate1
+            // 
+            this.lblLastPromoUpdate1.AutoSize = true;
+            this.lblLastPromoUpdate1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastPromoUpdate1.Location = new System.Drawing.Point(7, 130);
+            this.lblLastPromoUpdate1.Name = "lblLastPromoUpdate1";
+            this.lblLastPromoUpdate1.Size = new System.Drawing.Size(165, 16);
+            this.lblLastPromoUpdate1.TabIndex = 3;
+            this.lblLastPromoUpdate1.Text = "Last Promo File Update Date: ";
+            // 
+            // lblLastPromoUpdate2
+            // 
+            this.lblLastPromoUpdate2.AutoSize = true;
+            this.lblLastPromoUpdate2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastPromoUpdate2.Location = new System.Drawing.Point(314, 130);
+            this.lblLastPromoUpdate2.Name = "lblLastPromoUpdate2";
+            this.lblLastPromoUpdate2.Size = new System.Drawing.Size(144, 16);
+            this.lblLastPromoUpdate2.TabIndex = 3;
+            this.lblLastPromoUpdate2.Text = "Last Store FIle Update Date: ";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(684, 561);
+            this.ClientSize = new System.Drawing.Size(684, 661);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxDatabaseInfo);
@@ -438,5 +506,11 @@
         private System.Windows.Forms.Label lblLastStoreUpdate1;
         private System.Windows.Forms.Label lblLastStockUpdate2;
         private System.Windows.Forms.Label lblLastStockUpdate1;
+        private System.Windows.Forms.TextBox tbxPromoURL;
+        private System.Windows.Forms.TextBox tbxPromoLoc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPromoLoc;
+        private System.Windows.Forms.Label lblLastPromoUpdate2;
+        private System.Windows.Forms.Label lblLastPromoUpdate1;
     }
 }

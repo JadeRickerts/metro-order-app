@@ -22,7 +22,6 @@ namespace Order_App
         //ORDER CLASS DEFINITION
         public class OrderClass
         {
-
             private List<OrderItem> list = new List<OrderItem>();
 
             internal List<OrderItem> List { get => list; set => list = value; }
@@ -61,10 +60,12 @@ namespace Order_App
             lblDescription02.Text = "Description";
             lblPackSize02.Text = "PackSize";
             lblStockCode02.Text = "StockCode";
+            lblCategory02.Text = "Category";
             progressBar.Visible = false;
             btnLoadStockTable.Visible = true;
             btnAdd.Enabled = false;
             btnSearch.Enabled = false;
+            cbxFilter.Enabled = false;
         }
 
         private void btnLoadStockTable_MouseClick(object sender, MouseEventArgs e)
@@ -72,6 +73,7 @@ namespace Order_App
             LoadStockTable();
             btnAdd.Enabled = true;
             btnSearch.Enabled = true;
+            cbxFilter.Enabled = true;
         }
         
         private void LoadStockTable()
@@ -89,8 +91,9 @@ namespace Order_App
                 dataGridView1.DataSource = bindingSource;
                 dataGridView1.Columns[0].Width = 50;
                 dataGridView1.Columns[1].Width = 100;
-                dataGridView1.Columns[2].Width = 500;
+                dataGridView1.Columns[2].Width = 400;
                 dataGridView1.Columns[3].Width = 100;
+                dataGridView1.Columns[4].Width = 150;
 
                 MessageBox.Show("Stock File Successfully Loaded", "Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //progressBar.Visible = false;
@@ -123,6 +126,7 @@ namespace Order_App
                     lblDescription02.Text = row.Cells[2].Value.ToString();
                     lblPackSize02.Text = row.Cells[3].Value.ToString();
                     lblStockCode02.Text = row.Cells[1].Value.ToString();
+                    lblCategory02.Text = row.Cells[4].Value.ToString();
                 }
             }
             catch (System.Exception ex)
@@ -162,7 +166,8 @@ namespace Order_App
                         description = lblDescription02.Text,
                         packSize = lblPackSize02.Text,
                         quantity = Int32.Parse(tbxQuantity.Text),
-                        stockCode = lblStockCode02.Text
+                        stockCode = lblStockCode02.Text,
+                        category = lblCategory02.Text
                     };
                     orderClass.List.Add(orderItem);
                     MessageBox.Show(string.Format("{0} x {1} Added To Order", tbxQuantity.Text, lblDescription02.Text), "Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,6 +176,7 @@ namespace Order_App
                     lblDescription02.Text = "Description";
                     lblPackSize02.Text = "PackSize";
                     lblStockCode02.Text = "StockCode";
+                    lblCategory02.Text = "Category";
                 }
             }
             catch (System.Exception ex)
@@ -221,11 +227,6 @@ namespace Order_App
             }
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void tbxSearch_MouseClick(object sender, MouseEventArgs e)
         {
             tbxSearch.Text = "";
@@ -233,15 +234,45 @@ namespace Order_App
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            search();
+            if(tbxSearch.Text == "" || tbxSearch.Text == "Search by Description")
+            {
+                filterByCategory();
+            } else
+            {
+                search();
+            }
         }
 
         private void search()
         {
             try
             {
-                bindingSource.Filter = string.Format("Description like '%{0}%'", tbxSearch.Text);
+                if(cbxFilter.Text == "ALL")
+                {
+                    bindingSource.Filter = string.Format("Description like '%{0}%'", tbxSearch.Text);
+                } else
+                {
+                    bindingSource.Filter = string.Format("Description like '%{0}%' AND MainCategory like '%{1}%'", tbxSearch.Text, cbxFilter.Text);
+                }
+                
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void filterByCategory()
+        {
+            try
+            {
+                if(cbxFilter.Text == "ALL")
+                {
+                    bindingSource.Filter = string.Format("MainCategory like '%{0}%'", "");
+                } else
+                {
+                    bindingSource.Filter = string.Format("MainCategory like '%{0}%'", cbxFilter.Text);
+                }
             }
             catch (System.Exception ex)
             {
@@ -257,6 +288,16 @@ namespace Order_App
             }
         }
 
-        
+        private void cbxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filterByCategory(); if (tbxSearch.Text == "" || tbxSearch.Text == "Search by Description")
+            {
+                filterByCategory();
+            }
+            else
+            {
+                search();
+            }
+        }
     }
 }

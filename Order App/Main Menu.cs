@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing;
 
 namespace Order_App
 {
@@ -9,7 +10,6 @@ namespace Order_App
         bool startup;
         Form3 form3 = new Form3();
         
-
         //FORM INITIALIZATION WITH NO PARAMETERS
         public MainMenu()
         {
@@ -54,7 +54,23 @@ namespace Order_App
             }
         }
 
-        //2. OPEN UPDATE STOCK FILE FORM
+        //2. OPEN USER SETTINGS FORM
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form6 form6 = new Form6();
+                form6.Show();
+                startup = false;
+                this.Hide();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //3. OPEN UPDATE STOCK FILE FORM
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -70,13 +86,13 @@ namespace Order_App
             }
         }
 
-        //3. OPEN USER SETTINGS FORM
-        private void btnSettings_Click(object sender, EventArgs e)
+        //4. OPEN PROMOTIONS FORM
+        private void btnPromotions_Click(object sender, EventArgs e)
         {
             try
             {
-                Form6 form6 = new Form6();
-                form6.Show();
+                Promotions promotions = new Promotions();
+                promotions.Show();
                 startup = false;
                 this.Hide();
             }
@@ -159,7 +175,7 @@ namespace Order_App
         {
             //SET DEFAULT VALUES
             //This is the date when the final stock file is uploaded to the host server.
-            DateTime value = new DateTime(2017, 4, 18);
+            DateTime value = new DateTime(2018, 6, 25);
             
             //user settings
             Properties.Settings.Default["ContactNumber"] = "";
@@ -172,10 +188,14 @@ namespace Order_App
             //file settings - setup before going live!
             Properties.Settings.Default["LastStockUpdate"] = value;
             Properties.Settings.Default["LastStoreUpdate"] = value;
+            Properties.Settings.Default["LastPromoUpdate"] = value;
             Properties.Settings.Default["XMLStockFile"] = @"C:\metro-order-app\stock.xml";
             Properties.Settings.Default["XMLStoreFile"] = @"C:\metro-order-app\store.xml";
+            Properties.Settings.Default["XMLPromoFile"] = @"C:\metro-order-app\promo\promo.xml";
             Properties.Settings.Default["WebStockFile"] = "http://www.metro.com.na/downloads/stock.xml";
             Properties.Settings.Default["WebStoreFile"] = "http://www.metro.com.na/downloads/store.xml";
+            Properties.Settings.Default["WebPromoFile"] = "http://www.code-beta.com/downloads/promo.zip";
+
             //mail settings - setup before going live!
             Properties.Settings.Default["SMTPServerName"] = "mail.code-beta.com";
             Properties.Settings.Default["SMTPUsername"] = "metro-order-app@code-beta.com";
@@ -226,14 +246,68 @@ namespace Order_App
             Properties.Settings.Default.Save();
         }
 
+        //Open documentation when help button is clicked
         private void MainMenu_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
         {
             System.Diagnostics.Process.Start(@"C:\metro-order-app\help.pdf");
         }
 
+        //Show version of application if picture is double clicked
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
             MessageBox.Show(string.Format("Application Name: {0}\nApplication Version: {1}", Application.ProductName, Application.ProductVersion), "Main Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //MAIN MENU CHANGE COLOR EFFECT
+        private void btnOrder_MouseHover(object sender, EventArgs e)
+        {
+            btnOrder.BackColor = Color.Black;
+            btnOrder.ForeColor = Color.DarkOrange;
+        }
+        private void btnOrder_MouseLeave(object sender, EventArgs e)
+        {
+            btnOrder.BackColor = Color.DarkOrange;
+            btnOrder.ForeColor = Color.Black;
+        }
+        private void btnSettings_MouseHover(object sender, EventArgs e)
+        {
+            btnSettings.BackColor = Color.Black;
+            btnSettings.ForeColor = Color.DarkOrange;
+        }
+        private void btnSettings_MouseLeave(object sender, EventArgs e)
+        {
+            btnSettings.BackColor = Color.DarkOrange;
+            btnSettings.ForeColor = Color.Black;
+        }
+        private void btnUpdate_MouseHover(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.Black;
+            btnUpdate.ForeColor = Color.DarkOrange;
+        }
+        private void btnUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.DarkOrange;
+            btnUpdate.ForeColor = Color.Black;
+        }
+        private void btnPromotions_MouseHover(object sender, EventArgs e)
+        {
+            btnPromotions.BackColor = Color.Black;
+            btnPromotions.ForeColor = Color.DarkOrange;
+        }
+        private void btnPromotions_MouseLeave(object sender, EventArgs e)
+        {
+            btnPromotions.BackColor = Color.DarkOrange;
+            btnPromotions.ForeColor = Color.Black;
+        }
+        private void btnExit_MouseHover(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.Red;
+            btnExit.ForeColor = Color.Black;
+        }
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.Black;
+            btnExit.ForeColor = Color.DarkOrange;
         }
     }
 }

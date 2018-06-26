@@ -30,6 +30,8 @@ namespace Order_App
                 tbxStoreLoc.Text = Properties.Settings.Default["XMLStoreFile"].ToString();
                 tbxStockURL.Text = Properties.Settings.Default["WebStockFile"].ToString();
                 tbxStoreURL.Text = Properties.Settings.Default["WebStoreFile"].ToString();
+                tbxPromoLoc.Text = Properties.Settings.Default["XMLPromoFile"].ToString();
+                tbxPromoURL.Text = Properties.Settings.Default["WebPromoFile"].ToString();
                 //SMTP Server Information
                 tbxSMTPServer.Text = Properties.Settings.Default["SMTPServerName"].ToString();
                 tbxSMTPPort.Text = Properties.Settings.Default["SMTPPort"].ToString();
@@ -38,6 +40,7 @@ namespace Order_App
                 //Other Information
                 lblLastStoreUpdate2.Text = Properties.Settings.Default["LastStoreUpdate"].ToString();
                 lblLastStockUpdate2.Text = Properties.Settings.Default["LastStockUpdate"].ToString();
+                lblLastPromoUpdate2.Text = Properties.Settings.Default["LastPromoUpdate"].ToString();
                 tbxAppSettingsPwd.Text = Properties.Settings.Default["SystemSettingPwd"].ToString();
 
                 //Populate tickboxes. True = ticked, false = unticked.
@@ -78,6 +81,8 @@ namespace Order_App
                 Properties.Settings.Default["XMLStoreFile"] = tbxStoreLoc.Text;
                 Properties.Settings.Default["WebStockFile"] = tbxStockURL.Text;
                 Properties.Settings.Default["WebStoreFile"] = tbxStoreURL.Text;
+                Properties.Settings.Default["XMLPromoFile"] = tbxPromoLoc.Text;
+                Properties.Settings.Default["WebPromoFile"] = tbxPromoURL.Text;
                 //SMTP Server Information
                 Properties.Settings.Default["SMTPServerName"] = tbxSMTPServer.Text;
                 Properties.Settings.Default["SMTPPort"] = Int32.Parse(tbxSMTPPort.Text);

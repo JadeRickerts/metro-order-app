@@ -146,7 +146,6 @@ namespace Order_App
             {
                 cancelDownload();
             }
-            
         }
 
         //CLOSING FORM LOGIC

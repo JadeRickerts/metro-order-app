@@ -243,5 +243,40 @@ namespace Order_App.Properties {
                 this["SendOrderCopy"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastPromoUpdate {
+            get {
+                return ((global::System.DateTime)(this["LastPromoUpdate"]));
+            }
+            set {
+                this["LastPromoUpdate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.dropbox.com/s/0b11n6it6ivkfew/promo.zip?dl=0")]
+        public string WebPromoFile {
+            get {
+                return ((string)(this["WebPromoFile"]));
+            }
+            set {
+                this["WebPromoFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string XMLPromoFile {
+            get {
+                return ((string)(this["XMLPromoFile"]));
+            }
+            set {
+                this["XMLPromoFile"] = value;
+            }
+        }
     }
 }

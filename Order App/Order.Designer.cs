@@ -50,6 +50,10 @@
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lblCategory02 = new System.Windows.Forms.Label();
+            this.lblCategory01 = new System.Windows.Forms.Label();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.cbxFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -64,7 +68,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 374);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 376);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -77,7 +81,7 @@
             this.btnAdd.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(215, 92);
+            this.btnAdd.Location = new System.Drawing.Point(215, 119);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(280, 26);
             this.btnAdd.TabIndex = 2;
@@ -90,7 +94,7 @@
             this.btnNext.BackColor = System.Drawing.Color.Green;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnNext.Location = new System.Drawing.Point(700, 599);
+            this.btnNext.Location = new System.Drawing.Point(700, 649);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(172, 50);
             this.btnNext.TabIndex = 5;
@@ -104,7 +108,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(519, 599);
+            this.btnCancel.Location = new System.Drawing.Point(519, 649);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 50);
             this.btnCancel.TabIndex = 4;
@@ -115,7 +119,7 @@
             // tbxQuantity
             // 
             this.tbxQuantity.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbxQuantity.Location = new System.Drawing.Point(169, 91);
+            this.tbxQuantity.Location = new System.Drawing.Point(169, 118);
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.Size = new System.Drawing.Size(40, 26);
             this.tbxQuantity.TabIndex = 1;
@@ -124,9 +128,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblQuantity);
+            this.groupBox1.Controls.Add(this.lblCategory01);
             this.groupBox1.Controls.Add(this.lblPackSize01);
             this.groupBox1.Controls.Add(this.lblDescription01);
             this.groupBox1.Controls.Add(this.btnLoadStockTable);
+            this.groupBox1.Controls.Add(this.lblCategory02);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.lblPackSize02);
             this.groupBox1.Controls.Add(this.tbxQuantity);
@@ -134,9 +140,9 @@
             this.groupBox1.Controls.Add(this.lblStockCode02);
             this.groupBox1.Controls.Add(this.lblStockCode01);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 456);
+            this.groupBox1.Location = new System.Drawing.Point(12, 486);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(860, 137);
+            this.groupBox1.Size = new System.Drawing.Size(860, 152);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Order Information";
@@ -145,7 +151,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(7, 92);
+            this.lblQuantity.Location = new System.Drawing.Point(7, 119);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(79, 23);
             this.lblQuantity.TabIndex = 0;
@@ -176,7 +182,7 @@
             this.btnLoadStockTable.BackColor = System.Drawing.Color.Green;
             this.btnLoadStockTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadStockTable.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnLoadStockTable.Location = new System.Drawing.Point(574, 92);
+            this.btnLoadStockTable.Location = new System.Drawing.Point(574, 119);
             this.btnLoadStockTable.Name = "btnLoadStockTable";
             this.btnLoadStockTable.Size = new System.Drawing.Size(280, 26);
             this.btnLoadStockTable.TabIndex = 5;
@@ -227,13 +233,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbxFilter);
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Controls.Add(this.tbxSearch);
+            this.groupBox2.Controls.Add(this.lblFilter);
             this.groupBox2.Controls.Add(this.lblSearch);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 393);
+            this.groupBox2.Location = new System.Drawing.Point(12, 394);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(860, 57);
+            this.groupBox2.Size = new System.Drawing.Size(860, 86);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Stock";
@@ -243,7 +251,7 @@
             this.btnSearch.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(574, 17);
+            this.btnSearch.Location = new System.Drawing.Point(574, 16);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(280, 26);
             this.btnSearch.TabIndex = 2;
@@ -266,7 +274,7 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(7, 20);
+            this.lblSearch.Location = new System.Drawing.Point(7, 16);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(68, 23);
             this.lblSearch.TabIndex = 0;
@@ -274,17 +282,72 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(12, 599);
+            this.progressBar.Location = new System.Drawing.Point(12, 649);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(175, 50);
             this.progressBar.TabIndex = 6;
+            // 
+            // lblCategory02
+            // 
+            this.lblCategory02.AutoSize = true;
+            this.lblCategory02.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory02.Location = new System.Drawing.Point(165, 92);
+            this.lblCategory02.Name = "lblCategory02";
+            this.lblCategory02.Size = new System.Drawing.Size(165, 20);
+            this.lblCategory02.TabIndex = 0;
+            this.lblCategory02.Text = "Main Category Goes Here";
+            // 
+            // lblCategory01
+            // 
+            this.lblCategory01.AutoSize = true;
+            this.lblCategory01.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory01.Location = new System.Drawing.Point(7, 89);
+            this.lblCategory01.Name = "lblCategory01";
+            this.lblCategory01.Size = new System.Drawing.Size(124, 23);
+            this.lblCategory01.TabIndex = 0;
+            this.lblCategory01.Text = "Main Category:";
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilter.Location = new System.Drawing.Point(7, 48);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(126, 23);
+            this.lblFilter.TabIndex = 0;
+            this.lblFilter.Text = "Category Filter:";
+            // 
+            // cbxFilter
+            // 
+            this.cbxFilter.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxFilter.FormattingEnabled = true;
+            this.cbxFilter.Items.AddRange(new object[] {
+            "ALL",
+            "CATERING",
+            "CELLULAR",
+            "CIGARETTES/TOBACCO/SNUFF",
+            "EDIBLE GROCERIES",
+            "GENERAL HARDWARE",
+            "LIQUOR",
+            "NON EDIBLE GROCERIES",
+            "NON TRADING ITEMS",
+            "OIL",
+            "PERISHABLES",
+            "STAPLE FOODS",
+            "SUGAR",
+            "UNBOUND"});
+            this.cbxFilter.Location = new System.Drawing.Point(169, 48);
+            this.cbxFilter.Name = "cbxFilter";
+            this.cbxFilter.Size = new System.Drawing.Size(399, 28);
+            this.cbxFilter.TabIndex = 3;
+            this.cbxFilter.SelectedIndexChanged += new System.EventHandler(this.cbxFilter_SelectedIndexChanged);
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(884, 711);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -332,5 +395,9 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnLoadStockTable;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblCategory01;
+        private System.Windows.Forms.Label lblCategory02;
+        private System.Windows.Forms.ComboBox cbxFilter;
+        private System.Windows.Forms.Label lblFilter;
     }
 }

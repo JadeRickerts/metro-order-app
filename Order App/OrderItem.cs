@@ -12,5 +12,6 @@ namespace Order_App
         public string description { get; set; }
         public string packSize { get; set; }
         public int quantity { get; set; }
+        public string category { get; set; }
     }
 }
